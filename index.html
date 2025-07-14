@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Misión Carismática al Mundo</title>
+    <title>Misión Carismática al Mundo Buga</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #1a5e1f;
-            --secondary: #f9a825;
-            --accent: #8e24aa;
+            --primary: #1877F2; /* Facebook Blue */
+            --secondary: #f9a825; /* Yellow accent */
+            --accent: #4267B2; /* Darker Facebook Blue */
             --light: #f5f5f5;
             --dark: #2c3e50;
             --gray: #6c757d;
@@ -80,7 +80,7 @@
         
         /* Header */
         .header {
-            background-color: rgba(26, 94, 31, 0.95);
+            background-color: rgba(24, 119, 242, 0.95); /* Using primary Facebook blue */
             color: white;
             padding: 15px 0;
             position: sticky;
@@ -92,7 +92,7 @@
         
         .header.scrolled {
             padding: 10px 0;
-            background-color: rgba(26, 94, 31, 0.98);
+            background-color: rgba(24, 119, 242, 0.98); /* Slightly more opaque when scrolled */
         }
         
         .header-content {
@@ -110,7 +110,6 @@
         }
         
         .logo-img {
-          
             height: 60px;
             transition: all 0.3s ease;
         }
@@ -181,7 +180,7 @@
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, rgba(26, 94, 31, 0.85) 0%, rgba(142, 36, 170, 0.85) 100%), 
+            background: linear-gradient(135deg, rgba(24, 119, 242, 0.85) 0%, rgba(66, 103, 178, 0.85) 100%), /* Using Facebook blue shades */
                         url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
             height: 100vh;
             min-height: 700px;
@@ -276,6 +275,11 @@
         .btn-outline:hover {
             background: rgba(255,255,255,0.1);
         }
+
+        .btn-small {
+            padding: 10px 25px;
+            font-size: 0.9rem;
+        }
         
         /* About Section */
         .section {
@@ -361,7 +365,130 @@
             transform: scale(1.1);
         }
         
-        /* Services Section */
+        /* General content sections for messages and music */
+        .content-section {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .content-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .content-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .content-card h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            font-family: var(--font-title);
+            margin-bottom: 10px;
+        }
+
+        .content-card .media-player {
+            width: 100%;
+            height: 300px; /* Adjust as needed for video/audio players */
+            background-color: #e9ecef;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray);
+            font-size: 1.2rem;
+            overflow: hidden; /* For embedded content */
+        }
+        .content-card .media-player iframe,
+        .content-card .media-player audio {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .content-card p {
+            font-size: 1.1rem;
+            color: var(--dark);
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .tab-button {
+            background: none;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--gray);
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .tab-button.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .ministry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .ministry-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .ministry-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+        }
+
+        .ministry-card i {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .ministry-card h3 {
+            font-size: 1.6rem;
+            color: var(--primary);
+            font-family: var(--font-title);
+            margin-bottom: 15px;
+        }
+
+        .ministry-card p {
+            font-size: 1rem;
+            color: var(--dark);
+        }
+
+        /* Services Section (now Ministerios) */
         .services {
             background-color: #f0f4f7;
         }
@@ -427,7 +554,7 @@
             justify-content: center;
             font-size: 1.8rem;
             color: white;
-            box-shadow: 0 10px 20px rgba(142, 36, 170, 0.3);
+            box-shadow: 0 10px 20px rgba(66, 103, 178, 0.3); /* Using accent Facebook blue */
         }
         
         /* Events Section */
@@ -453,7 +580,7 @@
         }
         
         .event-date {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
+            background: linear-gradient(135deg, var(--primary), var(--accent)); /* Using Facebook blue shades */
             color: white;
             padding: 20px;
             text-align: center;
@@ -544,7 +671,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(26, 94, 31, 0.8);
+            background: rgba(24, 119, 242, 0.8); /* Using primary Facebook blue */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -583,7 +710,7 @@
         .contact-icon {
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
+            background: linear-gradient(135deg, var(--primary), var(--accent)); /* Using Facebook blue shades */
             color: white;
             border-radius: 50%;
             display: flex;
@@ -615,7 +742,7 @@
             left: 0;
             width: 5px;
             height: 100%;
-            background: linear-gradient(to bottom, var(--primary), var(--accent));
+            background: linear-gradient(to bottom, var(--primary), var(--accent)); /* Using Facebook blue shades */
         }
         
         .form-group {
@@ -636,654 +763,717 @@
         .form-control:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(26, 94, 31, 0.1);
+            box-shadow: 0 0 0 3px rgba(24, 119, 242, 0.2); /* Using primary Facebook blue */
         }
         
         textarea.form-control {
             resize: vertical;
-            min-height: 150px;
+            min-height: 120px;
+        }
+        
+        .form-control::placeholder {
+            color: #aaa;
         }
         
         /* Footer */
         .footer {
-            background: linear-gradient(135deg, var(--dark) 0%, #1a2a3a 100%);
+            background-color: var(--dark);
             color: white;
-            padding: 80px 0 30px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23f9a825' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
-            opacity: 0.1;
+            padding: 60px 0 30px;
+            text-align: center;
+            font-size: 0.9rem;
         }
         
         .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 50px;
-            margin-bottom: 60px;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .footer-logo {
-            margin-bottom: 25px;
-        }
-        
-        .footer-logo .logo {
             display: flex;
-            align-items: center;
-            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            text-align: left;
+            margin-bottom: 40px;
         }
         
-        .footer-logo .logo-img {
-            height: 50px;
+        .footer-col {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
         }
         
-        .footer-logo .logo-title {
-            font-size: 1.8rem;
-            color: white;
-        }
-        
-        .footer-logo .logo-subtitle {
-            color: rgba(255,255,255,0.7);
-        }
-        
-        .footer-text {
-            color: rgba(255,255,255,0.8);
-            margin-bottom: 25px;
-            line-height: 1.8;
-        }
-        
-        .footer-title {
-            font-size: 1.5rem;
-            margin-bottom: 25px;
-            position: relative;
-            padding-bottom: 15px;
+        .footer-col h3 {
+            font-size: 1.3rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
             font-family: var(--font-title);
-            color: white;
         }
         
-        .footer-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background: var(--secondary);
-            border-radius: 3px;
+        .footer-col p, .footer-col ul {
+            color: rgba(255,255,255,0.8);
         }
         
-        .footer-links {
+        .footer-col ul {
             list-style: none;
         }
         
-        .footer-link {
-            margin-bottom: 15px;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: rgba(255,255,255,0.8);
+        .footer-col ul li {
+            margin-bottom: 10px;
         }
         
-        .footer-link i {
+        .footer-col ul li a {
+            transition: color 0.3s;
+        }
+        
+        .footer-col ul li a:hover {
             color: var(--secondary);
-            transition: transform 0.3s;
         }
         
-        .footer-link:hover {
-            color: white;
-            transform: translateX(5px);
-        }
-        
-        .footer-link:hover i {
-            transform: translateX(3px);
-        }
-        
-        .footer-social {
+        .social-links {
             display: flex;
             gap: 15px;
-            margin-top: 25px;
+            margin-top: 20px;
         }
         
         .social-link {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
+            display: inline-flex;
+            width: 40px;
+            height: 40px;
             background-color: rgba(255,255,255,0.1);
-            display: flex;
+            border-radius: 50%;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s ease;
             font-size: 1.2rem;
+            transition: background-color 0.3s, transform 0.3s;
         }
         
         .social-link:hover {
             background-color: var(--secondary);
-            transform: translateY(-5px);
+            transform: translateY(-3px);
         }
         
         .footer-bottom {
-            text-align: center;
-            padding-top: 30px;
             border-top: 1px solid rgba(255,255,255,0.1);
-            font-size: 1rem;
+            padding-top: 20px;
+            margin-top: 20px;
             color: rgba(255,255,255,0.7);
-            position: relative;
-            z-index: 2;
-        }
-        
-        /* Logo styling */
-        .logo-img {
-            height: 60px;
-            width: auto;
-        }
-        
-        /* Logo in header */
-        .header .logo-img {
-            height: 60px;
-        }
-        
-        /* Logo in footer */
-        .footer .logo-img {
-            height: 50px;
         }
         
         /* Responsive Design */
         @media (max-width: 992px) {
-            .hero-title {
-                font-size: 3.2rem;
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                background-color: rgba(24, 119, 242, 0.98); /* Using primary Facebook blue */
+                position: absolute;
+                top: 80px; /* Adjust based on header height */
+                left: 0;
+                width: 100%;
+                padding: 20px 0;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.2);
             }
-            
+        
+            .nav-menu.active {
+                display: flex;
+            }
+        
+            .nav-item {
+                text-align: center;
+                margin: 10px 0;
+            }
+        
+            .mobile-toggle {
+                display: block;
+            }
+        
+            .hero-title {
+                font-size: 3rem;
+            }
+        
             .hero-subtitle {
                 font-size: 1.5rem;
             }
-            
+        
             .about-content {
                 flex-direction: column;
+                text-align: center;
             }
-            
+        
             .about-image {
-                order: -1;
-                max-width: 600px;
-                margin: 0 auto;
+                margin-top: 40px;
+            }
+        
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+            }
+        
+            .footer-col {
+                text-align: center;
+                margin-bottom: 40px;
+            }
+        
+            .social-links {
+                justify-content: center;
+            }
+
+            .content-card .media-player {
+                height: 250px;
             }
         }
         
         @media (max-width: 768px) {
-            .mobile-toggle {
-                display: block;
-            }
-            
-            .nav-menu {
-                position: fixed;
-                top: 90px;
-                left: -100%;
-                width: 100%;
-                background-color: var(--dark);
-                flex-direction: column;
-                align-items: center;
-                padding: 30px 0;
-                gap: 25px;
-                transition: left 0.4s ease;
-            }
-            
-            .nav-menu.active {
-                left: 0;
-            }
-            
             .hero-title {
                 font-size: 2.5rem;
             }
-            
-            .hero-subtitle {
-                font-size: 1.3rem;
-            }
-            
-            .section {
-                padding: 80px 0;
-            }
-            
-            .section-title {
-                font-size: 2.3rem;
-            }
-            
-            .btn {
-                display: block;
-                width: 100%;
-                max-width: 300px;
-                margin: 10px auto;
-            }
-            
-            .btn-outline {
-                margin-left: 0;
-                margin-top: 20px;
-            }
-        }
         
-        @media (max-width: 576px) {
-            .hero-title {
-                font-size: 2rem;
+            .hero-subtitle {
+                font-size: 1.2rem;
             }
-            
+        
             .section-title {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
-            
+        
+            .section-subtitle {
+                font-size: 1rem;
+            }
+        
+            .service-card, .event-card, .gallery-item {
+                min-width: unset;
+            }
+        
             .contact-content {
                 grid-template-columns: 1fr;
             }
-            
-            .logo-text {
-                display: none;
+
+            .content-card .media-player {
+                height: 200px;
+            }
+
+            .tabs {
+                flex-wrap: wrap;
+            }
+
+            .tab-button {
+                flex: 1 1 auto;
+                margin: 5px;
+                padding: 10px 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+        
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+        
+            .btn {
+                padding: 12px 30px;
+                font-size: 0.9rem;
+            }
+        
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 15px;
+            }
+
+            .content-card .media-player {
+                height: 180px;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Facebook SDK para incrustar contenido de Facebook -->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v19.0" nonce="YOUR_NONCE_VALUE"></script>
+
     <!-- Header -->
-    <header class="header" id="header">
+    <header class="header">
         <div class="container header-content">
-            <div class="logo">
-                <img src="Logo MCm.png" alt="Misión Carismática al Mundo Logo" class="logo-img">
+            <a href="#" class="logo">
+                <img src="Logo MCm.png" alt="Logo MCM" class="logo-img" onerror="this.onerror=null;this.src='https://placehold.co/60x60/1877F2/ffffff?text=LOGO';">
                 <div class="logo-text">
-                    <div class="logo-title">MCM</div>
-                    <div class="logo-subtitle">MISIÓN CARISMÁTICA AL MUNDO</div>
+                    <span class="logo-title">MCM Buga</span>
+                    <span class="logo-subtitle">Misión Carismática al Mundo</span>
                 </div>
-            </div>
-            
-            <nav class="nav">
-                <ul class="nav-menu" id="navMenu">
-                    <li class="nav-item"><a href="#" class="nav-link">Inicio</a></li>
-                    <li class="nav-item"><a href="#nosotros" class="nav-link">Nosotros</a></li>
-                    <li class="nav-item"><a href="#servicios" class="nav-link">Ministerios</a></li>
-                    <li class="nav-item"><a href="#eventos" class="nav-link">Eventos</a></li>
-                    <li class="nav-item"><a href="#galeria" class="nav-link">Galería</a></li>
-                    <li class="nav-item"><a href="#contacto" class="nav-link">Contacto</a></li>
+            </a>
+            <nav>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="#hero" class="nav-link">Inicio</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link">Nosotros</a></li>
+                    <li class="nav-item"><a href="#messages" class="nav-link">Mensajes</a></li> <!-- Nuevo enlace -->
+                    <li class="nav-item"><a href="#music" class="nav-link">Música</a></li> <!-- Nuevo enlace -->
+                    <li class="nav-item"><a href="#ministries" class="nav-link">Ministerios</a></li> <!-- Enlace actualizado -->
+                    <li class="nav-item"><a href="#events" class="nav-link">Eventos</a></li>
+                    <li class="nav-item"><a href="#gallery" class="nav-link">Galería</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">Contacto</a></li>
                 </ul>
             </nav>
-            
-            <div class="mobile-toggle" id="mobileToggle">
+            <div class="mobile-toggle">
                 <i class="fas fa-bars"></i>
             </div>
         </div>
     </header>
-    
+
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="container hero-content">
-            <h1 class="hero-title animate-fade">MISIÓN CARISMÁTICA AL MUNDO</h1>
-            <p class="hero-subtitle animate-fade animate-delay-1">Una comunidad de fe transformando vidas a través del Evangelio</p>
-            <div class="animate-fade animate-delay-2">
-                <a href="#eventos" class="btn animate-pulse">Próximos Eventos</a>
-                <a href="#contacto" class="btn btn-outline">Visítanos</a>
+    <section class="hero" id="hero">
+        <div class="container hero-content animate-fade">
+            <h1 class="hero-title animate-delay-1">Bienvenidos a Misión Carismática al Mundo Buga</h1>
+            <p class="hero-subtitle animate-delay-2">Un lugar donde la fe se encuentra con la comunidad y el amor de Dios transforma vidas.</p>
+            <div class="hero-buttons animate-delay-3">
+                <a href="#about" class="btn animate-pulse">Conoce Más</a>
+                <a href="#events" class="btn btn-outline">Próximos Eventos</a>
             </div>
         </div>
     </section>
-    
+
     <!-- About Section -->
-    <section class="section" id="nosotros">
+    <section class="section about" id="about">
         <div class="container">
-            <h2 class="section-title">Nuestra Iglesia</h2>
-            <p class="section-subtitle">Conoce nuestra historia, misión y visión como comunidad de fe</p>
-            
+            <h2 class="section-title animate-fade">Sobre Nosotros</h2>
+            <p class="section-subtitle animate-fade">Somos una comunidad de fe comprometida con la enseñanza de la palabra de Dios y el servicio a nuestra ciudad.</p>
             <div class="about-content">
-                <div class="about-text">
-                    <div class="animate-fade">
-                        <h3>Nuestra Historia</h3>
-                        <p>Misión Carismática al Mundo fue fundada en 1990 con un pequeño grupo de creyentes comprometidos con la expansión del Evangelio. Hoy somos una comunidad vibrante que impacta positivamente nuestra región y más allá.</p>
-                    </div>
-                    
-                    <div class="animate-fade animate-delay-1">
-                        <h3>Nuestra Misión</h3>
-                        <p>Guiar a las personas hacia una relación transformadora con Jesucristo, formando discípulos comprometidos que vivan y compartan el Evangelio con poder, sirviendo a nuestra comunidad con amor y compasión.</p>
-                    </div>
-                    
-                    <div class="animate-fade animate-delay-2">
-                        <h3>Nuestra Visión</h3>
-                        <p>Ser una iglesia relevante y llena del Espíritu Santo que impacte a nuestra ciudad y el mundo, estableciendo comunidades de fe que reflejen el Reino de Dios en cada aspecto de la vida.</p>
-                    </div>
+                <div class="about-text animate-fade animate-delay-1">
+                    <h3>Nuestra Misión</h3>
+                    <p>En Misión Carismática al Mundo Buga, nuestra misión es llevar el mensaje de esperanza y salvación a cada hogar, transformando vidas a través del amor de Jesucristo. Creemos en el poder de la fe para cambiar realidades y construir un futuro mejor.</p>
+                    <p>Nos dedicamos a la formación espiritual, el discipulado y la creación de un ambiente donde cada persona pueda crecer en su relación con Dios y con los demás. ¡Te invitamos a ser parte de nuestra familia!</p>
+                    <a href="#ministries" class="btn btn-small">Ver Ministerios</a>
                 </div>
-                
-                <div class="about-image animate-fade animate-delay-3">
-                    <img src="https://images.unsplash.com/photo-1520106212299-d99c443e4568?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=900&q=80" alt="Comunidad MCM">
+                <div class="about-image animate-fade animate-delay-2">
+                    <img src="Pastora.jpg" alt="Nuestra Pastora" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1877F2/ffffff?text=Nuestra+Pastora';">
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- Services Section -->
-    <section class="section services" id="servicios">
+
+    <!-- Sección de Mensajes y Predicaciones -->
+    <section class="section messages" id="messages">
         <div class="container">
-            <h2 class="section-title">Nuestros Ministerios</h2>
-            <p class="section-subtitle">Descubre cómo puedes servir y crecer en nuestra comunidad</p>
+            <h2 class="section-title animate-fade">Mensajes y Predicaciones</h2>
+            <p class="section-subtitle animate-fade">Encuentra inspiración diaria y profundiza en la palabra de Dios.</p>
             
-            <div class="services-grid">
-                <div class="service-card animate-fade">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=900&q=80" alt="Cultos Dominicales">
-                    </div>
-                    <div class="service-icon">
-                        <i class="fas fa-hands-praying"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3 class="service-title">Adoración</h3>
-                        <p>Cultos dominicales llenos de la presencia de Dios. Únete a nosotros cada domingo despues de las 9 Am para celebrar juntos la bondad del Señor.</p>
-                    </div>
+            <div class="tabs">
+                <button class="tab-button active" data-tab="daily-message">Mensaje del Día</button>
+                <button class="tab-button" data-tab="live-worship">Culto en Vivo</button>
+                <button class="tab-button" data-tab="preaching-archive">Archivo de Predicaciones</button>
+            </div>
+
+            <div id="daily-message" class="tab-content active">
+                <div class="content-card animate-fade animate-delay-1">
+                    <h3>Mensaje del Día: "La Fe que Mueve Montañas"</h3>
+                    <p>Hoy te invitamos a reflexionar sobre el poder de la fe inquebrantable. A menudo, nos enfrentamos a desafíos que parecen insuperables, como montañas que bloquean nuestro camino. Sin embargo, la Biblia nos enseña que con fe, podemos mover esas montañas.</p>
+                    <p>Mateo 17:20 dice: "Si tuvierais fe como un grano de mostaza, diríais a este monte: Pásate de aquí allá, y se pasaría; y nada os sería imposible." Esta no es una promesa de que la vida será fácil, sino una afirmación del poder ilimitado que se desata cuando confiamos plenamente en Dios.</p>
+                    <p>Te animamos a cultivar una fe audaz, a orar sin cesar y a creer que Dios es capaz de hacer mucho más de lo que pedimos o imaginamos. ¡Que tu día esté lleno de la certeza de que para Dios no hay imposibles!</p>
+                    <a href="#" class="btn btn-small">Leer Mensaje Completo</a>
                 </div>
-                
-                <div class="service-card animate-fade animate-delay-1">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=900&q=80" alt="Grupos de Hogar">
+                <!-- Ejemplo de mensaje de audio -->
+                <div class="content-card animate-fade animate-delay-2">
+                    <h3>Mensaje en Audio: "reflexiones del ayuno del 12 de julio"</h3>
+                    <div class="media-player">
+                        <audio controls>
+                            <source src="Redención-y-Renovación-en-Cristo.mp3" type="audio/mpeg">
+                            
+                        </audio>
                     </div>
-                    <div class="service-icon">
-                        <i class="fas fa-home"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3 class="service-title">Grupos Familiares</h3>
-                        <p>Pequeños grupos que se reúnen semanalmente en hogares para estudiar la Biblia, orar y crecer juntos en la fe.</p>
-                    </div>
-                </div>
-                
-                <div class="service-card animate-fade animate-delay-2">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=900&q=80" alt="Escuela Dominical">
-                    </div>
-                    <div class="service-icon">
-                        <i class="fas fa-child"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3 class="service-title">Generación de Fe</h3>
-                        <p>Ministerio para niños y jóvenes donde enseñamos los principios de Dios de manera creativa y adecuada para cada edad.</p>
-                    </div>
+                    <p>Escucha un mensaje de esperanza y consuelo para encontrar paz en medio de las dificultades de la vida. Aprende a confiar en la soberanía de Dios "redencion y renovacion en Cristo".</p>
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <!-- Events Section -->
-    <section class="section" id="eventos">
-        <div class="container">
-            <h2 class="section-title">Próximos Eventos</h2>
-            <p class="section-subtitle">Participa en nuestras actividades especiales y conferencias</p>
-            
-            <div class="events-grid">
-                <div class="event-card animate-fade">
-                    <div class="event-date">
-                        <div class="event-day">22</div>
-                        <div class="event-month">JULIO</div>
-                    </div>
-                    <div class="event-content">
-                        <h3 class="event-title">Noche de Avivamiento</h3>
-                        <div class="event-location">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Sede Principal MCM</span>
+
+            <div id="live-worship" class="tab-content">
+                <div class="content-card animate-fade animate-delay-1">
+                    <h3>Culto en Vivo (Transmisión de Facebook)</h3>
+                    <p>Únete a nuestra transmisión en vivo directamente desde nuestra página de Facebook. ¡Te esperamos para un tiempo de adoración y palabra!</p>
+                    <div class="media-player">
+                        <!-- Placeholder para el reproductor de video de Facebook Live -->
+                        <!-- Reemplaza 'YOUR_FACEBOOK_PAGE_URL' y 'YOUR_VIDEO_ID' con los valores reales -->
+                        <div class="fb-video" data-href="https://www.facebook.com/facebook/videos/10153231379946729/" data-width="500" data-show-text="false">
+                            <blockquote cite="https://www.facebook.com/facebook/videos/10153231379946729/" class="fb-xfbml-parse-ignore">
+                                <a href="https://www.facebook.com/facebook/videos/10153231379946729/">Facebook Video</a>
+                                <p>Loading Facebook Video...</p>
+                            </blockquote>
                         </div>
-                        <p>Una noche poderosa de adoración y palabra profética con el pastor invitado Daniel Martínez. Renueva tu fe con nosotros.</p>
                     </div>
+                    <p>Si la transmisión no carga, visita directamente nuestra <a href="https://www.facebook.com/Iglesiamisioncarismaticaalmundobuga" target="_blank" style="color: var(--primary); font-weight: 600;">página de Facebook</a>.</p>
                 </div>
-                
+            </div>
+
+            <div id="preaching-archive" class="tab-content">
+                <div class="content-card animate-fade animate-delay-1">
+                    <h3>Archivo de Predicaciones: Serie "Fundamentos de la Fe"</h3>
+                    <p>Explora nuestra serie de predicaciones sobre los fundamentos esenciales de la fe cristiana. Perfecta para crecer en tu conocimiento bíblico.</p>
+                    <ul>
+                        <li><a href="#" style="color: var(--primary);">Predicación 1: La Gracia de Dios</a></li>
+                        <li><a href="#" style="color: var(--primary);">Predicación 2: El Poder del Perdón</a></li>
+                        <li><a href="#" style="color: var(--primary);">Predicación 3: Viviendo en Propósito</a></li>
+                    </ul>
+                    <a href="#" class="btn btn-small">Ver Más Predicaciones</a>
+                </div>
+                <!-- Puedes añadir más tarjetas de predicaciones aquí -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Música -->
+    <section class="section music" id="music">
+        <div class="container">
+            <h2 class="section-title animate-fade">Música de Adoración</h2>
+            <p class="section-subtitle animate-fade">Sumérgete en un tiempo de alabanza y adoración con nuestra selección musical.</p>
+            
+            <div class="tabs">
+                <button class="tab-button active" data-tab="contemporary-worship">Adoración Contemporánea</button>
+                <button class="tab-button" data-tab="classic-hymns">Himnos Clásicos</button>
+                <button class="tab-button" data-tab="children-music">Música Infantil</button>
+            </div>
+
+            <div id="contemporary-worship" class="tab-content active">
+                <div class="content-card animate-fade animate-delay-1">
+                    <h3>Lista de Reproducción: "Momentos de Adoración"</h3>
+                    <div class="media-player">
+                        <audio controls>
+                            <source src="Alex Osorio Salmista - Aroma a Rey.mp3" type="audio/mpeg">
+                            Tu navegador no soporta el elemento de audio.
+                        </audio>
+                    </div>
+                    <p>Una selección de canciones modernas para elevar tu espíritu y conectar con Dios.</p>
+                    <ul>
+                        <li>Canción 1: "Aroma a Rey - Alex Osorio Salmista </li>
+                        <li>Canción 2: "Tu Amor me Sostiene" - Artista Y</li>
+                        <li>Canción 3: "Renueva mi Ser" - Artista Z</li>
+                        <li>**El Gran Yo Soy - Alex Osorio Salmista**</li> <!-- Canción añadida -->
+                    </ul>
+                </div>
+                <!-- Más tarjetas de música contemporánea -->
+            </div>
+
+            <div id="classic-hymns" class="tab-content">
+                <div class="content-card animate-fade animate-delay-1">
+                    <h3>Lista de Reproducción: "Joyas de la Fe"</h3>
+                    <div class="media-player">
+                        <audio controls>
+                            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" type="audio/mpeg">
+                            Tu navegador no soporta el elemento de audio.
+                        </audio>
+                    </div>
+                    <p>Himnos atemporales que han fortalecido la fe de generaciones.</p>
+                    <ul>
+                        <li>Himno 1: "Sublime Gracia"</li>
+                        <li>Himno 2: "Cuan Grande Es Él"</li>
+                        <li>Himno 3: "Roca Eterna"</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="children-music" class="tab-content">
+                <div class="content-card animate-fade animate-delay-1">
+                    <h3>Música para Niños: "Alabanza Divertida"</h3>
+                    <div class="media-player">
+                        <audio controls>
+                            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3" type="audio/mpeg">
+                            Tu navegador no soporta el elemento de audio.
+                        </audio>
+                    </div>
+                    <p>Canciones alegres y educativas para que los más pequeños aprendan de Dios.</p>
+                    <ul>
+                        <li>Canción Infantil 1: "Jesús me Ama"</li>
+                        <li>Canción Infantil 2: "El Arca de Noé"</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- Sección de Ministerios (antes Servicios) -->
+    <section class="section services" id="ministries">
+        <div class="container">
+            <h2 class="section-title animate-fade">Nuestros Ministerios</h2>
+            <p class="section-subtitle animate-fade">Conéctate y crece en la fe a través de nuestros diversos ministerios para todas las edades.</p>
+            <div class="ministry-grid">
+                <!-- Ministerio General (Adultos) -->
+                <div class="ministry-card animate-fade animate-delay-1">
+                    <i class="fas fa-church"></i>
+                    <h3>Ministerio General (Adultos)</h3>
+                    <p>Espacios de crecimiento espiritual y compañerismo para adultos, incluyendo cultos, estudios bíblicos y eventos especiales. Horarios de Culto: Viernes 7:30 PM - 9:30 PM, Domingos 9 AM - 12 PM.</p>
+                    <a href="#about" class="btn btn-small" style="margin-top: 20px;">Saber Más</a>
+                </div>
+                <!-- Ministerio de Niños -->
+                <div class="ministry-card animate-fade animate-delay-2">
+                    <i class="fas fa-child"></i>
+                    <h3>Ministerio de Niños</h3>
+                    <p>Un ambiente seguro y divertido donde los niños aprenden sobre Jesús a través de juegos, historias y actividades creativas. Horario de Células de Niños: Miércoles 7:30 PM - 9 PM.</p>
+                    <a href="#" class="btn btn-small" style="margin-top: 20px;">Ver Actividades</a>
+                </div>
+                <!-- Ministerio de Jóvenes -->
+                <div class="ministry-card animate-fade animate-delay-3">
+                    <i class="fas fa-users-line"></i>
+                    <h3>Ministerio de Jóvenes</h3>
+                    <p>Un espacio dinámico para adolescentes y jóvenes, con reuniones, eventos sociales, discipulado y oportunidades para servir. Horario de Células de Jóvenes: Miércoles 7:30 PM - 9 PM.</p>
+                    <a href="#" class="btn btn-small" style="margin-top: 20px;">Explorar</a>
+                </div>
+                <!-- Puedes mantener o modificar las tarjetas existentes si representan otros ministerios -->
+                <div class="ministry-card animate-fade animate-delay-1">
+                    <i class="fas fa-book-open"></i>
+                    <h3>Estudios Bíblicos</h3>
+                    <p>Profundiza en las escrituras a través de nuestros estudios bíblicos semanales, diseñados para todas las edades.</p>
+                    <a href="#messages" class="btn btn-small" style="margin-top: 20px;">Ver Estudios</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="section events" id="events">
+        <div class="container">
+            <h2 class="section-title animate-fade">Próximos Eventos</h2>
+            <p class="section-subtitle animate-fade">Mantente al tanto de nuestras actividades y eventos especiales.</p>
+            <div class="events-grid">
                 <div class="event-card animate-fade animate-delay-1">
                     <div class="event-date">
-                        <div class="event-day">28</div>
-                        <div class="event-month">JULIO</div>
+                        <span class="event-day">15</span>
+                        <span class="event-month">Jul</span>
                     </div>
                     <div class="event-content">
-                        <h3 class="event-title">Retiro Juvenil "Impacto"</h3>
+                        <h3 class="event-title">Conferencia de Jóvenes</h3>
+                        <p>Un encuentro especial para jóvenes con alabanza, palabra y actividades dinámicas.</p>
                         <div class="event-location">
                             <i class="fas fa-map-marker-alt"></i>
-                            <span>Campamento Monte de Sión</span>
+                            <span>Centro de Convenciones, Buga</span>
                         </div>
-                        <p>Un fin de semana lleno de aventura, amistad y crecimiento espiritual para jóvenes de 15 a 25 años.</p>
+                        <a href="#" class="btn btn-small">Más Info</a>
                     </div>
                 </div>
-                
                 <div class="event-card animate-fade animate-delay-2">
                     <div class="event-date">
-                        <div class="event-day">05</div>
-                        <div class="event-month">AGOSTO</div>
+                        <span class="event-day">22</span>
+                        <span class="event-month">Ago</span>
                     </div>
                     <div class="event-content">
-                        <h3 class="event-title">Taller Matrimonial</h3>
+                        <h3 class="event-title">Cena de Gala Anual</h3>
+                        <p>Una noche de celebración y agradecimiento por las bendiciones recibidas durante el año.</p>
                         <div class="event-location">
                             <i class="fas fa-map-marker-alt"></i>
-                            <span>Sede Principal MCM</span>
+                            <span>Salón Esmeralda, Hotel Campestre</span>
                         </div>
-                        <p>Un espacio para fortalecer tu matrimonio con principios bíblicos prácticos. Cuatro sesiones los sábados de agosto.</p>
+                        <a href="#" class="btn btn-small">Más Info</a>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Gallery Section -->
-    <section class="section gallery" id="galeria">
-        <div class="container">
-            <h2 class="section-title">Galería de Momentos</h2>
-            <p class="section-subtitle">Compartiendo la vida de nuestra comunidad de fe</p>
-            
-            <div class="gallery-grid">
-                <div class="gallery-item animate-fade">
-                    <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=900&q=80" alt="Adoración">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-search-plus fa-2x"></i>
+                <div class="event-card animate-fade animate-delay-3">
+                    <div class="event-date">
+                        <span class="event-day">05</span>
+                        <span class="event-month">Sep</span>
                     </div>
-                </div>
-                
-                <div class="gallery-item animate-fade animate-delay-1">
-                    <img src="https://images.unsplash.com/photo-1437652633673-cc02b9c67a1b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=900&q=80" alt="Bautismos">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-search-plus fa-2x"></i>
-                    </div>
-                </div>
-                
-                <div class="gallery-item animate-fade animate-delay-2">
-                    <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=900&q=80" alt="Servicio Comunitario">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-search-plus fa-2x"></i>
-                    </div>
-                </div>
-                
-                <div class="gallery-item animate-fade">
-                    <img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=900&q=80" alt="Conferencias">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-search-plus fa-2x"></i>
-                    </div>
-                </div>
-                
-                <div class="gallery-item animate-fade animate-delay-1">
-                    <img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=900&q=80" alt="Eventos Juveniles">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-search-plus fa-2x"></i>
-                    </div>
-                </div>
-                
-                <div class="gallery-item animate-fade animate-delay-2">
-                    <img src="https://images.unsplash.com/photo-1459749411175-04bf5292ceea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=900&q=80" alt="Fellowship">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-search-plus fa-2x"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Contact Section -->
-    <section class="section" id="contacto">
-        <div class="container">
-            <h2 class="section-title">Contáctanos</h2>
-            <p class="section-subtitle">Estamos aquí para servirte y responder tus preguntas</p>
-            
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item animate-fade">
-                        <div class="contact-icon">
+                    <div class="event-content">
+                        <h3 class="event-title">Día de Servicio Comunitario</h3>
+                        <p>Únete a nosotros para servir a nuestra comunidad a través de diversas iniciativas.</p>
+                        <div class="event-location">
                             <i class="fas fa-map-marker-alt"></i>
+                            <span>Parque Principal, Buga</span>
                         </div>
+                        <a href="#" class="btn btn-small">Más Info</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Horarios de cultos y células integrados aquí -->
+            <div class="content-card animate-fade" style="margin-top: 60px; text-align: center;">
+                <h3>Horarios de Nuestros Servicios</h3>
+                <p><strong>Culto Dominical:</strong> Domingos 9:00 AM - 12:00 PM</p>
+                <p><strong>Culto de Viernes:</strong> Viernes 7:30 PM - 9:30 PM</p>
+                <p><strong>Células (Niños y Jóvenes):</strong> Miércoles 7:30 PM - 9:00 PM</p>
+                <p>¡Te esperamos en cada uno de nuestros encuentros!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section gallery" id="gallery">
+        <div class="container">
+            <h2 class="section-title animate-fade">Nuestra Galería</h2>
+            <p class="section-subtitle animate-fade">Momentos especiales capturados de nuestra comunidad.</p>
+            <div class="gallery-grid">
+                <div class="gallery-item animate-fade animate-delay-1">
+                    <img src="Ministerio de Niños.jpg" alt="Ministerio de Niños" onerror="this.onerror=null;this.src='https://placehold.co/600x600/f9a825/ffffff?text=Ministerio+Niños';">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item animate-fade animate-delay-2">
+                    <img src="Sirviendo.jpg" alt="Servicio Comunitario" onerror="this.onerror=null;this.src='https://placehold.co/600x600/4267B2/ffffff?text=Servicio';">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item animate-fade animate-delay-3">
+                    <img src="Ministerio Nuiños 2.jpg" alt="Ministerio de Niños 2" onerror="this.onerror=null;this.src='https://placehold.co/600x600/1877F2/ffffff?text=Ministerio+Niños+2';">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item animate-fade animate-delay-1">
+                    <img src="SERVIcio niños.jpg" alt="Servicio Niños" onerror="this.onerror=null;this.src='https://placehold.co/600x600/f5f5f5/2c3e50?text=Servicio+Niños';">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item animate-fade animate-delay-2">
+                    <img src="https://placehold.co/600x600/6c757d/ffffff?text=Eventos" alt="Eventos">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item animate-fade animate-delay-3">
+                    <img src="https://placehold.co/600x600/2c3e50/ffffff?text=Familia" alt="Familia">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+            </div>
+            <!-- Ejemplo de integración de un feed de Facebook con fotos -->
+            <div class="content-card animate-fade" style="margin-top: 60px;">
+                <h3>Nuestras Fotos en Facebook</h3>
+                <p>Explora más momentos especiales directamente desde nuestra página de Facebook.</p>
+                <div class="fb-page" data-href="https://www.facebook.com/Iglesiamisioncarismaticaalmundobuga" data-tabs="timeline" data-width="500" data-height="400" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                    <blockquote cite="https://www.facebook.com/Iglesiamisioncarismaticaalmundobuga" class="fb-xfbml-parse-ignore">
+                        <a href="https://www.facebook.com/Iglesiamisioncarismaticaalmundobuga">Misión Carismática al Mundo Buga</a>
+                    </blockquote>
+                </div>
+                <p>Este es un ejemplo de cómo se vería el feed de nuestra página de Facebook. Puedes ajustar el tamaño y las pestañas que se muestran.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <h2 class="section-title animate-fade">Contáctanos</h2>
+            <p class="section-subtitle animate-fade">Estamos aquí para servirte. Ponte en contacto con nosotros.</p>
+            <div class="contact-content">
+                <div class="contact-info animate-fade animate-delay-1">
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
                         <div class="contact-details">
                             <h3>Dirección</h3>
-                            <p>Calle Principal # 123, Barrio Centro<br>Buga, Valle del Cauca</p>
+                            <p>Carrera 8 # 13-35, Buga,Valle del Cauca, Colombia, Zipp 763041</p>
                         </div>
                     </div>
-                    
-                    <div class="contact-item animate-fade animate-delay-1">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone-alt"></i>
-                        </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
                         <div class="contact-details">
                             <h3>Teléfono</h3>
-                            <p>(602) 227-8910<br>Celular: 315 678 9012</p>
+                            <p>+57 315 3599017</p>
                         </div>
                     </div>
-                    
-                    <div class="contact-item animate-fade animate-delay-2">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
                         <div class="contact-details">
                             <h3>Email</h3>
-                            <p>info@misioncarismatica.org<br>pastoral@misioncarismatica.org</p>
+                            <p>mcmbuga@gmail.com</p>
                         </div>
                     </div>
-                    
-                    <div class="contact-item animate-fade animate-delay-3">
-                        <div class="contact-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-clock"></i></div>
                         <div class="contact-details">
-                            <h3>Horarios</h3>
-                            <p>Lunes-Viernes: 8am - 12pm / 2pm - 6pm<br>Sábados: 9am - 1pm<br>Domingos: Cultos 8am, 10am, 6pm</p>
+                            <h3>Horario de Oficina</h3>
+                            <p>Lun - Vie: 8:00 AM - 5:00 PM</p>
                         </div>
                     </div>
                 </div>
-                
-                <div class="contact-form animate-fade">
+                <div class="contact-form animate-fade animate-delay-2">
                     <form>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Nombre completo" required>
+                            <label for="name">Nombre</label>
+                            <input type="text" id="name" class="form-control" placeholder="Tu Nombre" required>
                         </div>
-                        
                         <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Correo electrónico" required>
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control" placeholder="Tu Email" required>
                         </div>
-                        
                         <div class="form-group">
-                            <input type="tel" class="form-control" placeholder="Teléfono">
+                            <label for="subject">Asunto</label>
+                            <input type="text" id="subject" class="form-control" placeholder="Asunto del Mensaje" required>
                         </div>
-                        
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Asunto" required>
+                            <label for="message">Mensaje</label>
+                            <textarea id="message" class="form-control" placeholder="Escribe tu mensaje aquí..." required></textarea>
                         </div>
-                        
-                        <div class="form-group">
-                            <textarea class="form-control" placeholder="Tu mensaje" required></textarea>
-                        </div>
-                        
                         <button type="submit" class="btn">Enviar Mensaje</button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
-    
+
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-col">
-                    <div class="footer-logo">
-                        <div class="logo">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iIzFiNTEyMCIgcng9IjEwIi8+PHRleHQgeD0iNTAiIHk9IjU1IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMjQiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSIjZmZmIj5NaXNp824gQ2FyaXNtw6F0aWNhIGFsIE11bmRvPC90ZXh0Pjwvc3ZnPg==" alt="Misión Carismática al Mundo Logo" class="logo-img">
-                            <div class="logo-text">
-                                <div class="logo-title">MCM</div>
-                                <div class="logo-subtitle">MISIÓN CARISMÁTICA AL MUNDO</div>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="footer-text">Una comunidad de fe comprometida con la transformación espiritual y social a través del Evangelio de Jesucristo.</p>
-                    
-                    <div class="footer-social">
-                        <a href="https://www.facebook.com/Iglesiamisioncarismaticaalmundobuga" class="social-link" target="_blank">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="footer-col">
-                    <h3 class="footer-title">Enlaces Rápidos</h3>
-                    <ul class="footer-links">
-                        <li class="footer-link"><a href="#"><i class="fas fa-chevron-right"></i> Inicio</a></li>
-                        <li class="footer-link"><a href="#nosotros"><i class="fas fa-chevron-right"></i> Nosotros</a></li>
-                        <li class="footer-link"><a href="#servicios"><i class="fas fa-chevron-right"></i> Ministerios</a></li>
-                        <li class="footer-link"><a href="#eventos"><i class="fas fa-chevron-right"></i> Eventos</a></li>
-                        <li class="footer-link"><a href="#galeria"><i class="fas fa-chevron-right"></i> Galería</a></li>
-                        <li class="footer-link"><a href="#contacto"><i class="fas fa-chevron-right"></i> Contacto</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-col">
-                    <h3 class="footer-title">Nuestros Ministerios</h3>
-                    <ul class="footer-links">
-                        <li class="footer-link"><a href="#"><i class="fas fa-chevron-right"></i> Ministerio Juvenil</a></li>
-                        <li class="footer-link"><a href="#"><i class="fas fa-chevron-right"></i> Ministerio Infantil</a></li>
-                        <li class="footer-link"><a href="#"><i class="fas fa-chevron-right"></i> Ministerio de Mujeres</a></li>
-                        <li class="footer-link"><a href="#"><i class="fas fa-chevron-right"></i> Ministerio de Varones</a></li>
-                        <li class="footer-link"><a href="#"><i class="fas fa-chevron-right"></i> Grupo de Alabanza</a></li>
-                        <li class="footer-link"><a href="#"><i class="fas fa-chevron-right"></i> Misiones Locales</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-col">
-                    <h3 class="footer-title">Recursos Espirituales</h3>
-                    <p class="footer-text">Suscríbete para recibir devocionales, noticias de eventos y enseñanzas directamente en tu correo.</p>
-                    <form>
-                        <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Tu correo electrónico" required>
-                        </div>
-                        <button type="submit" class="btn">Suscribirse</button>
-                    </form>
+        <div class="container footer-content">
+            <div class="footer-col">
+                <h3>Misión Carismática al Mundo Buga</h3>
+                <p>Una iglesia comprometida con la palabra de Dios y el servicio a la comunidad.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/Iglesiamisioncarismaticaalmundobuga" target="_blank" class="social-link animate-float">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-link animate-float">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-link animate-float">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-link animate-float">
+                        <i class="fab fa-youtube"></i>
+                    </a>
                 </div>
             </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2023 Misión Carismática al Mundo. Todos los derechos reservados.</p>
+            <div class="footer-col">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="#hero">Inicio</a></li>
+                    <li><a href="#about">Nosotros</a></li>
+                    <li><a href="#messages">Mensajes</a></li>
+                    <li><a href="#music">Música</a></li>
+                    <li><a href="#ministries">Ministerios</a></li>
+                    <li><a href="#events">Eventos</a></li>
+                    <li><a href="#gallery">Galería</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contacto</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Carrera 8 # 13-35, Buga</p>
+                <p><i class="fas fa-phone"></i> +57 315 3599017</p>
+                <p><i class="fas fa-envelope"></i> mcmbuga@gmail.com</p>
+            </div>
+            <div class="footer-col">
+                <h3>Redes Sociales</h3>
+                <p>Síguenos en nuestras redes para estar al tanto de las últimas noticias y eventos.</p>
+                <a href="https://www.facebook.com/Iglesiamisioncarismaticaalmundobuga"  target="_blank" style="display: flex; align-items: center; gap: 10px; color: white; margin-top: 15px;">
+                    <img src="Logo MCm.png" alt="Logo Facebook MCM Buga" style="height: 40px; width: 40px; border-radius: 5px;" onerror="this.onerror=null;this.src='https://placehold.co/40x40/1877F2/ffffff?text=FB';">
+                    <span>Misión Carismática al Mundo - Buga</span>
+                </a>
             </div>
         </div>
+        <div class="footer-bottom">
+            &copy; 2023 Misión Carismática al Mundo Buga. Todos los derechos reservados.
+        </div>
     </footer>
-    
+
     <script>
-        // Mobile Menu Toggle
-        const mobileToggle = document.getElementById('mobileToggle');
-        const navMenu = document.getElementById('navMenu');
-        
+        // Mobile menu toggle
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
         mobileToggle.addEventListener('click', () => {
             navMenu.classList.toggle('active');
-            mobileToggle.innerHTML = navMenu.classList.contains('active') ? 
-                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+            if (navMenu.classList.contains('active')) {
+                mobileToggle.innerHTML = '<i class="fas fa-times"></i>';
+            } else {
+                mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            }
         });
-        
+
         // Header scroll effect
+        const header = document.querySelector('.header');
         window.addEventListener('scroll', () => {
-            const header = document.getElementById('header');
-            if (window.scrollY > 100) {
+            if (window.scrollY > 50) {
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
@@ -1326,6 +1516,28 @@
         document.querySelectorAll('.animate-fade').forEach(el => {
             observer.observe(el);
         });
+
+        // Lógica para las pestañas (tabs) en Mensajes y Música
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabContainers = document.querySelectorAll('.tabs');
+
+            tabContainers.forEach(container => {
+                const buttons = container.querySelectorAll('.tab-button');
+                buttons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        // Desactivar todos los botones y contenidos en este contenedor de pestañas
+                        buttons.forEach(btn => btn.classList.remove('active'));
+                        const allContents = container.nextElementSibling.querySelectorAll('.tab-content'); // Asume que el contenido está inmediatamente después
+                        allContents.forEach(content => content.classList.remove('active'));
+
+                        // Activar el botón y contenido seleccionados
+                        button.classList.add('active');
+                        document.getElementById(button.dataset.tab).classList.add('active');
+                    });
+                });
+            });
+        });
     </script>
 </body>
 </html>
+
