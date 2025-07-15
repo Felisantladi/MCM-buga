@@ -8,12 +8,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #1877F2; /* Facebook Blue */
-            --secondary: #f9a825; /* Yellow accent */
-            --accent: #4267B2; /* Darker Facebook Blue */
-            --light: #f5f5f5;
-            --dark: #2c3e50;
-            --gray: #6c757d;
+            --primary: #13689D; /* Azul principal del logo */
+            --secondary: #8BC34A; /* Verde lima del logo, para acentos */
+            --accent: #0B4F7A; /* Tono más oscuro del azul principal */
+            --light: #f5f5f5; /* Color claro general */
+            --dark: #333333; /* Gris oscuro para texto general */
+            --gray: #6c757d; /* Gris para texto secundario/subtítulos */
             --font-main: 'Poppins', sans-serif;
             --font-title: 'Montserrat', sans-serif;
         }
@@ -80,8 +80,8 @@
         
         /* Header */
         .header {
-            background-color: rgba(24, 119, 242, 0.95); /* Using primary Facebook blue */
-            color: white;
+            background-color: var(--primary); /* Azul principal del logo */
+            color: white; /* Texto blanco para contraste */
             padding: 15px 0;
             position: sticky;
             top: 0;
@@ -92,7 +92,7 @@
         
         .header.scrolled {
             padding: 10px 0;
-            background-color: rgba(24, 119, 242, 0.98); /* Slightly more opaque when scrolled */
+            background-color: var(--accent); /* Tono más oscuro del azul al desplazarse */
         }
         
         .header-content {
@@ -128,12 +128,14 @@
             font-weight: 700;
             letter-spacing: 1px;
             font-family: var(--font-title);
+            color: white; /* Título del logo en blanco */
         }
         
         .logo-subtitle {
             font-size: 0.9rem;
             opacity: 0.9;
             font-weight: 300;
+            color: rgba(255, 255, 255, 0.8); /* Subtítulo del logo en blanco semitransparente */
         }
         
         .nav-menu {
@@ -154,6 +156,7 @@
             font-size: 0.9rem;
             position: relative;
             padding: 5px 0;
+            color: white; /* Enlaces de navegación en blanco */
         }
         
         .nav-link::after {
@@ -163,7 +166,7 @@
             left: 0;
             width: 0;
             height: 3px;
-            background-color: var(--secondary);
+            background-color: var(--secondary); /* Línea de acento en verde lima */
             transition: width 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
         
@@ -175,12 +178,12 @@
             display: none;
             font-size: 1.5rem;
             cursor: pointer;
-            color: white;
+            color: white; /* Icono de menú móvil en blanco */
         }
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, rgba(24, 119, 242, 0.85) 0%, rgba(66, 103, 178, 0.85) 100%), /* Using Facebook blue shades */
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%), /* Degradado usando los nuevos azules */
                         url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
             height: 100vh;
             min-height: 700px;
@@ -229,7 +232,7 @@
         .btn {
             display: inline-block;
             padding: 15px 40px;
-            background-color: var(--secondary);
+            background-color: var(--secondary); /* Botones con el color verde lima */
             color: white;
             border-radius: 50px;
             font-weight: 600;
@@ -241,7 +244,7 @@
             font-size: 1rem;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 8px 20px rgba(249, 168, 37, 0.3);
+            box-shadow: 0 8px 20px rgba(139, 195, 74, 0.3); /* Sombra ajustada al verde */
         }
         
         .btn::after {
@@ -260,9 +263,9 @@
         }
         
         .btn:hover {
-            background-color: #e69500;
+            background-color: #7CB342; /* Tono más oscuro del verde al pasar el ratón */
             transform: translateY(-5px);
-            box-shadow: 0 12px 25px rgba(249, 168, 37, 0.4);
+            box-shadow: 0 12px 25px rgba(139, 195, 74, 0.4); /* Sombra ajustada al verde */
         }
         
         .btn-outline {
@@ -291,7 +294,7 @@
             text-align: center;
             font-size: 2.8rem;
             margin-bottom: 20px;
-            color: var(--primary);
+            color: var(--primary); /* Títulos de sección en azul principal */
             position: relative;
             padding-bottom: 20px;
             font-family: var(--font-title);
@@ -305,7 +308,7 @@
             transform: translateX(-50%);
             width: 100px;
             height: 5px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
+            background: linear-gradient(90deg, var(--primary), var(--accent)); /* Degradado en azules */
             border-radius: 10px;
         }
         
@@ -331,7 +334,7 @@
         .about-text h3 {
             font-size: 1.8rem;
             margin-bottom: 20px;
-            color: var(--accent);
+            color: var(--accent); /* Subtítulos en azul acento */
             font-family: var(--font-title);
         }
         
@@ -389,7 +392,7 @@
 
         .content-card h3 {
             font-size: 1.8rem;
-            color: var(--primary);
+            color: var(--primary); /* Títulos de tarjeta en azul principal */
             font-family: var(--font-title);
             margin-bottom: 10px;
         }
@@ -413,11 +416,6 @@
             border: none;
         }
 
-        .content-card p {
-            font-size: 1.1rem;
-            color: var(--dark);
-        }
-
         .tabs {
             display: flex;
             justify-content: center;
@@ -438,7 +436,7 @@
         }
 
         .tab-button.active {
-            color: var(--primary);
+            color: var(--primary); /* Pestaña activa en azul principal */
             border-bottom-color: var(--primary);
         }
 
@@ -472,13 +470,13 @@
 
         .ministry-card i {
             font-size: 3rem;
-            color: var(--accent);
+            color: var(--accent); /* Iconos de ministerio en azul acento */
             margin-bottom: 20px;
         }
 
         .ministry-card h3 {
             font-size: 1.6rem;
-            color: var(--primary);
+            color: var(--primary); /* Títulos de ministerio en azul principal */
             font-family: var(--font-title);
             margin-bottom: 15px;
         }
@@ -537,7 +535,7 @@
         .service-title {
             font-size: 1.5rem;
             margin-bottom: 15px;
-            color: var(--primary);
+            color: var(--primary); /* Títulos de servicio en azul principal */
             font-family: var(--font-title);
         }
         
@@ -547,14 +545,14 @@
             right: 25px;
             width: 60px;
             height: 60px;
-            background: var(--accent);
+            background: var(--accent); /* Iconos de servicio en azul acento */
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.8rem;
             color: white;
-            box-shadow: 0 10px 20px rgba(66, 103, 178, 0.3); /* Using accent Facebook blue */
+            box-shadow: 0 10px 20px rgba(11, 79, 122, 0.3); /* Sombra ajustada al azul acento */
         }
         
         /* Events Section */
@@ -580,7 +578,7 @@
         }
         
         .event-date {
-            background: linear-gradient(135deg, var(--primary), var(--accent)); /* Using Facebook blue shades */
+            background: linear-gradient(135deg, var(--primary), var(--accent)); /* Degradado en azules */
             color: white;
             padding: 20px;
             text-align: center;
@@ -612,7 +610,7 @@
         .event-title {
             font-size: 1.6rem;
             margin-bottom: 15px;
-            color: var(--primary);
+            color: var(--primary); /* Títulos de evento en azul principal */
             font-family: var(--font-title);
         }
         
@@ -620,7 +618,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            color: var(--accent);
+            color: var(--accent); /* Ubicación de evento en azul acento */
             margin-bottom: 20px;
             font-weight: 500;
         }
@@ -671,7 +669,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(24, 119, 242, 0.8); /* Using primary Facebook blue */
+            background: rgba(19, 104, 157, 0.8); /* Overlay en azul principal con transparencia */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -710,7 +708,7 @@
         .contact-icon {
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, var(--primary), var(--accent)); /* Using Facebook blue shades */
+            background: linear-gradient(135deg, var(--primary), var(--accent)); /* Degradado en azules */
             color: white;
             border-radius: 50%;
             display: flex;
@@ -723,7 +721,7 @@
         .contact-details h3 {
             font-size: 1.4rem;
             margin-bottom: 8px;
-            color: var(--primary);
+            color: var(--primary); /* Títulos de contacto en azul principal */
         }
         
         .contact-form {
@@ -742,7 +740,7 @@
             left: 0;
             width: 5px;
             height: 100%;
-            background: linear-gradient(to bottom, var(--primary), var(--accent)); /* Using Facebook blue shades */
+            background: linear-gradient(to bottom, var(--primary), var(--accent)); /* Degradado en azules */
         }
         
         .form-group {
@@ -762,8 +760,8 @@
         
         .form-control:focus {
             outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(24, 119, 242, 0.2); /* Using primary Facebook blue */
+            border-color: var(--primary); /* Borde de enfoque en azul principal */
+            box-shadow: 0 0 0 3px rgba(19, 104, 157, 0.2); /* Sombra de enfoque en azul principal */
         }
         
         textarea.form-control {
@@ -777,7 +775,7 @@
         
         /* Footer */
         .footer {
-            background-color: var(--dark);
+            background-color: var(--dark); /* Fondo del footer en gris oscuro */
             color: white;
             padding: 60px 0 30px;
             text-align: center;
@@ -800,7 +798,7 @@
         
         .footer-col h3 {
             font-size: 1.3rem;
-            color: var(--secondary);
+            color: var(--secondary); /* Títulos del footer en verde lima */
             margin-bottom: 20px;
             font-family: var(--font-title);
         }
@@ -822,7 +820,7 @@
         }
         
         .footer-col ul li a:hover {
-            color: var(--secondary);
+            color: var(--secondary); /* Enlaces del footer en verde lima al pasar el ratón */
         }
         
         .social-links {
@@ -844,7 +842,7 @@
         }
         
         .social-link:hover {
-            background-color: var(--secondary);
+            background-color: var(--secondary); /* Enlaces sociales en verde lima al pasar el ratón */
             transform: translateY(-3px);
         }
         
@@ -860,7 +858,7 @@
             .nav-menu {
                 display: none;
                 flex-direction: column;
-                background-color: rgba(24, 119, 242, 0.98); /* Using primary Facebook blue */
+                background-color: var(--accent); /* Ajustado para el menú móvil en azul acento */
                 position: absolute;
                 top: 80px; /* Adjust based on header height */
                 left: 0;
@@ -1046,8 +1044,7 @@
             </div>
         </div>
     </section>
-
-    <!-- Sección de Mensajes y Predicaciones -->
+<!-- Sección de Mensajes y Predicaciones -->
     <section class="section messages" id="messages">
         <div class="container">
             <h2 class="section-title animate-fade">Mensajes y Predicaciones</h2>
@@ -1061,10 +1058,141 @@
 
             <div id="daily-message" class="tab-content active">
                 <div class="content-card animate-fade animate-delay-1">
-                    <h3>Mensaje del Día: "La Fe que Mueve Montañas"</h3>
-                    <p>Hoy te invitamos a reflexionar sobre el poder de la fe inquebrantable. A menudo, nos enfrentamos a desafíos que parecen insuperables, como montañas que bloquean nuestro camino. Sin embargo, la Biblia nos enseña que con fe, podemos mover esas montañas.</p>
-                    <p>Mateo 17:20 dice: "Si tuvierais fe como un grano de mostaza, diríais a este monte: Pásate de aquí allá, y se pasaría; y nada os sería imposible." Esta no es una promesa de que la vida será fácil, sino una afirmación del poder ilimitado que se desata cuando confiamos plenamente en Dios.</p>
-                    <p>Te animamos a cultivar una fe audaz, a orar sin cesar y a creer que Dios es capaz de hacer mucho más de lo que pedimos o imaginamos. ¡Que tu día esté lleno de la certeza de que para Dios no hay imposibles!</p>
+                    <h3>Mensaje del Día 6 de julio 2025 culto de la Pastora Mary Penagos: "La Paz de Cristo en Medio de la Tormenta"</h3>
+                    
+                    <div class="message-container">
+                        <div class="verse-anchor">
+                            Juan 14:27 - "La paz os dejo, mi paz os doy; yo no os la doy como el mundo la da. No se turbe vuestro corazón ni tenga miedo"
+                        </div>
+                        
+                        <div class="message-section">
+                            <h4>Esencia del Mensaje</h4>
+                            <p>La <strong>verdadera paz</strong> no es ausencia de problemas, sino la <strong>presencia sobrenatural de Cristo</strong> en medio de las tormentas. Esta paz divina se caracteriza por:</p>
+                            <ul>
+                                <li><strong>No depende de circunstancias</strong> externas (crisis, enfermedad, conflictos)</li>
+                                <li><strong>Es permanente</strong> (contrario a la paz pasajera del mundo)</li>
+                                <li><strong>Se arraiga en la fe</strong> en Jesús como Salvador y sustentador</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="message-section">
+                            <h4>Características de la Paz de Cristo</h4>
+                            <p><strong>1. Es Sobrenatural</strong></p>
+                            <ul>
+                                <li>No depende de circunstancias externas</li>
+                                <li>Es un fruto del Espíritu Santo</li>
+                                <li>Permanece firme durante las pruebas</li>
+                            </ul>
+                            
+                            <p><strong>2. Contrasta con la Paz Mundial</strong></p>
+                            <ul>
+                                <li>La paz mundana es <strong>pasajera</strong></li>
+                                <li>La paz de Cristo es <strong>permanente</strong></li>
+                                <li>No se basa en condiciones favorables</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="message-section">
+                            <h4>Aplicaciones Prácticas</h4>
+                            
+                            <div class="practical-application">
+                                <p><strong>1. Declarar Fe en Voz Alta</strong></p>
+                                <ul>
+                                    <li>Ante crisis financieras, de salud o familiares: <em>"¡Cállate, enmudece!"</em> (Marcos 4:39)</li>
+                                    <li>Repetir declaraciones de fe: <em>"Voy de victoria en victoria porque Cristo está conmigo"</em></li>
+                                    <li>Hablarle al alma: <em>"Aquieta, alma mía, porque aún he de alabarle"</em> (Salmo 42:5)</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="practical-application">
+                                <p><strong>2. Actuar con Obediencia</strong></p>
+                                <ul>
+                                    <li><strong>Reconciliarse con Dios:</strong> Examinar el corazón y confesar pecados (1 Corintios 11:28)</li>
+                                    <li><strong>Reconciliarse con otros:</strong>
+                                        <ul>
+                                            <li>Pagar deudas pendientes (honestidad financiera = testimonio)</li>
+                                            <li>Bendecir a enemigos: <em>"Si tu enemigo tiene hambre, dale de comer"</em> (Romanos 12:20)</li>
+                                            <li>Regalar algo a quien te hirió (romper cadenas de rencor)</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="practical-application">
+                                <p><strong>3. Buscar la Paz Activamente</strong> (1 Pedro 3:11)</p>
+                                <ul>
+                                    <li><strong>Apartarse del mal:</strong> Renunciar a amargura, chismes y juicios</li>
+                                    <li><strong>Hacer el bien:</strong> Servir sin esperar retribución</li>
+                                    <li><strong>Seguir la paz:</strong> Evitar contiendas; callar ante calumnias (Romanos 12:19)</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="practical-application">
+                                <p><strong>4. Combinar Fe y Acción Humana</strong></p>
+                                <ul>
+                                    <li><strong>Hacer lo posible + confiar en Dios:</strong>
+                                        <ul>
+                                            <li>Tratamientos médicos + orar: <em>"Tomo esta medicina, pero tú eres mi sanador"</em></li>
+                                            <li>Trabajar diligentemente + creer en provisión divina</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Vencer el mal con bien</strong> (Romanos 12:19-21)</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="practical-application">
+                                <p><strong>5. Renovar la Mente Diariamente</strong></p>
+                                <ul>
+                                    <li>Memorizar promesas bíblicas</li>
+                                    <li><strong>Salmo 4:8:</strong> <em>"En paz me acostaré y dormiré, porque solo tú, Señor, me haces vivir confiado"</em></li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="message-section">
+                            <h4>Enseñanzas Destacadas</h4>
+                            <ul>
+                                <li><strong>Sanidad Interior:</strong> Renunciar a raíces de amargura y practicar el perdón activamente</li>
+                                <li><strong>Mayordomía:</strong> Mantener orden en finanzas y relaciones, buscando agradar a Dios en todo</li>
+                                <li><strong>Comunión con Dios:</strong> La paz se fortalece en intimidad con Cristo (Juan 14:23)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="message-section">
+                            <h4>Promesas Bíblicas</h4>
+                            <ul>
+                                <li><strong>1 Pedro 3:12:</strong> Dios atiende las oraciones de los justos</li>
+                                <li><strong>Romanos 8:18:</strong> Su gloria se manifestará tras la aflicción</li>
+                                <li><strong>Proverbios 16:7:</strong> <em>"Cuando tus caminos agradan a Dios, ¡hasta tus enemigos estarán en paz contigo!"</em></li>
+                                <li><strong>Filipenses 4:7:</strong> La paz que sobrepasa todo entendimiento</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="conclusion-block">
+                            <h4>Conclusión Práctica</h4>
+                            <p>La paz de Cristo se <strong>experimenta al obedecer Su Palabra</strong> (Juan 14:23) y <strong>declarar Su autoridad</strong> sobre toda tormenta. No es un sentimiento, sino una <strong>posición de fe</strong> que transforma realidades.</p>
+                            
+                            <div class="quote">
+                                "Cuando tus caminos agradan a Dios, ¡hasta tus enemigos estarán en paz contigo!" - Proverbios 16:7
+                            </div>
+                            
+                            <p>La paz verdadera es un <strong>regalo divino</strong> que permanece firme independientemente de las circunstancias externas, fundamentada en la presencia sobrenatural de Cristo en nuestras vidas.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mensaje en audio -->
+                <div class="audio-player-container animate-fade animate-delay-2">
+                    <h3>Escucha el Podcast del culto con ¡reflexiones profundas!</h3>
+                    <div class="media-player">
+                        <audio controls>
+                            <source src="La-Paz-de-Cristo-en-la-Tormenta.mp3" type="audio/mpeg">
+                            Tu navegador no soporta el elemento de audio.
+                        </audio>
+                    </div>
+                    <p>Escucha un mensaje de esperanza y consuelo para encontrar paz en medio de las dificultades de la vida. Aprende a confiar en la soberanía de Dios.</p>
+                </div>
+            </div>
                     <a href="#" class="btn btn-small">Leer Mensaje Completo</a>
                 </div>
                 <!-- Ejemplo de mensaje de audio -->
@@ -1109,6 +1237,20 @@
                     </ul>
                     <a href="#" class="btn btn-small">Ver Más Predicaciones</a>
                 </div>
+                    <!-- Tarjeta para el devocional de Notion con iframe -->
+                <div class="content-card animate-fade animate-delay-2">
+                    <h3>Devocional: Génesis - Un Nuevo Comienzo</h3>
+                    <p>Profundiza en el libro de Génesis con este devocional que explora los orígenes de la fe y la relación de Dios con la humanidad.</p>
+                    <div class="media-player" style="height: 600px;"> <!-- Ajusta la altura según sea necesario -->
+                        <iframe src="https://rattle-sofa-6fb.notion.site/Devocional-Genesis-2172b660264e80a69d39fdc94249f01b?source=copy_link" frameborder="0" allowfullscreen style="width:100%; height:100%;">
+                            Tu navegador no soporta iframes. Por favor, haz clic en el enlace para ver el devocional.
+                        </iframe>
+                    </div>
+                    <p style="font-size: 0.9rem; color: var(--gray);">**Nota:** Si el devocional no se carga, es posible que Notion esté bloqueando la incrustación directa por razones de seguridad. En ese caso, puedes <a href="https://rattle-sofa-6fb.notion.site/Devocional-Genesis-2172b660264e80a69d39fdc94249f01b?source=copy_link" target="_blank" style="color: var(--primary); font-weight: 600;">hacer clic aquí para verlo en Notion</a>.</p>
+                </div>
+
+
+
                 <!-- Puedes añadir más tarjetas de predicaciones aquí -->
             </div>
         </div>
@@ -1278,7 +1420,7 @@
                 <h3>Horarios de Nuestros Servicios</h3>
                 <p><strong>Culto Dominical:</strong> Domingos 9:00 AM - 12:00 PM</p>
                 <p><strong>Culto de Viernes:</strong> Viernes 7:30 PM - 9:30 PM</p>
-                <p><strong>Células (Niños y Jóvenes):</strong> Miércoles 7:30 PM - 9:00 PM</p>
+                <p><strong>Células (Niños,Jóvenes y Adultos):</strong> Miércoles 7:30 PM - 9:00 PM</p>
                 <p>¡Te esperamos en cada uno de nuestros encuentros!</p>
             </div>
         </div>
@@ -1336,7 +1478,7 @@
                         <a href="https://www.facebook.com/Iglesiamisioncarismaticaalmundobuga">Misión Carismática al Mundo Buga</a>
                     </blockquote>
                 </div>
-                <p>Allí encontraras más momentos de servicios .</p>
+                <p>Allí encontraras más momentos de servicios.</p>
             </div>
         </div>
     </section>
