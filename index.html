@@ -80,8 +80,8 @@
         
         /* Header */
         .header {
-            background-color: var(--primary); /* Azul principal del logo */
-            color: white; /* Texto blanco para contraste */
+            background-color: white; /* Fondo blanco para el encabezado */
+            color: var(--primary); /* Texto en azul principal del logo */
             padding: 15px 0;
             position: sticky;
             top: 0;
@@ -92,7 +92,7 @@
         
         .header.scrolled {
             padding: 10px 0;
-            background-color: var(--accent); /* Tono más oscuro del azul al desplazarse */
+            background-color: #f8f9fa; /* Fondo gris muy claro al desplazarse */
         }
         
         .header-content {
@@ -128,14 +128,14 @@
             font-weight: 700;
             letter-spacing: 1px;
             font-family: var(--font-title);
-            color: white; /* Título del logo en blanco */
+            color: var(--primary); /* Título del logo en azul principal */
         }
         
         .logo-subtitle {
             font-size: 0.9rem;
             opacity: 0.9;
             font-weight: 300;
-            color: rgba(255, 255, 255, 0.8); /* Subtítulo del logo en blanco semitransparente */
+            color: var(--gray); /* Subtítulo del logo en gris */
         }
         
         .nav-menu {
@@ -156,7 +156,7 @@
             font-size: 0.9rem;
             position: relative;
             padding: 5px 0;
-            color: white; /* Enlaces de navegación en blanco */
+            color: var(--primary); /* Enlaces de navegación en azul principal */
         }
         
         .nav-link::after {
@@ -178,7 +178,7 @@
             display: none;
             font-size: 1.5rem;
             cursor: pointer;
-            color: white; /* Icono de menú móvil en blanco */
+            color: var(--primary); /* Icono de menú móvil en azul principal */
         }
         
         /* Hero Section */
