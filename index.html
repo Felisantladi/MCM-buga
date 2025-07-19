@@ -460,6 +460,7 @@
             justify-content: center;
             margin-bottom: 40px;
             border-bottom: 2px solid #e0e0e0;
+            flex-wrap: wrap; /* Allow tabs to wrap on smaller screens */
         }
 
         .tab-button {
@@ -472,6 +473,8 @@
             color: var(--gray);
             border-bottom: 3px solid transparent;
             transition: all 0.3s ease;
+            flex: 1 1 auto; /* Allow buttons to grow and shrink */
+            margin: 5px; /* Add some margin between buttons */
         }
 
         .tab-button.active {
@@ -1277,15 +1280,10 @@
     <!-- Sección de Mensajes y Predicaciones -->
     <section class="section messages" id="messages">
         <div class="container">
-            <h2 class="section-title animate-fade">Jesús, Nuestra Paz en Medio de la Tormenta Predica pastora Mary Penagos del 06/07/2025</h2>
-            <p class="section-subtitle animate-fade">Un mensaje profundo sobre la paz que solo Cristo puede dar en tiempos de dificultad</p>
+            <h2 class="section-title animate-fade">Mensajes y Predicaciones</h2>
+            <p class="section-subtitle animate-fade">Escucha la palabra que transforma vidas y edifica tu espíritu.</p>
             
-            <div class="tabs">
-                <button class="tab-button active" data-tab="daily-message">Mensaje Completo</button>
-                <button class="tab-button" data-tab="live-worship">Culto en Vivo</button>
-                <button class="tab-button" data-tab="preaching-archive">Archivo de Predicaciones</button>
-            </div>
-
+           
             <div id="daily-message" class="tab-content active">
                 <div class="message-container animate-fade animate-delay-1">
                     <div id="message-summary">
@@ -1520,67 +1518,372 @@
                     </div>
                 </div>
                 
-                <!-- Mensaje en audio (este es el que se mantiene siempre visible con el resumen) -->
-                <div class="audio-player-container animate-fade animate-delay-2">
-                    <h3><i class="fas fa-headphones"></i> Escucha el Mensaje tipo podcast con reflexiones profunda</h3>
-                    <div class="media-player">
-                        <audio controls>
-                            <source src="La-Paz-de-Cristo-en-la-Tormenta.mp3" type="audio/mpeg">
-                            Tu navegador no soporta el elemento de audio.
-                        </audio>
-                    </div>
-                    <p style="text-align: center; margin-top: 15px;">Duración:5 min | Fecha: 6 de julio, 2025</p>
-                </div>
-            </div>
+                <!-- Sección de la Prédica del 18 de Julio -->
+                <div id="predica-18-julio" class="tab-content">
+                    <div class="message-container animate-fade animate-delay-1">
+                        <div id="message-summary-18-julio">
+                            <h3>No Basta con Oír la Palabra; Hay que Obedecerla</h3>
+                            <h4>Resumen</h4>
+                            <p>Esta prédica se centra en Romanos capítulo 2, versículos 13 y 17, enfatizando que la verdadera justificación ante Dios no proviene de simplemente escuchar la ley, sino de obedecerla y ponerla en práctica. La Pastora Mary Penagos confronta la hipocresía de aquellos que conocen la Palabra pero no la viven, y exhorta a la congregación a una obediencia genuina y a una vida transformada por el Espíritu Santo.</p>
+                            
+                            <h4>Podcast </h4>
+                            <div class="media-player">
+                                <audio controls>
+                                    <!-- Reemplaza 'ruta/a/tu/audio-18-julio.mp3' con la URL real de tu archivo de audio -->
+                                    <source src="Obedience-to-God_s-Word_-Beyond-Hearing-to-Doing.mp3" type="audio/mpeg">
+                                    Tu navegador no soporta el elemento de audio.
+                                </audio>
+                            </div>
+                            <button id="read-full-message-btn-18-julio" class="btn btn-small" style="margin-top: 20px;">Leer mensaje completo</button>
+                        </div>
 
-            <div id="live-worship" class="tab-content">
-                <div class="content-card animate-fade animate-delay-1">
-                    <h3>Culto en Vivo (Transmisión de Facebook)</h3>
-                    <p>Únete a nuestra transmisión en vivo directamente desde nuestra página de Facebook. ¡Te esperamos para un tiempo de adoración y palabra!</p>
-                    <div class="media-player">
-                        <!-- Placeholder para el reproductor de video de Facebook Live -->
-                        <!-- Reemplaza 'YOUR_FACEBOOK_PAGE_URL' y 'YOUR_VIDEO_ID' con los valores reales -->
-                        <div class="fb-video" data-href="https://www.facebook.com/facebook/videos/10153231379946729/" data-width="500" data-show-text="false">
-                            <blockquote cite="https://www.facebook.com/facebook/videos/10153231379946729/" class="fb-xfbml-parse-ignore">
-                                <a href="https://www.facebook.com/facebook/videos/10153231379946729/">Facebook Video</a>
-                                <p>Loading Facebook Video...</p>
-                            </blockquote>
+                        <div id="message-full-text-18-julio" class="hidden-content">
+                            <div class="verse-anchor">
+                                <i class="fas fa-anchor"></i> Romanos 2:13 - "Porque no son los oidores de la ley los justos ante Dios, sino los hacedores de la ley serán justificados."
+                                <br>
+                                <i class="fas fa-anchor"></i> Romanos 7:7 - "Pero yo no conocí el pecado sino por la ley; porque tampoco conociera la codicia, si la ley no dijera: No codiciarás."
+                            </div>
+                            
+                            <div class="message-section">
+                                <h4>Tema Central</h4>
+                                <ul>
+                                    <li>No basta con oír la Palabra; hay que obedecerla.</li>
+                                    <li>El apóstol Pablo confronta a los judíos, quienes creían que por tener la Ley ya eran justificados, pero no la ponían en práctica.</li>
+                                    <li>La pastora enseña que esto también aplica a los gentiles (no judíos), es decir, a nosotros: conocer la Palabra sin obedecerla es hipocresía.</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="message-section">
+                                <h4>Pasajes Clave</h4>
+                                <ul>
+                                    <li><strong>Romanos 2:13:</strong> "Porque no son los oidores de la ley los justos ante Dios, sino los hacedores de la ley serán justificados."</li>
+                                    <li><strong>Romanos 7:7:</strong> Pablo reconoce que conoció el pecado gracias a la ley, lo que revela que la ley muestra lo que está mal, pero no nos justifica.</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="message-section">
+                                <h4>Aplicación para Nosotros</h4>
+                                <ul>
+                                    <li>Somos privilegiados de conocer la Palabra, pero tenemos la responsabilidad de vivir conforme a ella.</li>
+                                    <li>La ley judía tenía 613 mandamientos, imposibles de cumplir sin el Espíritu Santo. Hoy, Jesucristo es quien nos justifica por gracia, pero aún así debemos vivir en obediencia.</li>
+                                    <li>La pastora exhorta a no ser hipócritas, aparentando santidad mientras no se obedece realmente a Dios.</li>
+                                </ul>
+                            </div>
+
+                            <div class="message-section">
+                                <h4>Reflexiones Finales</h4>
+                                <ul>
+                                    <li>Dios no busca religiosos, sino hijos obedientes.</li>
+                                    <li>La pastora motiva a la congregación a evaluarse con la Palabra, no solo a aprenderla o recitarla.</li>
+                                    <li>Se destaca la importancia de reconocer que la salvación viene por la fe en Cristo, no por obras o por pertenecer a un grupo religioso.</li>
+                                </ul>
+                            </div>
+
+                            <div class="message-section">
+                                <h4>Guía de Preguntas: Romanos 2 y la Obediencia a la Palabra</h4>
+                                <div class="practical-application">
+                                    <h5>Comprensión del Texto</h5>
+                                    <ol>
+                                        <li>¿Qué quiso decir Pablo en Romanos 2:13 cuando afirmó que "no son los oidores de la ley los justos ante Dios, sino los hacedores de la ley serán justificados"?</li>
+                                        <li>¿Por qué Pablo dirige su mensaje especialmente a los judíos en este capítulo?</li>
+                                        <li>¿Cómo nos aplica este pasaje hoy, si no somos judíos?</li>
+                                    </ol>
+                                </div>
+                                <div class="practical-application">
+                                    <h5>Aplicación Personal</h5>
+                                    <ol start="4">
+                                        <li>¿Has caído en el error de creer que por asistir a la iglesia o leer la Biblia ya estás justificado ante Dios?</li>
+                                        <li>¿Hay alguna enseñanza bíblica que conoces, pero aún no obedeces? ¿Por qué?</li>
+                                        <li>¿Qué hábitos puedes cambiar para ser más hacedor que oidor de la Palabra?</li>
+                                    </ol>
+                                </div>
+                                <div class="practical-application">
+                                    <h5>Discusión en Grupo</h5>
+                                    <ol start="7">
+                                        <li>¿Crees que en la iglesia de hoy hay personas que actúan como los judíos que Pablo confronta? ¿Cómo podemos corregir eso con amor?</li>
+                                        <li>¿Cuál es el peligro de conocer mucho de la Biblia, pero no vivirla?</li>
+                                        <li>¿Cómo puede ayudarnos el Espíritu Santo a vivir conforme a la Palabra?</li>
+                                    </ol>
+                                </div>
+                                <div class="practical-application">
+                                    <h5>Tiempo con Dios</h5>
+                                    <ol start="10">
+                                        <li>¿Le has pedido a Dios que te revele las áreas en las que no estás siendo obediente?</li>
+                                        <li>¿Qué oración puedes hacer hoy para pedirle a Dios un corazón sensible a su Palabra?</li>
+                                    </ol>
+                                </div>
+                            </div>
+                            
+                            <div class="conclusion-block">
+                                <h4>Conclusión</h4>
+                                <p>La prédica del 18 de julio nos invita a una profunda reflexión sobre la obediencia a la Palabra de Dios. No basta con el conocimiento intelectual o la asistencia a la iglesia; la verdadera fe se manifiesta en una vida transformada y en la práctica de lo que se predica. Dios busca hijos obedientes, no meros religiosos.</p>
+                                <div class="quote">
+                                    "Dios no busca religiosos, sino hijos obedientes."
+                                </div>
+                            </div>
+                            
+                            <div class="peace-wave"></div>
                         </div>
                     </div>
-                    <p>Si la transmisión no carga, visita directamente nuestra <a href="https://www.facebook.com/Iglesiamisioncarismaticaalmundobuga" target="_blank" style="color: var(--primary); font-weight: 600;">página de Facebook</a>.</p>
+                    
+                    <!-- Mensaje en audio (este es el que se mantiene siempre visible con el resumen) -->
+                    <div class="audio-player-container animate-fade animate-delay-2">
+                        <h3><i class="fas fa-headphones"></i> Escucha el Podcast de la predica </h3>
+                        <div class="media-player">
+                            <audio controls>
+                                <!-- Reemplaza 'ruta/a/tu/audio-18-julio.mp3' con la URL real de tu archivo de audio -->
+                                <source src="Obedience-to-God_s-Word_-Beyond-Hearing-to-Doing.mp3" type="audio/mpeg">
+                                Tu navegador no soporta el elemento de audio.
+                            </audio>
+                        </div>
+                        <p style="text-align: center; margin-top: 15px;">Fecha: 18 de julio, 2025</p>
+                    </div>
+                </div>
+
+                <!-- Sección del Ayuno del 19 de Julio -->
+                <div id="ayuno-19-julio" class="tab-content">
+                    <div class="message-container animate-fade animate-delay-1">
+                        <div id="message-summary-19-julio">
+                            <h3>La Lucha entre la Carne y el Espíritu: Ayuno 19 de Julio</h3>
+                            <h4>Resumen</h4>
+                            <p>Este ayuno profundiza en la batalla interna entre las inclinaciones pecaminosas de la "carne" y la guía divina del Espíritu Santo. Se enfatiza la necesidad de someter el alma a la voluntad de Dios para heredar el Reino de los Cielos. El mensaje explora la naturaleza engañadora de la carne, la victoria a través del Espíritu Santo, la superioridad de la Gracia sobre la Ley, y la importancia vital de la Palabra, la oración y el arrepentimiento diario para vivir en obediencia y compartir el Evangelio.</p>
+                            
+                            <h4>Podcast </h4>
+                            <div class="media-player">
+                                <audio controls>
+                                    <!-- Reemplaza 'ruta/a/tu/audio-ayuno-19-julio.mp3' con la URL real de tu archivo de audio -->
+                                    <source src="Winning-the-Battle-Against-the-Flesh.mp3" type="audio/mpeg">
+                                    Tu navegador no soporta el elemento de audio.
+                                </audio>
+                            </div>
+                            <button id="read-full-message-btn-19-julio" class="btn btn-small" style="margin-top: 20px;">Leer mensaje completo</button>
+                        </div>
+
+                        <div id="message-full-text-19-julio" class="hidden-content">
+                            <div class="verse-anchor">
+                                <i class="fas fa-anchor"></i> Romanos 7 - La lucha interna de Pablo
+                                <br>
+                                <i class="fas fa-anchor"></i> Gálatas 5:19-21 - Las obras de la carne
+                            </div>
+                            
+                            <div class="message-section">
+                                <h4>Tema Central</h4>
+                                <p>Tenemos una lucha interna entre las inclinaciones humanas pecaminosas ("la carne") y la guía divina del Espíritu Santo. Se debe de someter el alma a la voluntad de Dios y del espíritu para heredar el Reino de los Cielos.</p>
+                            </div>
+                            
+                            <div class="message-section">
+                                <h4>La Batalla Interna y la Naturaleza de la Carne</h4>
+                                <ul>
+                                    <li>Una batalla intensa y persistente donde la carne busca constantemente el pecado.</li>
+                                    <li>Se presenta como la fuente de deseos pecaminosos y debilidades, citando Romanos 7 para ilustrar esta lucha interna.</li>
+                                    <li>Se enumeran las "obras de la carne" de Gálatas 5:19-21 (fornicación, idolatría, celos, borracheras), advirtiendo que quienes las practican no heredarán el Reino.</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="message-section">
+                                <h4>La Victoria a Través del Espíritu Santo</h4>
+                                <ul>
+                                    <li>La solución reside en la sumisión al Espíritu Santo.</li>
+                                    <li>Solo el Espíritu Santo tiene el poder para vencer la carne, la contaminación y la oscuridad inherente al pecado.</li>
+                                    <li>La luz de Jesús y la acción del Espíritu Santo son la única vía para la victoria.</li>
+                                    <li>Importancia de "sujetarse al espíritu" para evitar que la carne conduzca al pecado.</li>
+                                </ul>
+                            </div>
+
+                            <div class="message-section">
+                                <h4>Gracia vs. Ley: Un Nuevo Pacto de Libertad</h4>
+                                <ul>
+                                    <li>Superioridad de la Gracia de Dios sobre la Ley.</li>
+                                    <li>La Ley solo señalaba el pecado y requería sacrificios constantes; la Gracia, a través de Jesús, vino a quitar el pecado y a santificar, ofreciendo perdón inmediato.</li>
+                                    <li>Crítica a quienes prefieren vivir bajo la Ley, lo que puede llevar a una falsa sensación de seguridad en el pecado.</li>
+                                    <li>Jesús es la personificación de la Gracia, liberando a las personas del pecado al vivir dentro de ellas.</li>
+                                </ul>
+                            </div>
+
+                            <div class="message-section">
+                                <h4>La Importancia de la Palabra, la Oración y el Sometimiento del Alma</h4>
+                                <ul>
+                                    <li>Necesidad de una relación activa con Dios mediante la lectura de la Biblia y la oración constante.</li>
+                                    <li>La Palabra de Dios es vital como alimento y guía, permitiendo al Espíritu Santo hablar y dirigir.</li>
+                                    <li>La oración es una herramienta indispensable para mantener la conexión divina y vencer tentaciones.</li>
+                                    <li>"Hablarle al alma" para someterla a la voluntad divina, comparándola con un "caballo salvaje" que prefiere el mal.</li>
+                                    <li>No basta con conocer la Palabra, sino que hay que "hacer palabra" y dedicar tiempo a Dios.</li>
+                                </ul>
+                            </div>
+
+                            <div class="message-section">
+                                <h4>Consecuencias de la Desconexión y la Obediencia a la Carne</h4>
+                                <ul>
+                                    <li>Ceder a la carne y descuidar la relación con Dios puede llevar a depresión y ansiedad.</li>
+                                    <li>Pérdida de la herencia del Reino de los Cielos para quienes practican las obras de la carne.</li>
+                                    <li>Ciclo vicioso de pecado y un autoengaño peligroso.</li>
+                                    <li>Sin arrepentimiento y cambio de vida, asistir a la iglesia no garantiza la salvación.</li>
+                                </ul>
+                            </div>
+
+                            <div class="message-section">
+                                <h4>El Rol Fundamental del Espíritu Santo como Amigo y Guía</h4>
+                                <ul>
+                                    <li>El Espíritu Santo es un compañero íntimo y esencial, fuente de fortaleza y convicción.</li>
+                                    <li>Es el único capaz de ayudarnos a vencer la debilidad.</li>
+                                    <li>El Espíritu Santo debe ser nuestro "amigo" y confidente, liberando al alma de la enfermedad del pecado.</li>
+                                </ul>
+                            </div>
+
+                            <div class="message-section">
+                                <h4>La Urgencia del Arrepentimiento y la Evangelización</h4>
+                                <ul>
+                                    <li>Llamado al arrepentimiento diario y continuo, incluso por pecados menores.</li>
+                                    <li>Exhortación a "crucificar ese pecado" a diario.</li>
+                                    <li>Impulso a compartir el evangelio y las "buenas nuevas" con aquellos que están desanimados o tristes.</li>
+                                    <li>Importancia de la intercesión por líderes, familias y la iglesia.</li>
+                                </ul>
+                            </div>
+
+                            <div class="conclusion-block">
+                                <h4>Conclusión</h4>
+                                <p>Un llamado ferviente a una vida de total dependencia del Espíritu Santo, a la renuncia consciente a las obras de la carne y a una vivencia activa de la gracia de Dios, con el objetivo de asegurar la salvación y glorificar a Dios en cada aspecto de la vida.</p>
+                                <div class="quote">
+                                    "La carne es mentirosa y engañadora."
+                                </div>
+                            </div>
+
+                            <div class="message-section">
+                                <h4>Guía de Preguntas para Reflexión</h4>
+                                <div class="practical-application">
+                                    <h5>Reflexión sobre la Lucha entre la Carne y el Espíritu</h5>
+                                    <ol>
+                                        <li>¿En qué áreas de tu vida sientes que la "carne" (tus deseos pecaminosos, hábitos negativos, actitudes dañinas) ejerce una mayor influencia? ¿Cómo se manifiesta esa lucha en tu día a día?</li>
+                                        <li>"La carne es mentirosa engañadora". ¿Puedes identificar momentos en los que tu propia carne te ha engañado o te ha llevado por un camino que sabes que no es el correcto?</li>
+                                        <li>Si el Espíritu Santo es quien "vence la carne", ¿qué pasos concretos estás dando para someterte más a su guía y permitirle obrar en ti? ¿Sientes que estás escuchando su voz o la estás ignorando?</li>
+                                    </ol>
+                                </div>
+                                <div class="practical-application">
+                                    <h5>Reflexión sobre la Gracia y la Ley</h5>
+                                    <ol>
+                                        <li>Se habla de la Gracia como un camino de libertad y perdón inmediato, a diferencia de la Ley que señalaba el pecado. ¿Cómo vives la Gracia en tu vida? ¿Hay momentos en los que te sientes más inclinado a vivir bajo un sentido de "ley" o de culpa, en lugar de abrazar el perdón y la libertad que ofrece la Gracia?</li>
+                                        <li>¿Crees que, como se menciona en el discurso, podrías estar cayendo en el autoengaño o una falsa seguridad al vivir bajo la idea de que "no pasó nada" si nadie se dio cuenta de un pecado, en lugar de buscar un arrepentimiento genuino?</li>
+                                    </ol>
+                                </div>
+                                <div class="practical-application">
+                                    <h5>Reflexión sobre la Palabra, la Oración y el Alma</h5>
+                                    <ol>
+                                        <li>El discurso enfatiza la importancia de la Palabra de Dios y la oración. ¿Cuánto tiempo le dedicas a la lectura de la Biblia y a la oración en tu rutina diaria? ¿Consideras que es suficiente para nutrir tu espíritu?</li>
+                                        <li>La idea de "hablarle al alma" para someterla a la voluntad de Dios es muy particular. ¿Qué significado tiene esto para ti? ¿Cómo podrías empezar a "hablarle a tu alma" para que obedezca lo bueno, especialmente cuando sientes resistencia o deseos de hacer lo incorrecto?</li>
+                                        <li>Se dice que "no basta con albergar palabra sino que hay que hacer palabra". ¿Qué acción concreta puedes tomar esta semana para "hacer palabra", es decir, para llevar a la práctica algo que has aprendido de la Biblia o que sientes que Dios te ha estado mostrando?</li>
+                                    </ol>
+                                </div>
+                                <div class="practical-application">
+                                    <h5>Reflexión sobre Consecuencias y Propósito</h5>
+                                    <ol>
+                                        <li>Las advertencias sobre la depresión, la ansiedad y la pérdida de la herencia del Reino por ceder a la carne son fuertes. ¿Ves alguna conexión entre tus elecciones y estas posibles consecuencias en tu vida o en tu estado de ánimo?</li>
+                                        <li>El mensaje final habla de la urgencia del arrepentimiento diario y de compartir el evangelio. ¿Qué puedes hacer hoy para arrepentirte de cualquier cosa que te aparte de Dios y para compartir las "buenas nuevas" con alguien que lo necesite?</li>
+                                    </ol>
+                                </div>
+                            </div>
+                            
+                            <div class="peace-wave"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Mensaje en audio (este es el que se mantiene siempre visible con el resumen) -->
+                    <div class="audio-player-container animate-fade animate-delay-2">
+                        <h3><i class="fas fa-headphones"></i> Escucha el Podcast del Ayuno </h3>
+                        <div class="media-player">
+                            <audio controls>
+                                <!-- Reemplaza 'ruta/a/tu/audio-ayuno-19-julio.mp3' con la URL real de tu archivo de audio -->
+                                <source src="Winning-the-Battle-Against-the-Flesh.mp3" type="audio/mpeg">
+                                Tu navegador no soporta el elemento de audio.
+                            </audio>
+                        </div>
+                        <p style="text-align: center; margin-top: 15px;">Fecha: 19 de julio, 2025</p>
+                    </div>
+                </div>
+
+                <!-- Culto en Vivo (Transmisión de Facebook) -->
+                <div id="live-worship" class="tab-content">
+                    <div class="content-card animate-fade animate-delay-1">
+                        <h3>Culto en Vivo (Transmisión de Facebook)</h3>
+                        <p>Únete a nuestra transmisión en vivo directamente desde nuestra página de Facebook. ¡Te esperamos para un tiempo de adoración y palabra!</p>
+                        <div class="media-player">
+                            <!-- Placeholder para el reproductor de video de Facebook Live -->
+                            <!-- Reemplaza 'YOUR_FACEBOOK_PAGE_URL' y 'YOUR_VIDEO_ID' con los valores reales -->
+                            <div class="fb-video" data-href="https://www.facebook.com/facebook/videos/10153231379946729/" data-width="500" data-show-text="false">
+                                <blockquote cite="https://www.facebook.com/facebook/videos/10153231379946729/" class="fb-xfbml-parse-ignore">
+                                    <a href="https://www.facebook.com/facebook/videos/10153231379946729/">Facebook Video</a>
+                                    <p>Loading Facebook Video...</p>
+                                </blockquote>
+                            </div>
+                        </div>
+                        <p>Si la transmisión no carga, visita directamente nuestra <a href="https://www.facebook.com/Iglesiamisioncarismaticaalmundobuga" target="_blank" style="color: var(--primary); font-weight: 600;">página de Facebook</a>.</p>
+                    </div>
+                </div>
+
+                <!-- Archivo de Predicaciones -->
+                <div id="preaching-archive" class="tab-content">
+                    <div class="content-card animate-fade animate-delay-1">
+                        <h3>Archivo de Predicaciones: Serie "Fundamentos de la Fe"</h3>
+                        <p>Explora nuestra serie de predicaciones sobre los fundamentos esenciales de la fe cristiana. Perfecta para crecer en tu conocimiento bíblico.</p>
+                        <ul>
+                            <li><a href="#" style="color: var(--primary);">Prédica 1: La Gracia de Dios</a></li>
+                            <li><a href="#" style="color: var(--primary);">Prédica 2: El Poder del Perdón</a></li>
+                            <li><a href="#" style="color: var(--primary);">Prédica 3: Viviendo en Propósito</a></li>
+                        </ul>
+                        <a href="#" class="btn btn-small">Ver Más Predicaciones</a>
+                    </div>
+                    <!-- Tarjeta para el devocional de Notion con enlace directo -->
+                    <div class="content-card animate-fade animate-delay-2">
+                        <h3>Devocional: Génesis - Un Nuevo Comienzo</h3>
+                        <p>Profundiza en el libro de Génesis con este devocional que explora los orígenes de la fe y la relación de Dios con la humanidad.</p>
+                        <a href="https://rattle-sofa-6fb.notion.site/Devocional-Genesis-2172b660264e80a69d39fdc94249f01b?source=copy_link" target="_blank" class="btn btn-small">Leer Devocional en Notion</a>
+                        <p style="font-size: 0.9rem; color: var(--gray);">Este devocional se actualiza regularmente. ¡Mantente atento a nuevas publicaciones!</p>
+                    </div>
+                    <!-- Podcast: La Paz de Cristo en la Tormenta (Ya existe en daily-message, pero se puede duplicar aquí si es parte del archivo) -->
+                    <div class="content-card animate-fade animate-delay-3">
+                        <h3>Podcast: La Paz de Cristo en la Tormenta</h3>
+                        <div class="media-player">
+                            <audio controls>
+                                <source src="La-Paz-de-Cristo-en-la-Tormenta.mp3" type="audio/mpeg">
+                                Tu navegador no soporta el elemento de audio.
+                            </audio>
+                        </div>
+                        <p>Escucha este poderoso mensaje sobre cómo encontrar la paz inquebrantable de Cristo, incluso en medio de las circunstancias más difíciles.</p>
+                    </div>
+                     <!-- Podcast: No Basta con Oír la Palabra; Hay que Obedecerla (del 18 de Julio) -->
+                    <div class="content-card animate-fade animate-delay-3">
+                        <h3>Podcast: No Basta con Oír la Palabra; Hay que Obedecerla</h3>
+                        <div class="media-player">
+                            <audio controls>
+                                <source src="Obedience-to-God_s-Word_-Beyond-Hearing-to-Doing.mp3" type="audio/mpeg">
+                                Tu navegador no soporta el elemento de audio.
+                            </audio>
+                        </div>
+                        <p>Mensaje profundo sobre la obediencia a la Palabra de Dios, basado en Romanos 2. Prédica del 18 de julio de 2025.</p>
+                    </div>
+                    <!-- Podcast: La Lucha entre la Carne y el Espíritu (del 19 de Julio) -->
+                    <div class="content-card animate-fade animate-delay-3">
+                        <h3>Podcast: La Lucha entre la Carne y el Espíritu</h3>
+                        <div class="media-player">
+                            <audio controls>
+                                <source src="Winning-the-Battle-Against-the-Flesh.mp3" type="audio/mpeg">
+                                Tu navegador no soporta el elemento de audio.
+                            </audio>
+                        </div>
+                        <p>Ayuno y reflexión sobre la batalla interna entre la carne y el Espíritu Santo. Ayuno del 19 de julio de 2025.</p>
+                    </div>
                 </div>
             </div>
 
-            <div id="preaching-archive" class="tab-content">
-                <div class="content-card animate-fade animate-delay-1">
-                    <h3>Archivo de Predicaciones: Serie "Fundamentos de la Fe"</h3>
-                    <p>Explora nuestra serie de predicaciones sobre los fundamentos esenciales de la fe cristiana. Perfecta para crecer en tu conocimiento bíblico.</p>
-                    <ul>
-                        <li><a href="#" style="color: var(--primary);">Predicación 1: La Gracia de Dios</a></li>
-                        <li><a href="#" style="color: var(--primary);">Predicación 2: El Poder del Perdón</a></li>
-                        <li><a href="#" style="color: var(--primary);">Predicación 3: Viviendo en Propósito</a></li>
-                    </ul>
-                    <a href="#" class="btn btn-small">Ver Más Predicaciones</a>
+            <!-- Mensaje en audio (este es el que se mantiene siempre visible con el resumen) -->
+            <div class="audio-player-container animate-fade animate-delay-2">
+                <h3><i class="fas fa-headphones"></i> Escucha el Mensaje tipo podcast con reflexiones profunda</h3>
+                <div class="media-player">
+                    <audio controls>
+                        <source src="La-Paz-de-Cristo-en-la-Tormenta.mp3" type="audio/mpeg">
+                        Tu navegador no soporta el elemento de audio.
+                    </audio>
                 </div>
-                <!-- Tarjeta para el devocional de Notion con enlace directo -->
-                <div class="content-card animate-fade animate-delay-2">
-                    <h3>Devocional: Génesis - Un Nuevo Comienzo</h3>
-                    <p>Profundiza en el libro de Génesis con este devocional que explora los orígenes de la fe y la relación de Dios con la humanidad.</p>
-                    <a href="https://rattle-sofa-6fb.notion.site/Devocional-Genesis-2172b660264e80a69d39fdc94249f01b?source=copy_link" target="_blank" class="btn btn-small">Leer Devocional en Notion</a>
-                    <p style="font-size: 0.9rem; color: var(--gray);">Este devocional se actualiza regularmente. ¡Mantente atento a nuevas publicaciones!</p>
-                </div>
-                <!-- Nuevo podcast: La Paz de Cristo en la Tormenta -->
-                <div class="content-card animate-fade animate-delay-3">
-                    <h3>Podcast: La Paz de Cristo en la Tormenta</h3>
-                    <div class="media-player">
-                        <audio controls>
-                            <source src="La-Paz-de-Cristo-en-la-Tormenta.mp3" type="audio/mpeg"> <!-- URL de ejemplo, reemplaza con tu MP3 -->
-                            Tu navegador no soporta el elemento de audio.
-                        </audio>
-                    </div>
-                    <p>Escucha este poderoso mensaje sobre cómo encontrar la paz inquebrantable de Cristo, incluso en medio de las circunstancias más difíciles.</p>
-                </div>
-                <!-- Puedes añadir más tarjetas de predicaciones aquí -->
+                <p style="text-align: center; margin-top: 15px;">Duración:5 min | Fecha: 6 de julio, 2025</p>
             </div>
         </div>
     </section>
@@ -1609,12 +1912,8 @@
                     <p>Una selección de canciones modernas para elevar tu espíritu y conectar con Dios.</p>
                     <ul>
                         <li>Canción 1: El Gran Yo Soy - Alex Osorio Salmista</li>
-                        <li>Canción 2: "Tu Amor me Sostiene" - Artista Y</li>
-                        <li>Canción 3: "Renueva mi Ser" - Artista Z</li>
-                        <li></li>
                     </ul>
                 </div>
-                <!-- Más tarjetas de música contemporánea -->
             </div>
 
             <div id="classic-hymns" class="tab-content">
@@ -1628,9 +1927,7 @@
                     </div>
                     <p>Himnos atemporales que han fortalecido la fe de generaciones.</p>
                     <ul>
-                        <li>Himno 1: "Sublime Gracia"</li>
-                        <li>Himno 2: "Cuan Grande Es Él"</li>
-                        <li>Himno 3: "Roca Eterna"</li>
+                        <li>Himno 1: Sublime Gracia</li>
                     </ul>
                 </div>
             </div>
@@ -1646,8 +1943,7 @@
                     </div>
                     <p>Canciones alegres y educativas para que los más pequeños aprendan de Dios.</p>
                     <ul>
-                        <li>Canción Infantil 1: "Jesús me Ama"</li>
-                        <li>Canción Infantil 2: "El Arca de Noé"</li>
+                        <li>Canción Infantil 1: Jesús me Ama</li>
                     </ul>
                 </div>
             </div>
@@ -1999,7 +2295,8 @@
                     button.addEventListener('click', () => {
                         // Desactivar todos los botones y contenidos en este contenedor de pestañas
                         buttons.forEach(btn => btn.classList.remove('active'));
-                        const allContents = container.nextElementSibling.querySelectorAll('.tab-content'); // Asume que el contenido está inmediatamente después
+                        // Asume que el contenido está inmediatamente después del contenedor de botones
+                        const allContents = container.nextElementSibling.querySelectorAll('.tab-content'); 
                         allContents.forEach(content => content.classList.remove('active'));
 
                         // Activar el botón y contenido seleccionados
@@ -2009,7 +2306,7 @@
                 });
             });
 
-            // Lógica para mostrar/ocultar el mensaje completo
+            // Lógica para mostrar/ocultar el mensaje completo de la prédica del 6 de julio
             const readFullMessageBtn = document.getElementById('read-full-message-btn');
             const messageSummary = document.getElementById('message-summary');
             const messageFullText = document.getElementById('message-full-text');
@@ -2020,10 +2317,35 @@
                     messageFullText.classList.remove('hidden-content');
                 });
             }
+
+            // Lógica para mostrar/ocultar el mensaje completo de la prédica del 18 de julio
+            const readFullMessageBtn18Julio = document.getElementById('read-full-message-btn-18-julio');
+            const messageSummary18Julio = document.getElementById('message-summary-18-julio');
+            const messageFullText18Julio = document.getElementById('message-full-text-18-julio');
+
+            if (readFullMessageBtn18Julio && messageSummary18Julio && messageFullText18Julio) {
+                readFullMessageBtn18Julio.addEventListener('click', () => {
+                    messageSummary18Julio.classList.add('hidden-content');
+                    messageFullText18Julio.classList.remove('hidden-content');
+                });
+            }
+
+            // Lógica para mostrar/ocultar el mensaje completo del ayuno del 19 de julio
+            const readFullMessageBtn19Julio = document.getElementById('read-full-message-btn-19-julio');
+            const messageSummary19Julio = document.getElementById('message-summary-19-julio');
+            const messageFullText19Julio = document.getElementById('message-full-text-19-julio');
+
+            if (readFullMessageBtn19Julio && messageSummary19Julio && messageFullText19Julio) {
+                readFullMessageBtn19Julio.addEventListener('click', () => {
+                    messageSummary19Julio.classList.add('hidden-content');
+                    messageFullText19Julio.classList.remove('hidden-content');
+                });
+            }
         });
     </script>
 </body>
 </html>
+
 
 
 
