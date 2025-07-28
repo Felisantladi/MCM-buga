@@ -75,7 +75,25 @@
 
     <!-- CSS Files with Dynamic Loading -->
     <script>
-        // Cargar CSS files con la ruta correcta
+        // Función mejorada para cargar CSS con callback
+        function loadResourceWithCallback(type, href, attributes = {}, callback) {
+            const element = document.createElement(type);
+            element.href = window.assetBasePath ? href.replace('/assets/', window.assetBasePath) : href;
+            
+            Object.keys(attributes).forEach(key => {
+                element.setAttribute(key, attributes[key]);
+            });
+            
+            if (callback) {
+                element.addEventListener('load', callback);
+                element.addEventListener('error', callback);
+            }
+            
+            document.head.appendChild(element);
+            return element;
+        }
+
+        // Cargar CSS files con la ruta correcta y callbacks
         const cssFiles = [
             '/assets/css/variables.css',
             '/assets/css/components.css',
@@ -84,9 +102,52 @@
             '/assets/css/navbar-fix.css'
         ];
         
+        let cssLoadedCount = 0;
+        const totalCSS = cssFiles.length;
+        
+        function onCSSLoad() {
+            cssLoadedCount++;
+            console.log(`CSS loaded: ${cssLoadedCount}/${totalCSS}`);
+            
+            // Actualizar el estado de carga
+            const loadingStatus = document.getElementById('loading-status');
+            if (loadingStatus) {
+                loadingStatus.textContent = `Cargando estilos... ${cssLoadedCount}/${totalCSS}`;
+            }
+            
+            if (cssLoadedCount === totalCSS) {
+                console.log('All CSS files loaded successfully');
+                document.body.classList.add('css-loaded');
+                
+                if (loadingStatus) {
+                    loadingStatus.textContent = 'Finalizando carga...';
+                }
+                
+                // Pequeño delay antes de ocultar el loading
+                setTimeout(() => {
+                    const loadingIndicator = document.getElementById('loading-indicator');
+                    if (loadingIndicator) {
+                        loadingIndicator.classList.add('loading-hidden');
+                    }
+                }, 300);
+            }
+        }
+        
         cssFiles.forEach(cssFile => {
-            loadResource('link', cssFile, { rel: 'stylesheet' });
+            loadResourceWithCallback('link', cssFile, { rel: 'stylesheet' }, onCSSLoad);
         });
+        
+        // Timeout de seguridad en caso de que algunos CSS no se carguen
+        setTimeout(() => {
+            if (!document.body.classList.contains('css-loaded')) {
+                console.warn('CSS loading timeout - forcing page display');
+                document.body.classList.add('css-loaded');
+                const loadingIndicator = document.getElementById('loading-indicator');
+                if (loadingIndicator) {
+                    loadingIndicator.classList.add('loading-hidden');
+                }
+            }
+        }, 8000);
     </script>
 
     <!-- Favicon -->
@@ -124,18 +185,33 @@
 </head>
 <body>
     <!-- Loading Indicator -->
-    <div id="loading-indicator" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #1a3a7a 0%, #0d1d3a 100%); z-index: 9999; display: flex; justify-content: center; align-items: center; flex-direction: column; color: white; font-family: 'Poppins', sans-serif;">
+    <div id="loading-indicator" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #1a3a7a 0%, #0d1d3a 100%); z-index: 9999; display: flex; justify-content: center; align-items: center; flex-direction: column; color: white; font-family: 'Poppins', sans-serif; opacity: 1; visibility: visible;">
         <div style="width: 50px; height: 50px; border: 3px solid rgba(255,255,255,0.3); border-top: 3px solid #d4af37; border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 20px;"></div>
         <p style="font-size: 1.2rem; margin: 0;">Cargando MCM Buga...</p>
+        <p id="loading-status" style="font-size: 0.9rem; margin: 10px 0 0 0; opacity: 0.8;">Preparando recursos...</p>
         <style>
             @keyframes spin {
                 0% { transform: rotate(0deg); }
                 100% { transform: rotate(360deg); }
             }
             .loading-hidden {
+                opacity: 0 !important;
+                visibility: hidden !important;
+                transition: opacity 0.8s ease, visibility 0.8s ease !important;
+                pointer-events: none;
+            }
+            body:not(.css-loaded) .header,
+            body:not(.css-loaded) .hero,
+            body:not(.css-loaded) .section,
+            body:not(.css-loaded) .footer {
                 opacity: 0;
-                visibility: hidden;
-                transition: opacity 0.5s ease, visibility 0.5s ease;
+                transition: opacity 0.3s ease;
+            }
+            body.css-loaded .header,
+            body.css-loaded .hero,
+            body.css-loaded .section,
+            body.css-loaded .footer {
+                opacity: 1;
             }
         </style>
     </div>
@@ -728,7 +804,35 @@
 
     <!-- Main App Script -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
+        // Esperar a que todos los recursos críticos se carguen
+        function waitForCriticalResources() {
+            return new Promise((resolve) => {
+                // Si ya están cargados los CSS
+                if (document.body.classList.contains('css-loaded')) {
+                    resolve();
+                    return;
+                }
+                
+                // Esperar a que se carguen
+                const checkInterval = setInterval(() => {
+                    if (document.body.classList.contains('css-loaded')) {
+                        clearInterval(checkInterval);
+                        resolve();
+                    }
+                }, 100);
+                
+                // Fallback timeout
+                setTimeout(() => {
+                    clearInterval(checkInterval);
+                    resolve();
+                }, 5000);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Esperar a que los recursos críticos se carguen
+            await waitForCriticalResources();
+            
             // Función para actualizar rutas según el entorno
             function updateAssetPaths() {
                 if (window.assetBasePath && window.assetBasePath === './assets/') {
@@ -760,11 +864,7 @@
             // Actualizar rutas
             updateAssetPaths();
             
-            // Ocultar loading indicator inmediatamente cuando el DOM está listo
-            const loadingIndicator = document.getElementById('loading-indicator');
-            if (loadingIndicator) {
-                loadingIndicator.classList.add('loading-hidden');
-            }
+            console.log('DOM loaded and assets updated');
 
             // Mobile menu toggle
             const mobileToggle = document.querySelector('.mobile-toggle');
