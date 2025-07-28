@@ -12,10 +12,19 @@
     <!-- Open Graph para redes sociales -->
     <meta property="og:title" content="Misión Carismática al Mundo Buga">
     <meta property="og:description" content="Una iglesia comprometida con la palabra de Dios y el servicio a la comunidad">
-    <meta property="og:image" content="/assets/images/Logo MCm.png">
+    <meta property="og:image" content="" id="og-image">
     <meta property="og:url" content="https://mcmbuga.com">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="es_ES">
+    
+    <script>
+        // Configurar Open Graph image con ruta dinámica
+        document.addEventListener('DOMContentLoaded', () => {
+            const ogImage = document.getElementById('og-image');
+            const imagePath = window.assetBasePath ? '/assets/images/Logo MCm.png'.replace('/assets/', window.assetBasePath) : '/assets/images/Logo MCm.png';
+            ogImage.content = window.location.origin + '/' + imagePath.replace('./', '');
+        });
+    </script>
 
     <!-- Security Headers -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -25,16 +34,38 @@
 
     <title>Misión Carismática al Mundo Buga - Iglesia Cristiana en Buga</title>
 
+    <!-- Environment Detection Script -->
+    <script>
+        // Detectar si estamos en file:// protocol (desarrollo local) o servidor web (producción)
+        window.assetBasePath = window.location.protocol === 'file:' ? './assets/' : '/assets/';
+    </script>
+
     <!-- Critical CSS Inline -->
     <style>
-        :root{--primary:#1a3a7a;--primary-dark:#0d1d3a;--secondary:#d4af37;--light:#f8f9fa;--white:#ffffff;--dark:#2c3e50;--text-color:#2c3e50;--spacing-sm:0.75rem;--spacing-md:1rem;--spacing-lg:1.5rem;--header-height:80px;--transition:all 0.3s ease}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Poppins',Arial,sans-serif;line-height:1.6;color:var(--text-color);background-color:var(--light);overflow-x:hidden}.header{background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);color:white;padding:var(--spacing-md) 0;position:sticky;top:0;z-index:1000}.container{max-width:1200px;margin:0 auto;padding:0 var(--spacing-md)}.navbar{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:1rem;height:var(--header-height);padding:0 var(--spacing-sm)}.loading-hidden{opacity:0!important;visibility:hidden!important;transition:opacity .5s ease,visibility 0s .5s!important}.hero{min-height:60vh;background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);color:white;display:flex;align-items:center;position:relative}
+        :root{--primary:#1a3a7a;--primary-dark:#0d1d3a;--secondary:#d4af37;--light:#f8f9fa;--white:#ffffff;--dark:#2c3e50;--text-color:#2c3e50;--spacing-sm:0.75rem;--spacing-md:1rem;--spacing-lg:1.5rem;--header-height:80px;--transition:all 0.3s ease}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Poppins',Arial,sans-serif;line-height:1.6;color:var(--text-color);background-color:var(--light);overflow-x:hidden}.header{background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);color:white;padding:var(--spacing-md) 0;position:sticky;top:0;z-index:1000}.container{max-width:1200px;margin:0 auto;padding:0 var(--spacing-md)}.navbar{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:1rem;height:var(--header-height);padding:0 var(--spacing-sm)}.loading-hidden{opacity:0!important;visibility:hidden!important;transition:opacity .5s ease,visibility 0s .5s!important}.hero{min-height:60vh;background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);color:white;display:flex;align-items: center;position:relative}
     </style>
 
     <!-- Preload critical resources -->
-    <link rel="preload" href="/assets/css/variables.css" as="style">
-    <link rel="preload" href="/assets/css/layout.css" as="style">
-    <link rel="preload" href="/assets/js/utils.js" as="script">
-    <link rel="preload" href="/assets/js/interactivity.js" as="script">
+    <script>
+        // Función para cargar recursos con la ruta correcta según el entorno
+        function loadResource(type, href, attributes = {}) {
+            const element = document.createElement(type);
+            element.href = window.assetBasePath ? href.replace('/assets/', window.assetBasePath) : href;
+            
+            Object.keys(attributes).forEach(key => {
+                element.setAttribute(key, attributes[key]);
+            });
+            
+            document.head.appendChild(element);
+        }
+
+        // Cargar preload resources
+        loadResource('link', '/assets/css/variables.css', { rel: 'preload', as: 'style' });
+        loadResource('link', '/assets/css/layout.css', { rel: 'preload', as: 'style' });
+        loadResource('link', '/assets/js/utils.js', { rel: 'preload', as: 'script' });
+        loadResource('link', '/assets/js/interactivity.js', { rel: 'preload', as: 'script' });
+    </script>
+    
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" as="style">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
 
@@ -42,15 +73,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 
-    <!-- CSS Files -->
-    <link rel="stylesheet" href="/assets/css/variables.css">
-    <link rel="stylesheet" href="/assets/css/components.css">
-    <link rel="stylesheet" href="/assets/css/layout.css">
-    <link rel="stylesheet" href="/assets/css/interactive.css">
-    <link rel="stylesheet" href="/assets/css/navbar-fix.css">
+    <!-- CSS Files with Dynamic Loading -->
+    <script>
+        // Cargar CSS files con la ruta correcta
+        const cssFiles = [
+            '/assets/css/variables.css',
+            '/assets/css/components.css',
+            '/assets/css/layout.css',
+            '/assets/css/interactive.css',
+            '/assets/css/navbar-fix.css'
+        ];
+        
+        cssFiles.forEach(cssFile => {
+            loadResource('link', cssFile, { rel: 'stylesheet' });
+        });
+    </script>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/assets/images/Logo MCm.png">
+    <script>
+        // Cargar favicon con ruta dinámica
+        loadResource('link', '/assets/images/Logo MCm.png', { rel: 'icon', type: 'image/png' });
+    </script>
     
     <!-- PWA Manifest -->
     <link rel="manifest" href="/manifest.json">
@@ -655,9 +698,19 @@
     </button>
 
     <!-- Scripts -->
-    <script src="/assets/js/performance.js" async></script>
-    <script src="/assets/js/utils.js"></script>
-    <script src="/assets/js/interactivity.js"></script>
+    <script>
+        // Cargar scripts con rutas dinámicas
+        function loadScript(src, isAsync = false) {
+            const script = document.createElement('script');
+            script.src = window.assetBasePath ? src.replace('/assets/', window.assetBasePath) : src;
+            if (isAsync) script.async = true;
+            document.head.appendChild(script);
+        }
+        
+        loadScript('/assets/js/performance.js', true);
+        loadScript('/assets/js/utils.js');
+        loadScript('/assets/js/interactivity.js');
+    </script>
     
     <!-- Test Suite (Solo en desarrollo) -->
     <script>
@@ -676,6 +729,37 @@
     <!-- Main App Script -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Función para actualizar rutas según el entorno
+            function updateAssetPaths() {
+                if (window.assetBasePath && window.assetBasePath === './assets/') {
+                    // Solo actualizar si estamos en file:// protocol
+                    const selectors = [
+                        'img[src^="/assets/"]',
+                        'source[src^="/assets/"]',
+                        'source[srcset^="/assets/"]',
+                        'audio source[src^="/assets/"]',
+                        'a[href^="/assets/"]'
+                    ];
+                    
+                    selectors.forEach(selector => {
+                        document.querySelectorAll(selector).forEach(element => {
+                            if (element.src) {
+                                element.src = element.src.replace('/assets/', './assets/');
+                            }
+                            if (element.srcset) {
+                                element.srcset = element.srcset.replace(/\/assets\//g, './assets/');
+                            }
+                            if (element.href) {
+                                element.href = element.href.replace('/assets/', './assets/');
+                            }
+                        });
+                    });
+                }
+            }
+            
+            // Actualizar rutas
+            updateAssetPaths();
+            
             // Ocultar loading indicator inmediatamente cuando el DOM está listo
             const loadingIndicator = document.getElementById('loading-indicator');
             if (loadingIndicator) {
@@ -794,9 +878,10 @@
         });
 
         // Registrar Service Worker para PWA
-        if ('serviceWorker' in navigator) {
+        if ('serviceWorker' in navigator && window.location.protocol !== 'file:') {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js', {
+                const swPath = window.assetBasePath ? './sw.js' : '/sw.js';
+                navigator.serviceWorker.register(swPath, {
                     scope: './'
                 }).then((registration) => {
                     console.log('Service Worker registrado exitosamente:', registration.scope);
