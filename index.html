@@ -12,18 +12,17 @@
     <!-- Open Graph para redes sociales -->
     <meta property="og:title" content="Misión Carismática al Mundo Buga">
     <meta property="og:description" content="Una iglesia comprometida con la palabra de Dios y el servicio a la comunidad">
-    <meta property="og:image" content="" id="og-image">
-    <meta property="og:url" content="https://mcmbuga.com">
+    <meta property="og:image" content="https://mcmbuga.online/assets/images/Logo MCm.png">
+    <meta property="og:url" content="https://mcmbuga.online">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="es_ES">
+    <meta property="og:site_name" content="MCM Buga">
     
-    <script>
-        // Configurar Open Graph image
-        document.addEventListener('DOMContentLoaded', () => {
-            const ogImage = document.getElementById('og-image');
-            ogImage.content = window.location.origin + '/MCM-buga/assets/images/Logo MCm.png';
-        });
-    </script>
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Misión Carismática al Mundo Buga">
+    <meta name="twitter:description" content="Una iglesia comprometida con la palabra de Dios y el servicio a la comunidad">
+    <meta name="twitter:image" content="https://mcmbuga.online/assets/images/Logo MCm.png">
 
     <!-- Security Headers -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -42,11 +41,13 @@
     <link rel="preload" href="assets/js/utils.js" as="script">
     <link rel="preload" href="assets/js/interactivity.js" as="script">
     
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap"></noscript>
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet"></noscript>
 
     <!-- CSS Files -->
     <link rel="stylesheet" href="assets/css/variables.css">
@@ -109,7 +110,25 @@
 
     <!-- Facebook SDK -->
     <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v19.0" data-nonce="auto"></script>
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                xfbml: true,
+                version: 'v19.0'
+            });
+        };
+        
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v19.0";
+            js.onerror = function() {
+                console.warn('Facebook SDK failed to load');
+            };
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
 
     <!-- Header -->
     <header class="header" role="banner">
@@ -248,7 +267,7 @@
                         </div>
                         <div class="card-body">
                             <p>En un mundo turbulento, la verdadera paz se encuentra en la presencia de Cristo, no en la ausencia de problemas.</p>
-                            <audio controls class="audio-player" preload="metadata" onloadstart="console.log('Loading audio:', this.src)" onerror="console.error('Audio load error:', this.src)">
+                            <audio controls class="audio-player" preload="metadata" crossorigin="anonymous">
                                 <source src="assets/audio/La-Paz-de-Cristo-en-la-Tormenta.mp3" type="audio/mpeg">
                                 Tu navegador no soporta el elemento de audio.
                             </audio>
@@ -276,7 +295,7 @@
                         </div>
                         <div class="card-body">
                             <p>Esta prédica se centra en Romanos capítulo 2, versículos 13 y 17, enfatizando que la verdadera justificación ante Dios no proviene de simplemente escuchar la ley, sino de obedecerla y ponerla en práctica.</p>
-                            <audio controls class="audio-player" preload="metadata" onloadstart="console.log('Loading audio:', this.src)" onerror="console.error('Audio load error:', this.src)">
+                            <audio controls class="audio-player" preload="metadata" crossorigin="anonymous">
                                 <source src="assets/audio/Obedience-to-God_s-Word_-Beyond-Hearing-to-Doing.mp3" type="audio/mpeg">
                                 Tu navegador no soporta el elemento de audio.
                             </audio>
@@ -301,7 +320,7 @@
                         </div>
                         <div class="card-body">
                             <p>Este ayuno profundiza en la batalla interna entre las inclinaciones pecaminosas de la "carne" y la guía divina del Espíritu Santo.</p>
-                            <audio controls class="audio-player" preload="metadata" onloadstart="console.log('Loading audio:', this.src)" onerror="console.error('Audio load error:', this.src)">
+                            <audio controls class="audio-player" preload="metadata" crossorigin="anonymous">
                                 <source src="assets/audio/Winning-the-Battle-Against-the-Flesh.mp3" type="audio/mpeg">
                                 Tu navegador no soporta el elemento de audio.
                             </audio>
@@ -326,7 +345,7 @@
                         </div>
                         <div class="card-body">
                             <p>Aprende a como ganar la batalla contra la carne y vivir en el Espíritu.</p>
-                            <audio controls class="audio-player" preload="metadata" onloadstart="console.log('Loading audio:', this.src)" onerror="console.error('Audio load error:', this.src)">
+                            <audio controls class="audio-player" preload="metadata" crossorigin="anonymous">
                                 <source src="assets/audio/Winning-the-Battle-Against-the-Flesh.mp3" type="audio/mpeg">
                                 Tu navegador no soporta el elemento de audio.
                             </audio>
@@ -414,7 +433,7 @@
                     </div>
                     <div class="card-body">
                         <p>Una alabanza que exalta la majestad y el señorío de nuestro Dios. Déjate ministrar por esta hermosa canción.</p>
-                        <audio controls class="audio-player" preload="metadata" onloadstart="console.log('Loading audio:', this.src)" onerror="console.error('Audio load error:', this.src)">
+                        <audio controls class="audio-player" preload="metadata" crossorigin="anonymous">
                             <source src="assets/audio/Alex Osorio Salmista - Aroma a Rey.mp3" type="audio/mpeg">
                             Tu navegador no soporta el elemento de audio.
                         </audio>
@@ -665,6 +684,7 @@
     </button>
 
     <!-- Scripts -->
+    <script src="error-handler.js"></script>
     <script src="assets/js/performance.js" async></script>
     <script src="assets/js/utils.js"></script>
     <script src="assets/js/interactivity.js"></script>
