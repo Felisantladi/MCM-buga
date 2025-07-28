@@ -4,7 +4,7 @@ const url = require('url');
 const fs = require('fs');
 const path = require('path');
 
-const PORT = 8000;
+const PORT = 3000;
 const PUBLIC_DIR = __dirname;
 
 // MIME types

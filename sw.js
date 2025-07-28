@@ -1,10 +1,10 @@
-const CACHE_NAME = 'mcm-buga-v1.4.0';
-const STATIC_CACHE = 'mcm-static-v1.4.0';
-const DYNAMIC_CACHE = 'mcm-dynamic-v1.4.0';
-const AUDIO_CACHE = 'mcm-audio-v1.4.0';
-const IMAGE_CACHE = 'mcm-images-v1.4.0';
+const CACHE_NAME = 'mcm-buga-v1.5.0';
+const STATIC_CACHE = 'mcm-static-v1.5.0';
+const DYNAMIC_CACHE = 'mcm-dynamic-v1.5.0';
+const AUDIO_CACHE = 'mcm-audio-v1.5.0';
+const IMAGE_CACHE = 'mcm-images-v1.5.0';
 
-// Recursos estáticos críticos
+// Recursos estáticos críticos - solo los esenciales
 const STATIC_RESOURCES = [
     '/',
     '/index.html',
@@ -16,7 +16,6 @@ const STATIC_RESOURCES = [
     '/assets/js/utils.js',
     '/assets/js/interactivity.js',
     '/assets/images/Logo MCm.png',
-    '/assets/images/Pastora.jpg',
     '/manifest.json'
 ];
 
