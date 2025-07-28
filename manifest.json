@@ -1,13 +1,46 @@
 {
-  "name": "MCM Buga",
-  "short_name": "MCM",
-  "description": "Misión Carismática al Mundo Buga - Iglesia Cristiana",
-  "start_url": "/",
+  "name": "Misión Carismática al Mundo Buga",
+  "short_name": "MCM Buga",
+  "description": "Iglesia Cristiana comprometida con la palabra de Dios y el servicio a la comunidad",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#1a3a7a",
   "theme_color": "#1a3a7a",
-  "orientation": "portrait-primary",
+  "orientation": "any",
+  "scope": "./",
+  "lang": "es",
+  "dir": "ltr",
   "icons": [
+    {
+      "src": "./assets/images/Logo MCm.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./assets/images/Logo MCm.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./assets/images/Logo MCm.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./assets/images/Logo MCm.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./assets/images/Logo MCm.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any"
+    },
     {
       "src": "./assets/images/Logo MCm.png",
       "sizes": "192x192",
@@ -16,26 +49,52 @@
     },
     {
       "src": "./assets/images/Logo MCm.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./assets/images/Logo MCm.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
     }
   ],
-  "categories": ["religion", "community"],
-  "lang": "es",
-  "scope": "/",
-  "screenshots": [
+  "shortcuts": [
     {
-      "src": "./assets/images/screenshot-mobile.png",
-      "sizes": "360x640",
-      "type": "image/png",
-      "form_factor": "narrow"
+      "name": "Mensajes",
+      "short_name": "Mensajes",
+      "description": "Escucha nuestras predicaciones",
+      "url": "./#messages",
+      "icons": [{"src": "./assets/images/Logo MCm.png", "sizes": "96x96"}]
     },
     {
-      "src": "./assets/images/screenshot-desktop.png",
-      "sizes": "1280x720",
-      "type": "image/png",
-      "form_factor": "wide"
+      "name": "Música",
+      "short_name": "Música",
+      "description": "Disfruta nuestra música de alabanza",
+      "url": "./#music",
+      "icons": [{"src": "./assets/images/Logo MCm.png", "sizes": "96x96"}]
+    },
+    {
+      "name": "Contacto",
+      "short_name": "Contacto",
+      "description": "Ponte en contacto con nosotros",
+      "url": "./#contact",
+      "icons": [{"src": "./assets/images/Logo MCm.png", "sizes": "96x96"}]
     }
-  ]
+  ],
+  "categories": ["religion", "lifestyle", "education"],
+  "related_applications": [
+    {
+      "platform": "web",
+      "url": "https://mcmbuga.com"
+    }
+  ],
+  "prefer_related_applications": false,
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "launch_handler": {
+    "client_mode": "focus-existing"
+  }
 }

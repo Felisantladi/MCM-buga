@@ -38,9 +38,13 @@
     <link rel="stylesheet" href="./assets/css/components.css">
     <link rel="stylesheet" href="./assets/css/layout.css">
     <link rel="stylesheet" href="./assets/css/interactive.css">
+    <link rel="stylesheet" href="./assets/css/navbar-fix.css">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="./assets/images/Logo MCm.png">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="./manifest.json">
 
     <!-- Structured Data for SEO -->
     <script type="application/ld+json">
@@ -85,8 +89,19 @@
         <div class="container">
             <nav class="navbar" role="navigation" aria-label="Navegación principal">
                 <div class="navbar-brand">
-                    <img src="./assets/images/Logo MCm.png" alt="Logo Misión Carismática al Mundo Buga" class="logo-img" onerror="this.onerror=null;this.src='https://placehold.co/60x60/1a3a7a/ffffff?text=MCM';">
-                    <span class="brand-text">MCM Buga</span>
+                    <picture>
+                        <source srcset="./assets/images/Logo MCm.avif" type="image/avif">
+                        <source srcset="./assets/images/Logo MCm.webp" type="image/webp">
+                        <img src="./assets/images/Logo MCm.png" 
+                             alt="Logo Misión Carismática al Mundo Buga" 
+                             class="logo-img" 
+                             loading="eager"
+                             onerror="this.onerror=null;this.src='https://placehold.co/50x50/1a3a7a/ffffff?text=MCM';">
+                    </picture>
+                    <div class="brand-text">
+                        <span>MCM</span>
+                        <span>Buga</span>
+                    </div>
                 </div>
                 <button class="mobile-toggle" aria-label="Abrir menú de navegación" aria-expanded="false">
                     <i class="fas fa-bars" aria-hidden="true"></i>
@@ -96,6 +111,8 @@
                     <li role="none"><a href="#about" role="menuitem">Nosotros</a></li>
                     <li role="none"><a href="#messages" role="menuitem">Mensajes</a></li>
                     <li role="none"><a href="#music" role="menuitem">Música</a></li>
+                    <li role="none"><a href="#live-streaming" role="menuitem">En Vivo</a></li>
+                    <li role="none"><a href="#blog" role="menuitem">Noticias</a></li>
                     <li role="none"><a href="#ministries" role="menuitem">Ministerios</a></li>
                     <li role="none"><a href="#events" role="menuitem">Eventos</a></li>
                     <li role="none"><a href="#gallery" role="menuitem">Galería</a></li>
@@ -163,10 +180,14 @@
                     
                     <div class="about-image reveal animate-delay-1">
                         <div class="pastor-image-container">
-                            <img src="./assets/images/Pastora.jpg" 
-                                 alt="Pastora Mary Penagos - Líder Espiritual de MCM Buga" 
-                                 class="pastor-image"
-                                 loading="lazy">
+                            <picture>
+                                <source srcset="./assets/images/Pastora.avif" type="image/avif">
+                                <source srcset="./assets/images/Pastora.webp" type="image/webp">
+                                <img src="./assets/images/Pastora.jpg" 
+                                     alt="Pastora Mary Penagos - Líder Espiritual de MCM Buga" 
+                                     class="pastor-image"
+                                     loading="lazy">
+                            </picture>
                             <div class="image-decorations">
                                 <div class="decoration decoration-1"></div>
                                 <div class="decoration decoration-2"></div>
@@ -374,6 +395,119 @@
             </div>
         </section>
 
+        <!-- Live Streaming Section -->
+        <section class="section live-streaming" id="live-streaming" aria-labelledby="streaming-title">
+            <div class="container">
+                <h2 id="streaming-title" class="section-title reveal">Transmisiones en Vivo</h2>
+                <p class="section-subtitle reveal">Únete a nuestros cultos y eventos en tiempo real desde cualquier lugar.</p>
+                
+                <div class="streaming-container">
+                    <!-- Estado de transmisión en vivo -->
+                    <div class="live-status" id="liveStatus">
+                        <div class="status-indicator offline" id="statusIndicator">
+                            <i class="fas fa-circle"></i>
+                            <span id="statusText">Transmisión no activa</span>
+                        </div>
+                        <div class="next-stream" id="nextStream">
+                            <i class="fas fa-clock"></i>
+                            <span>Próxima transmisión: <strong>Viernes 7:30 PM</strong></span>
+                        </div>
+                    </div>
+                    
+                    <!-- Reproductor principal -->
+                    <div class="stream-player" id="streamPlayer">
+                        <div class="fb-video" 
+                             data-href="https://www.facebook.com/Iglesiamisioncarismaticaalmundobuga/videos/"
+                             data-width="800"
+                             data-allowfullscreen="true"
+                             data-autoplay="false"
+                             data-show-text="false">
+                        </div>
+                        
+                        <!-- Placeholder cuando no hay transmisión -->
+                        <div class="stream-placeholder" id="streamPlaceholder">
+                            <div class="placeholder-content">
+                                <i class="fas fa-video-slash"></i>
+                                <h3>No hay transmisión activa</h3>
+                                <p>Mientras tanto, puedes ver nuestras transmisiones anteriores o escuchar nuestros mensajes.</p>
+                                <button class="btn btn-primary" onclick="showPreviousStreams()">
+                                    <i class="fas fa-history"></i>
+                                    Ver transmisiones anteriores
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Historial de transmisiones -->
+                    <div class="stream-history" id="streamHistory">
+                        <h3>Transmisiones Anteriores</h3>
+                        <div class="history-grid" id="historyGrid">
+                            <!-- Se carga dinámicamente -->
+                        </div>
+                        
+                        <div class="history-controls">
+                            <button class="btn btn-secondary" id="loadMoreStreams">
+                                <i class="fas fa-plus"></i>
+                                Cargar más transmisiones
+                            </button>
+                            <button class="btn btn-outline" id="viewAllStreams">
+                                <i class="fas fa-external-link-alt"></i>
+                                Ver todas en Facebook
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Información adicional -->
+                    <div class="streaming-info">
+                        <div class="info-card">
+                            <i class="fas fa-calendar-alt"></i>
+                            <div>
+                                <h4>Horarios de Transmisión</h4>
+                                <ul>
+                                    <li>Cultos Viernes: 7:30 PM</li>
+                                    <li>Cultos Domingos: 9:00 AM</li>
+                                    <li>Eventos especiales según programación</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="info-card">
+                            <i class="fas fa-bell"></i>
+                            <div>
+                                <h4>Notificaciones</h4>
+                                <p>Síguenos en Facebook para recibir notificaciones cuando iniciemos transmisiones en vivo.</p>
+                                <a href="https://www.facebook.com/Iglesiamisioncarismaticaalmundobuga" 
+                                   target="_blank" 
+                                   rel="noopener noreferrer" 
+                                   class="btn btn-primary btn-sm">
+                                    <i class="fab fa-facebook-f"></i>
+                                    Seguir en Facebook
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="info-card">
+                            <i class="fas fa-share-alt"></i>
+                            <div>
+                                <h4>Compartir</h4>
+                                <p>Invita a otros a unirse a nuestras transmisiones en vivo.</p>
+                                <div class="share-buttons">
+                                    <button class="share-btn" onclick="shareStream('whatsapp')">
+                                        <i class="fab fa-whatsapp"></i>
+                                    </button>
+                                    <button class="share-btn" onclick="shareStream('facebook')">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </button>
+                                    <button class="share-btn" onclick="shareStream('copy')">
+                                        <i class="fas fa-copy"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- Contact Section -->
         <section class="section contact" id="contact" aria-labelledby="contact-title">
@@ -502,7 +636,26 @@
     <!-- Scripts -->
     <script src="./assets/js/utils.js"></script>
     <script src="./assets/js/security.js"></script>
+    <script src="./assets/js/image-optimization.js"></script>
+    <script src="./assets/js/live-streaming.js"></script>
+    <script src="./assets/js/live-chat.js"></script>
+    <script src="./assets/js/blog-system.js"></script>
+    <script src="./assets/js/analytics.js"></script>
     <script src="./assets/js/interactivity.js"></script>
+    
+    <!-- Test Suite (Solo en desarrollo) -->
+    <script>
+        // Solo cargar tests en desarrollo
+        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+            const testScripts = ['./test-suite.js', './test-specific.js', './diagnostico-imagenes.js'];
+            testScripts.forEach(src => {
+                const script = document.createElement('script');
+                script.src = src;
+                script.onerror = () => console.log('Test script not found:', src);
+                document.head.appendChild(script);
+            });
+        }
+    </script>
 
     <!-- Main App Script -->
     <script>
@@ -629,6 +782,52 @@
                 }
             }
         });
+
+        // Registrar Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js', {
+                    scope: './'
+                }).then((registration) => {
+                    console.log('Service Worker registrado exitosamente:', registration.scope);
+                    
+                    // Manejar actualizaciones del SW
+                    registration.addEventListener('updatefound', () => {
+                        const newWorker = registration.installing;
+                        newWorker.addEventListener('statechange', () => {
+                            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                // Mostrar notificación de actualización disponible
+                                showUpdateNotification();
+                            }
+                        });
+                    });
+                }).catch((error) => {
+                    console.error('Error al registrar Service Worker:', error);
+                });
+            });
+        }
+
+        // Mostrar notificación de actualización
+        function showUpdateNotification() {
+            const notification = document.createElement('div');
+            notification.innerHTML = `
+                <div style="position: fixed; top: 20px; right: 20px; background: var(--primary); color: white; padding: 1rem; border-radius: 8px; box-shadow: var(--shadow-lg); z-index: 9999; max-width: 300px;">
+                    <p style="margin: 0 0 0.5rem 0; font-weight: 600;">Nueva versión disponible</p>
+                    <p style="margin: 0 0 1rem 0; font-size: 0.9rem;">Se ha descargado una nueva versión de la aplicación.</p>
+                    <button onclick="updateApp()" style="background: var(--secondary); color: var(--dark); border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; margin-right: 0.5rem;">Actualizar</button>
+                    <button onclick="this.parentElement.parentElement.remove()" style="background: transparent; color: white; border: 1px solid white; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer;">Después</button>
+                </div>
+            `;
+            document.body.appendChild(notification);
+        }
+
+        // Actualizar aplicación
+        function updateApp() {
+            if (navigator.serviceWorker.controller) {
+                navigator.serviceWorker.controller.postMessage({ type: 'SKIP_WAITING' });
+                window.location.reload();
+            }
+        }
     </script>
 </body>
 </html>

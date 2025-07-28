@@ -1,0 +1,126 @@
+/* Correcciones específicas para el navbar y brand */
+
+/* Asegurar que el navbar-brand tenga el espacio correcto */
+.navbar-brand {
+    min-width: fit-content !important;
+    max-width: 250px; /* Límite máximo */
+    overflow: visible !important;
+}
+
+/* Contenedor flex mejorado */
+.navbar-brand {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    flex-wrap: nowrap !important;
+}
+
+/* Logo optimizado */
+.logo-img {
+    flex-shrink: 0 !important; /* No se encoge nunca */
+    min-width: 35px !important;
+    min-height: 35px !important;
+}
+
+/* Texto del brand optimizado */
+.brand-text {
+    flex-shrink: 1 !important; /* Puede encogerse si es necesario */
+    min-width: 0 !important; /* Permite que funcione text-overflow */
+    max-width: 120px !important; /* Límite máximo */
+}
+
+/* Correcciones para diferentes tamaños de pantalla */
+@media (max-width: 1024px) {
+    .navbar-brand {
+        padding: 8px 15px 8px 6px !important;
+        gap: 0.5rem !important;
+    }
+    
+    .brand-text {
+        font-size: 1.1rem !important;
+        max-width: 100px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        grid-template-columns: auto 1fr auto !important;
+        padding: 0 0.5rem !important;
+    }
+    
+    .navbar-brand {
+        padding: 6px 12px 6px 4px !important;
+        gap: 0.4rem !important;
+        max-width: 180px !important;
+    }
+    
+    .logo-img {
+        width: 38px !important;
+        height: 38px !important;
+    }
+    
+    .brand-text {
+        font-size: 1rem !important;
+        max-width: 90px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 0 0.25rem !important;
+        gap: 0.25rem !important;
+    }
+    
+    .navbar-brand {
+        padding: 5px 10px 5px 3px !important;
+        gap: 0.3rem !important;
+        max-width: 140px !important;
+        border-radius: 20px !important;
+    }
+    
+    .logo-img {
+        width: 32px !important;
+        height: 32px !important;
+    }
+    
+    .brand-text {
+        font-size: 0.85rem !important;
+        max-width: 70px !important;
+        line-height: 1 !important;
+    }
+}
+
+/* Corrección para pantallas muy pequeñas */
+@media (max-width: 360px) {
+    .navbar-brand {
+        max-width: 120px !important;
+        padding: 4px 8px 4px 2px !important;
+    }
+    
+    .brand-text {
+        font-size: 0.8rem !important;
+        max-width: 60px !important;
+    }
+    
+    .logo-img {
+        width: 28px !important;
+        height: 28px !important;
+    }
+}
+
+/* Asegurar que el efecto glass no interfiera */
+.navbar-brand {
+    position: relative !important;
+    z-index: 10 !important;
+}
+
+.navbar-brand::before {
+    content: none !important; /* Remover cualquier pseudo-elemento que pueda interferir */
+}
+
+/* Mejorar la legibilidad del texto */
+.brand-text {
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8) !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
