@@ -27,7 +27,7 @@
 
     <!-- Critical CSS Inline -->
     <style>
-        :root{--primary:#1a3a7a;--primary-dark:#0d1d3a;--secondary:#d4af37;--light:#f8f9fa;--white:#ffffff;--dark:#2c3e50;--text-color:#2c3e50;--spacing-sm:0.75rem;--spacing-md:1rem;--spacing-lg:1.5rem;--header-height:80px;--transition:all 0.3s ease}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Poppins',Arial,sans-serif;line-height:1.6;color:var(--text-color);background-color:var(--light);overflow-x:hidden}.header{background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);color:white;padding:var(--spacing-md) 0;position:sticky;top:0;z-index:1000}.container{max-width:1200px;margin:0 auto;padding:0 var(--spacing-md)}.navbar{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:1rem;height:var(--header-height);padding:0 var(--spacing-sm)}.loading-hidden{opacity:0!important;visibility:hidden!important;transition:opacity 0.5s ease,visibility 0.5s ease!important}.hero{min-height:60vh;background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);color:white;display:flex;align-items:center;position:relative}
+        :root{--primary:#1a3a7a;--primary-dark:#0d1d3a;--secondary:#d4af37;--light:#f8f9fa;--white:#ffffff;--dark:#2c3e50;--text-color:#2c3e50;--spacing-sm:0.75rem;--spacing-md:1rem;--spacing-lg:1.5rem;--header-height:80px;--transition:all 0.3s ease}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Poppins',Arial,sans-serif;line-height:1.6;color:var(--text-color);background-color:var(--light);overflow-x:hidden}.header{background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);color:white;padding:var(--spacing-md) 0;position:sticky;top:0;z-index:1000}.container{max-width:1200px;margin:0 auto;padding:0 var(--spacing-md)}.navbar{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:1rem;height:var(--header-height);padding:0 var(--spacing-sm)}.loading-hidden{opacity:0!important;visibility:hidden!important;transition:opacity .5s ease,visibility 0s .5s!important}.hero{min-height:60vh;background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);color:white;display:flex;align-items:center;position:relative}
     </style>
 
     <!-- Preload critical resources -->
@@ -98,12 +98,6 @@
     </div>
     <!-- Skip to main content for accessibility -->
     <a href="#main-content" class="sr-only">Saltar al contenido principal</a>
-
-    <!-- Loading indicator -->
-    <div id="loading-indicator" class="loading-overlay">
-        <div class="spinner"></div>
-        <p class="loading-text">Cargando...</p>
-    </div>
 
     <!-- Facebook SDK -->
     <div id="fb-root"></div>
@@ -248,7 +242,7 @@
                                 <source src="./assets/audio/La-Paz-de-Cristo-en-la-Tormenta.mp3" type="audio/mpeg">
                                 Tu navegador no soporta el elemento de audio.
                             </audio>
-                            <button class="btn btn-secondary btn-sm toggle-details" onclick="toggleDetails(this)">Leer mensaje completo</button>
+                            <button class="btn btn-secondary btn-sm toggle-details">Leer mensaje completo</button>
                             <div class="details" style="display: none;">
                                 <h4>Resumen</h4>
                                 <p>En un mundo turbulento, la verdadera paz se encuentra en la presencia de Cristo, no en la ausencia de problemas. Esta prédica explora cómo la justificación por fe, la promesa del Espíritu Santo y el perfeccionamiento divino nos otorgan una paz inquebrantable. Aprende a declarar tu fe, a vivir en obediencia y a vencer el mal con el bien, cultivando una relación profunda con Jesús para experimentar una paz que transforma tu vida y tus relaciones.</p>
@@ -276,7 +270,7 @@
                                 <source src="./assets/audio/Obedience-to-God_s-Word_-Beyond-Hearing-to-Doing.mp3" type="audio/mpeg">
                                 Tu navegador no soporta el elemento de audio.
                             </audio>
-                            <button class="btn btn-secondary btn-sm toggle-details" onclick="toggleDetails(this)">Leer mensaje completo</button>
+                            <button class="btn btn-secondary btn-sm toggle-details">Leer mensaje completo</button>
                             <div class="details" style="display: none;">
                                 <h4>Resumen</h4>
                                 <p>La Pastora Mary Penagos confronta la hipocresía de aquellos que conocen la Palabra pero no la viven, y exhorta a la congregación a una obediencia genuina y a una vida transformada por el Espíritu Santo.</p>
@@ -301,7 +295,7 @@
                                 <source src="./assets/audio/Winning-the-Battle-Against-the-Flesh.mp3" type="audio/mpeg">
                                 Tu navegador no soporta el elemento de audio.
                             </audio>
-                            <button class="btn btn-secondary btn-sm toggle-details" onclick="toggleDetails(this)">Leer mensaje completo</button>
+                            <button class="btn btn-secondary btn-sm toggle-details">Leer mensaje completo</button>
                             <div class="details" style="display: none;">
                                 <h4>Resumen</h4>
                                 <p>Se enfatiza la necesidad de someter el alma a la voluntad de Dios para heredar el Reino de los Cielos. El mensaje explora la naturaleza engañosa de la carne, la victoria a través del Espíritu Santo, la superioridad de la Gracia sobre la Ley, y la importancia vital de la Palabra, la oración y el arrepentimiento diario para vivir en obediencia y compartir el Evangelio.</p>
@@ -326,7 +320,7 @@
                                 <source src="./assets/audio/Winning-the-Battle-Against-the-Flesh.mp3" type="audio/mpeg">
                                 Tu navegador no soporta el elemento de audio.
                             </audio>
-                            <button class="btn btn-secondary btn-sm toggle-details" onclick="toggleDetails(this)">Ver más</button>
+                            <button class="btn btn-secondary btn-sm toggle-details">Ver más</button>
                             <div class="details" style="display: none;">
                                 <p>Este episodio ofrece estrategias bíblicas para vencer las luchas internas y vivir una vida guiada por el Espíritu Santo. Aprende cómo aplicar estas enseñanzas en tu vida diaria.</p>
                             </div>
@@ -344,7 +338,6 @@
                         <div class="card-body">
                             <p>Un profundo estudio devocional del libro de Génesis, explorando los fundamentos de la creación, la caída del hombre y las promesas de Dios desde el principio.</p>
                             <button class="btn btn-secondary btn-sm toggle-details" 
-                                    onclick="toggleDetails(this)" 
                                     aria-expanded="false" 
                                     aria-controls="details-genesis"
                                     type="button">
@@ -687,7 +680,6 @@
             const loadingIndicator = document.getElementById('loading-indicator');
             if (loadingIndicator) {
                 loadingIndicator.classList.add('loading-hidden');
-                setTimeout(() => loadingIndicator.remove(), 500);
             }
 
             // Mobile menu toggle
@@ -741,27 +733,22 @@
 
             // Función mejorada para manejar eventos
             document.querySelectorAll('.toggle-details').forEach((button, index) => {
-                // Asignar IDs únicos si no existen
                 const detailsElement = button.closest('.card-body, .culto-item').querySelector('.details');
                 if (detailsElement && !detailsElement.id) {
                     detailsElement.id = `details-${index + 1}`;
                     button.setAttribute('aria-controls', detailsElement.id);
                 }
                 
-                // Configurar atributos iniciales de accesibilidad
                 button.setAttribute('aria-expanded', 'false');
-                button.setAttribute('type', 'button');
                 if (detailsElement) {
                     detailsElement.setAttribute('aria-hidden', 'true');
                 }
                 
-                // Event listener para click
                 button.addEventListener('click', (e) => {
                     e.preventDefault();
                     toggleDetails(button);
                 });
                 
-                // Event listener para teclado
                 button.addEventListener('keydown', (e) => {
                     if (e.key === 'Enter' || e.key === ' ') {
                         e.preventDefault();
