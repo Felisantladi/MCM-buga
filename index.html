@@ -18,11 +18,10 @@
     <meta property="og:locale" content="es_ES">
     
     <script>
-        // Configurar Open Graph image con ruta dinámica
+        // Configurar Open Graph image
         document.addEventListener('DOMContentLoaded', () => {
             const ogImage = document.getElementById('og-image');
-            const imagePath = window.assetBasePath ? '/assets/images/Logo MCm.png'.replace('/assets/', window.assetBasePath) : '/assets/images/Logo MCm.png';
-            ogImage.content = window.location.origin + '/' + imagePath.replace('./', '');
+            ogImage.content = window.location.origin + '/MCM-buga/assets/images/Logo MCm.png';
         });
     </script>
 
@@ -34,37 +33,16 @@
 
     <title>Misión Carismática al Mundo Buga - Iglesia Cristiana en Buga</title>
 
-    <!-- Environment Detection Script -->
-    <script>
-        // Detectar si estamos en file:// protocol (desarrollo local) o servidor web (producción)
-        window.assetBasePath = window.location.protocol === 'file:' ? './assets/' : '/assets/';
-    </script>
-
     <!-- Critical CSS Inline -->
     <style>
         :root{--primary:#1a3a7a;--primary-dark:#0d1d3a;--secondary:#d4af37;--light:#f8f9fa;--white:#ffffff;--dark:#2c3e50;--text-color:#2c3e50;--spacing-sm:0.75rem;--spacing-md:1rem;--spacing-lg:1.5rem;--header-height:80px;--transition:all 0.3s ease}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Poppins',Arial,sans-serif;line-height:1.6;color:var(--text-color);background-color:var(--light);overflow-x:hidden}.header{background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);color:white;padding:var(--spacing-md) 0;position:sticky;top:0;z-index:1000}.container{max-width:1200px;margin:0 auto;padding:0 var(--spacing-md)}.navbar{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:1rem;height:var(--header-height);padding:0 var(--spacing-sm)}.loading-hidden{opacity:0!important;visibility:hidden!important;transition:opacity .5s ease,visibility 0s .5s!important}.hero{min-height:60vh;background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);color:white;display:flex;align-items: center;position:relative}
     </style>
 
     <!-- Preload critical resources -->
-    <script>
-        // Función para cargar recursos con la ruta correcta según el entorno
-        function loadResource(type, href, attributes = {}) {
-            const element = document.createElement(type);
-            element.href = window.assetBasePath ? href.replace('/assets/', window.assetBasePath) : href;
-            
-            Object.keys(attributes).forEach(key => {
-                element.setAttribute(key, attributes[key]);
-            });
-            
-            document.head.appendChild(element);
-        }
-
-        // Cargar preload resources
-        loadResource('link', '/assets/css/variables.css', { rel: 'preload', as: 'style' });
-        loadResource('link', '/assets/css/layout.css', { rel: 'preload', as: 'style' });
-        loadResource('link', '/assets/js/utils.js', { rel: 'preload', as: 'script' });
-        loadResource('link', '/assets/js/interactivity.js', { rel: 'preload', as: 'script' });
-    </script>
+    <link rel="preload" href="assets/css/variables.css" as="style">
+    <link rel="preload" href="assets/css/layout.css" as="style">
+    <link rel="preload" href="assets/js/utils.js" as="script">
+    <link rel="preload" href="assets/js/interactivity.js" as="script">
     
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" as="style">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
@@ -73,91 +51,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 
-    <!-- CSS Files with Dynamic Loading -->
-    <script>
-        // Función mejorada para cargar CSS con callback
-        function loadResourceWithCallback(type, href, attributes = {}, callback) {
-            const element = document.createElement(type);
-            element.href = window.assetBasePath ? href.replace('/assets/', window.assetBasePath) : href;
-            
-            Object.keys(attributes).forEach(key => {
-                element.setAttribute(key, attributes[key]);
-            });
-            
-            if (callback) {
-                element.addEventListener('load', callback);
-                element.addEventListener('error', callback);
-            }
-            
-            document.head.appendChild(element);
-            return element;
-        }
-
-        // Cargar CSS files con la ruta correcta y callbacks
-        const cssFiles = [
-            '/assets/css/variables.css',
-            '/assets/css/components.css',
-            '/assets/css/layout.css',
-            '/assets/css/interactive.css',
-            '/assets/css/navbar-fix.css'
-        ];
-        
-        let cssLoadedCount = 0;
-        const totalCSS = cssFiles.length;
-        
-        function onCSSLoad() {
-            cssLoadedCount++;
-            console.log(`CSS loaded: ${cssLoadedCount}/${totalCSS}`);
-            
-            // Actualizar el estado de carga
-            const loadingStatus = document.getElementById('loading-status');
-            if (loadingStatus) {
-                loadingStatus.textContent = `Cargando estilos... ${cssLoadedCount}/${totalCSS}`;
-            }
-            
-            if (cssLoadedCount === totalCSS) {
-                console.log('All CSS files loaded successfully');
-                document.body.classList.add('css-loaded');
-                
-                if (loadingStatus) {
-                    loadingStatus.textContent = 'Finalizando carga...';
-                }
-                
-                // Pequeño delay antes de ocultar el loading
-                setTimeout(() => {
-                    const loadingIndicator = document.getElementById('loading-indicator');
-                    if (loadingIndicator) {
-                        loadingIndicator.classList.add('loading-hidden');
-                    }
-                }, 300);
-            }
-        }
-        
-        cssFiles.forEach(cssFile => {
-            loadResourceWithCallback('link', cssFile, { rel: 'stylesheet' }, onCSSLoad);
-        });
-        
-        // Timeout de seguridad en caso de que algunos CSS no se carguen
-        setTimeout(() => {
-            if (!document.body.classList.contains('css-loaded')) {
-                console.warn('CSS loading timeout - forcing page display');
-                document.body.classList.add('css-loaded');
-                const loadingIndicator = document.getElementById('loading-indicator');
-                if (loadingIndicator) {
-                    loadingIndicator.classList.add('loading-hidden');
-                }
-            }
-        }, 8000);
-    </script>
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/interactive.css">
+    <link rel="stylesheet" href="assets/css/navbar-fix.css">
 
     <!-- Favicon -->
-    <script>
-        // Cargar favicon con ruta dinámica
-        loadResource('link', '/assets/images/Logo MCm.png', { rel: 'icon', type: 'image/png' });
-    </script>
+    <link rel="icon" type="image/png" href="assets/images/Logo MCm.png">
     
     <!-- PWA Manifest -->
-    <link rel="manifest" href="/manifest.json">
+    <link rel="manifest" href="manifest.json">
 
     <!-- Structured Data for SEO -->
     <script type="application/ld+json">
@@ -188,7 +93,7 @@
     <div id="loading-indicator" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #1a3a7a 0%, #0d1d3a 100%); z-index: 9999; display: flex; justify-content: center; align-items: center; flex-direction: column; color: white; font-family: 'Poppins', sans-serif; opacity: 1; visibility: visible;">
         <div style="width: 50px; height: 50px; border: 3px solid rgba(255,255,255,0.3); border-top: 3px solid #d4af37; border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 20px;"></div>
         <p style="font-size: 1.2rem; margin: 0;">Cargando MCM Buga...</p>
-        <p id="loading-status" style="font-size: 0.9rem; margin: 10px 0 0 0; opacity: 0.8;">Preparando recursos...</p>
+        <p id="loading-status" style="font-size: 0.9rem; margin: 10px 0 0 0; opacity: 0.8;">Preparando contenido...</p>
         <style>
             @keyframes spin {
                 0% { transform: rotate(0deg); }
@@ -199,19 +104,6 @@
                 visibility: hidden !important;
                 transition: opacity 0.8s ease, visibility 0.8s ease !important;
                 pointer-events: none;
-            }
-            body:not(.css-loaded) .header,
-            body:not(.css-loaded) .hero,
-            body:not(.css-loaded) .section,
-            body:not(.css-loaded) .footer {
-                opacity: 0;
-                transition: opacity 0.3s ease;
-            }
-            body.css-loaded .header,
-            body.css-loaded .hero,
-            body.css-loaded .section,
-            body.css-loaded .footer {
-                opacity: 1;
             }
         </style>
     </div>
@@ -228,9 +120,9 @@
             <nav class="navbar" role="navigation" aria-label="Navegación principal">
                 <div class="navbar-brand">
                     <picture>
-                        <source srcset="/assets/images/Logo MCm.avif" type="image/avif">
-                        <source srcset="/assets/images/Logo MCm.webp" type="image/webp">
-                        <img src="/assets/images/Logo MCm.png" 
+                        <source srcset="assets/images/Logo MCm.avif" type="image/avif">
+                        <source srcset="assets/images/Logo MCm.webp" type="image/webp">
+                        <img src="assets/images/Logo MCm.png" 
                              alt="Logo Misión Carismática al Mundo Buga" 
                              class="logo-img" 
                              loading="eager"
@@ -319,9 +211,9 @@
                     <div class="about-image reveal animate-delay-1">
                         <div class="pastor-image-container">
                             <picture>
-                                <source srcset="/assets/images/Pastora.avif" type="image/avif">
-                                <source srcset="/assets/images/Pastora.webp" type="image/webp">
-                                <img src="/assets/images/Pastora.jpg" 
+                                <source srcset="assets/images/Pastora.avif" type="image/avif">
+                                <source srcset="assets/images/Pastora.webp" type="image/webp">
+                                <img src="assets/images/Pastora.jpg" 
                                      alt="Pastora Mary Penagos - Líder Espiritual de MCM Buga" 
                                      class="pastor-image"
                                      width="400"
@@ -357,8 +249,8 @@
                         </div>
                         <div class="card-body">
                             <p>En un mundo turbulento, la verdadera paz se encuentra en la presencia de Cristo, no en la ausencia de problemas.</p>
-                            <audio controls class="audio-player" preload="metadata">
-                                <source src="/assets/audio/La-Paz-de-Cristo-en-la-Tormenta.mp3" type="audio/mpeg">
+                            <audio controls class="audio-player" preload="metadata" onloadstart="console.log('Loading audio:', this.src)" onerror="console.error('Audio load error:', this.src)">
+                                <source src="assets/audio/La-Paz-de-Cristo-en-la-Tormenta.mp3" type="audio/mpeg">
                                 Tu navegador no soporta el elemento de audio.
                             </audio>
                             <button class="btn btn-secondary btn-sm toggle-details">Leer mensaje completo</button>
@@ -385,8 +277,8 @@
                         </div>
                         <div class="card-body">
                             <p>Esta prédica se centra en Romanos capítulo 2, versículos 13 y 17, enfatizando que la verdadera justificación ante Dios no proviene de simplemente escuchar la ley, sino de obedecerla y ponerla en práctica.</p>
-                            <audio controls class="audio-player" preload="metadata">
-                                <source src="/assets/audio/Obedience-to-God_s-Word_-Beyond-Hearing-to-Doing.mp3" type="audio/mpeg">
+                            <audio controls class="audio-player" preload="metadata" onloadstart="console.log('Loading audio:', this.src)" onerror="console.error('Audio load error:', this.src)">
+                                <source src="assets/audio/Obedience-to-God_s-Word_-Beyond-Hearing-to-Doing.mp3" type="audio/mpeg">
                                 Tu navegador no soporta el elemento de audio.
                             </audio>
                             <button class="btn btn-secondary btn-sm toggle-details">Leer mensaje completo</button>
@@ -410,8 +302,8 @@
                         </div>
                         <div class="card-body">
                             <p>Este ayuno profundiza en la batalla interna entre las inclinaciones pecaminosas de la "carne" y la guía divina del Espíritu Santo.</p>
-                            <audio controls class="audio-player" preload="metadata">
-                                <source src="/assets/audio/Winning-the-Battle-Against-the-Flesh.mp3" type="audio/mpeg">
+                            <audio controls class="audio-player" preload="metadata" onloadstart="console.log('Loading audio:', this.src)" onerror="console.error('Audio load error:', this.src)">
+                                <source src="assets/audio/Winning-the-Battle-Against-the-Flesh.mp3" type="audio/mpeg">
                                 Tu navegador no soporta el elemento de audio.
                             </audio>
                             <button class="btn btn-secondary btn-sm toggle-details">Leer mensaje completo</button>
@@ -435,15 +327,15 @@
                         </div>
                         <div class="card-body">
                             <p>Aprende a como ganar la batalla contra la carne y vivir en el Espíritu.</p>
-                            <audio controls class="audio-player" preload="metadata">
-                                <source src="/assets/audio/Winning-the-Battle-Against-the-Flesh.mp3" type="audio/mpeg">
+                            <audio controls class="audio-player" preload="metadata" onloadstart="console.log('Loading audio:', this.src)" onerror="console.error('Audio load error:', this.src)">
+                                <source src="assets/audio/Winning-the-Battle-Against-the-Flesh.mp3" type="audio/mpeg">
                                 Tu navegador no soporta el elemento de audio.
                             </audio>
                             <button class="btn btn-secondary btn-sm toggle-details">Ver más</button>
                             <div class="details" style="display: none;">
                                 <p>Este episodio ofrece estrategias bíblicas para vencer las luchas internas y vivir una vida guiada por el Espíritu Santo. Aprende cómo aplicar estas enseñanzas en tu vida diaria.</p>
                             </div>
-                            <a href="/assets/audio/Winning-the-Battle-Against-the-Flesh.mp3" download="Ganando_la_Batalla.mp3" class="btn btn-secondary btn-sm">
+                            <a href="assets/audio/Winning-the-Battle-Against-the-Flesh.mp3" download="Ganando_la_Batalla.mp3" class="btn btn-secondary btn-sm">
                                 <i class="fas fa-download" aria-hidden="true"></i> Descargar
                             </a>
                         </div>
@@ -523,11 +415,11 @@
                     </div>
                     <div class="card-body">
                         <p>Una alabanza que exalta la majestad y el señorío de nuestro Dios. Déjate ministrar por esta hermosa canción.</p>
-                        <audio controls class="audio-player" preload="metadata">
-                            <source src="/assets/audio/Alex Osorio Salmista - Aroma a Rey.mp3" type="audio/mpeg">
+                        <audio controls class="audio-player" preload="metadata" onloadstart="console.log('Loading audio:', this.src)" onerror="console.error('Audio load error:', this.src)">
+                            <source src="assets/audio/Alex Osorio Salmista - Aroma a Rey.mp3" type="audio/mpeg">
                             Tu navegador no soporta el elemento de audio.
                         </audio>
-                        <a href="/assets/audio/Alex Osorio Salmista - Aroma a Rey.mp3" download="Aroma_a_Rey_Alex_Osorio.mp3" class="btn btn-primary">
+                        <a href="assets/audio/Alex Osorio Salmista - Aroma a Rey.mp3" download="Aroma_a_Rey_Alex_Osorio.mp3" class="btn btn-primary">
                             <i class="fas fa-download" aria-hidden="true"></i> Descargar Alabanza
                         </a>
                     </div>
@@ -774,19 +666,9 @@
     </button>
 
     <!-- Scripts -->
-    <script>
-        // Cargar scripts con rutas dinámicas
-        function loadScript(src, isAsync = false) {
-            const script = document.createElement('script');
-            script.src = window.assetBasePath ? src.replace('/assets/', window.assetBasePath) : src;
-            if (isAsync) script.async = true;
-            document.head.appendChild(script);
-        }
-        
-        loadScript('/assets/js/performance.js', true);
-        loadScript('/assets/js/utils.js');
-        loadScript('/assets/js/interactivity.js');
-    </script>
+    <script src="assets/js/performance.js" async></script>
+    <script src="assets/js/utils.js"></script>
+    <script src="assets/js/interactivity.js"></script>
     
     <!-- Test Suite (Solo en desarrollo) -->
     <script>
@@ -800,71 +682,26 @@
                 document.head.appendChild(script);
             });
         }
+        
+        // Cargar diagnóstico de audio en producción para debugging
+        if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+            const audioScript = document.createElement('script');
+            audioScript.src = './audio-diagnostic.js';
+            audioScript.onerror = () => console.log('Audio diagnostic not found');
+            document.head.appendChild(audioScript);
+        }
     </script>
 
     <!-- Main App Script -->
     <script>
-        // Esperar a que todos los recursos críticos se carguen
-        function waitForCriticalResources() {
-            return new Promise((resolve) => {
-                // Si ya están cargados los CSS
-                if (document.body.classList.contains('css-loaded')) {
-                    resolve();
-                    return;
+        document.addEventListener('DOMContentLoaded', () => {
+            // Ocultar loading indicator
+            setTimeout(() => {
+                const loadingIndicator = document.getElementById('loading-indicator');
+                if (loadingIndicator) {
+                    loadingIndicator.classList.add('loading-hidden');
                 }
-                
-                // Esperar a que se carguen
-                const checkInterval = setInterval(() => {
-                    if (document.body.classList.contains('css-loaded')) {
-                        clearInterval(checkInterval);
-                        resolve();
-                    }
-                }, 100);
-                
-                // Fallback timeout
-                setTimeout(() => {
-                    clearInterval(checkInterval);
-                    resolve();
-                }, 5000);
-            });
-        }
-
-        document.addEventListener('DOMContentLoaded', async () => {
-            // Esperar a que los recursos críticos se carguen
-            await waitForCriticalResources();
-            
-            // Función para actualizar rutas según el entorno
-            function updateAssetPaths() {
-                if (window.assetBasePath && window.assetBasePath === './assets/') {
-                    // Solo actualizar si estamos en file:// protocol
-                    const selectors = [
-                        'img[src^="/assets/"]',
-                        'source[src^="/assets/"]',
-                        'source[srcset^="/assets/"]',
-                        'audio source[src^="/assets/"]',
-                        'a[href^="/assets/"]'
-                    ];
-                    
-                    selectors.forEach(selector => {
-                        document.querySelectorAll(selector).forEach(element => {
-                            if (element.src) {
-                                element.src = element.src.replace('/assets/', './assets/');
-                            }
-                            if (element.srcset) {
-                                element.srcset = element.srcset.replace(/\/assets\//g, './assets/');
-                            }
-                            if (element.href) {
-                                element.href = element.href.replace('/assets/', './assets/');
-                            }
-                        });
-                    });
-                }
-            }
-            
-            // Actualizar rutas
-            updateAssetPaths();
-            
-            console.log('DOM loaded and assets updated');
+            }, 1000);
 
             // Mobile menu toggle
             const mobileToggle = document.querySelector('.mobile-toggle');
@@ -915,7 +752,7 @@
                 setupThemeToggle();
             }
 
-            // Función mejorada para manejar eventos
+            // Toggle details functionality
             document.querySelectorAll('.toggle-details').forEach((button, index) => {
                 const detailsElement = button.closest('.card-body, .culto-item').querySelector('.details');
                 if (detailsElement && !detailsElement.id) {
@@ -980,8 +817,7 @@
         // Registrar Service Worker para PWA
         if ('serviceWorker' in navigator && window.location.protocol !== 'file:') {
             window.addEventListener('load', () => {
-                const swPath = window.assetBasePath ? './sw.js' : '/sw.js';
-                navigator.serviceWorker.register(swPath, {
+                navigator.serviceWorker.register('./sw.js', {
                     scope: './'
                 }).then((registration) => {
                     console.log('Service Worker registrado exitosamente:', registration.scope);

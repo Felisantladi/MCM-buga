@@ -6,23 +6,23 @@ const IMAGE_CACHE = 'mcm-images-v1.5.0';
 
 // Recursos estáticos críticos - solo los esenciales
 const STATIC_RESOURCES = [
-    '/',
-    '/index.html',
-    '/assets/css/variables.css',
-    '/assets/css/components.css',
-    '/assets/css/layout.css',
-    '/assets/css/interactive.css',
-    '/assets/css/navbar-fix.css',
-    '/assets/js/utils.js',
-    '/assets/js/interactivity.js',
-    '/assets/images/Logo MCm.png',
-    '/manifest.json'
+    './',
+    './index.html',
+    './assets/css/variables.css',
+    './assets/css/components.css',
+    './assets/css/layout.css',
+    './assets/css/interactive.css',
+    './assets/css/navbar-fix.css',
+    './assets/js/utils.js',
+    './assets/js/interactivity.js',
+    './assets/images/Logo MCm.png',
+    './manifest.json'
 ];
 
 // Recursos que se cachean dinámicamente
 const DYNAMIC_RESOURCES = [
-    '/assets/audio/',
-    '/assets/images/',
+    './assets/audio/',
+    './assets/images/',
     'https://fonts.googleapis.com/',
     'https://cdnjs.cloudflare.com/'
 ];

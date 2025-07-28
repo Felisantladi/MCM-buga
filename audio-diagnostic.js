@@ -1,0 +1,93 @@
+// Diagnóstico de archivos de audio
+console.log('🎵 Iniciando diagnóstico de audio MCM Buga...');
+
+// Lista de archivos de audio esperados
+const audioFiles = [
+    'assets/audio/La-Paz-de-Cristo-en-la-Tormenta.mp3',
+    'assets/audio/Obedience-to-God_s-Word_-Beyond-Hearing-to-Doing.mp3',
+    'assets/audio/Winning-the-Battle-Against-the-Flesh.mp3',
+    'assets/audio/Alex Osorio Salmista - Aroma a Rey.mp3',
+    'assets/audio/Redención-y-Renovación-en-Cristo.mp3'
+];
+
+// Función para probar carga de audio
+function testAudioFile(src) {
+    return new Promise((resolve, reject) => {
+        const audio = new Audio();
+        const timeout = setTimeout(() => {
+            reject(new Error(`Timeout loading ${src}`));
+        }, 10000); // 10 segundos timeout
+
+        audio.onloadeddata = () => {
+            clearTimeout(timeout);
+            resolve({
+                src: src,
+                duration: audio.duration,
+                status: 'success'
+            });
+        };
+
+        audio.onerror = (e) => {
+            clearTimeout(timeout);
+            reject({
+                src: src,
+                error: e,
+                status: 'error'
+            });
+        };
+
+        audio.src = src;
+    });
+}
+
+// Ejecutar diagnóstico
+async function runAudioDiagnostic() {
+    console.log('🔍 Probando carga de archivos de audio...');
+    
+    for (const audioFile of audioFiles) {
+        try {
+            const result = await testAudioFile(audioFile);
+            console.log(`✅ ${result.src} - Duración: ${Math.round(result.duration)}s`);
+        } catch (error) {
+            console.error(`❌ ${error.src || audioFile} - Error:`, error.error || error.message);
+            
+            // Información adicional de debugging
+            fetch(audioFile, { method: 'HEAD' })
+                .then(response => {
+                    console.log(`📊 ${audioFile} - Status: ${response.status}, Size: ${response.headers.get('content-length')} bytes`);
+                })
+                .catch(fetchError => {
+                    console.error(`🌐 ${audioFile} - Fetch error:`, fetchError);
+                });
+        }
+    }
+}
+
+// Función para verificar el entorno
+function checkEnvironment() {
+    console.log('🌍 Información del entorno:');
+    console.log('- URL:', window.location.href);
+    console.log('- Protocol:', window.location.protocol);
+    console.log('- Host:', window.location.host);
+    console.log('- User Agent:', navigator.userAgent);
+    console.log('- Audio support:', {
+        mp3: Audio.prototype.canPlayType('audio/mpeg'),
+        wav: Audio.prototype.canPlayType('audio/wav'),
+        ogg: Audio.prototype.canPlayType('audio/ogg')
+    });
+}
+
+// Ejecutar diagnóstico cuando se carga la página
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(() => {
+            checkEnvironment();
+            runAudioDiagnostic();
+        }, 2000);
+    });
+} else {
+    setTimeout(() => {
+        checkEnvironment();
+        runAudioDiagnostic();
+    }, 2000);
+}
