@@ -16,7 +16,7 @@ function testAudioFile(src) {
         const audio = new Audio();
         const timeout = setTimeout(() => {
             reject(new Error(`Timeout loading ${src}`));
-        }, 10000); // 10 segundos timeout
+        }, 15000); // 15 segundos timeout
 
         audio.onloadeddata = () => {
             clearTimeout(timeout);
@@ -36,7 +36,10 @@ function testAudioFile(src) {
             });
         };
 
-        audio.src = src;
+        // Intentar cargar con headers específicos para evitar problemas de cache
+        const url = new URL(src, window.location.origin);
+        url.searchParams.set('t', Date.now()); // Cache busting
+        audio.src = url.toString();
     });
 }
 
@@ -70,11 +73,19 @@ function checkEnvironment() {
     console.log('- Protocol:', window.location.protocol);
     console.log('- Host:', window.location.host);
     console.log('- User Agent:', navigator.userAgent);
-    console.log('- Audio support:', {
-        mp3: Audio.prototype.canPlayType('audio/mpeg'),
-        wav: Audio.prototype.canPlayType('audio/wav'),
-        ogg: Audio.prototype.canPlayType('audio/ogg')
-    });
+    
+    // Verificar soporte de audio de forma segura
+    const audioSupport = {};
+    try {
+        const audio = new Audio();
+        audioSupport.mp3 = audio.canPlayType('audio/mpeg');
+        audioSupport.wav = audio.canPlayType('audio/wav');
+        audioSupport.ogg = audio.canPlayType('audio/ogg');
+    } catch (e) {
+        audioSupport.error = e.message;
+    }
+    
+    console.log('- Audio support:', audioSupport);
 }
 
 // Ejecutar diagnóstico cuando se carga la página

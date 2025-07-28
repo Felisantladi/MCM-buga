@@ -84,7 +84,8 @@ self.addEventListener('fetch', event => {
     if (isStaticResource(request)) {
         event.respondWith(cacheFirst(request, STATIC_CACHE));
     } else if (isAudioResource(request)) {
-        event.respondWith(cacheFirst(request, AUDIO_CACHE));
+        // Para audio, usar network first debido a problemas con respuestas parciales
+        event.respondWith(networkFirst(request, AUDIO_CACHE));
     } else if (isImageResource(request)) {
         event.respondWith(staleWhileRevalidate(request, IMAGE_CACHE));
     } else if (isAPIRequest(request)) {
@@ -110,13 +111,22 @@ async function cacheFirst(request, cacheName) {
         console.log('Cache miss, fetching:', request.url);
         const networkResponse = await fetch(request);
         
-        if (networkResponse.ok) {
+        // No cachear respuestas parciales (206) o errores de servidor
+        if (networkResponse.ok && networkResponse.status !== 206) {
             await cache.put(request, networkResponse.clone());
         }
         
         return networkResponse;
     } catch (error) {
         console.error('Cache first strategy failed:', error);
+        // Para archivos de audio, intentar acceso directo sin cache
+        if (request.url.includes('/audio/')) {
+            try {
+                return await fetch(request, { cache: 'no-store' });
+            } catch (fetchError) {
+                console.error('Direct audio fetch failed:', fetchError);
+            }
+        }
         return new Response('Recurso no disponible offline', { 
             status: 503,
             statusText: 'Service Unavailable'
@@ -124,12 +134,24 @@ async function cacheFirst(request, cacheName) {
     }
 }
 
-// Estrategia Network First (para contenido dinámico)
+// Estrategia Network First (para contenido dinámico y audio)
 async function networkFirst(request, cacheName) {
     try {
-        const networkResponse = await fetch(request);
+        // Para archivos de audio, usar configuraciones especiales
+        const fetchOptions = request.url.includes('/audio/') 
+            ? { 
+                cache: 'no-store',
+                headers: {
+                    'Accept': 'audio/*,*/*;q=0.9',
+                    'Range': 'bytes=0-'
+                }
+            } 
+            : {};
+            
+        const networkResponse = await fetch(request, fetchOptions);
         
-        if (networkResponse.ok) {
+        // Solo cachear respuestas completas exitosas
+        if (networkResponse.ok && networkResponse.status === 200) {
             const cache = await caches.open(cacheName);
             await cache.put(request, networkResponse.clone());
         }
