@@ -81,11 +81,18 @@ function checkEnvironment() {
         audioSupport.mp3 = audio.canPlayType('audio/mpeg');
         audioSupport.wav = audio.canPlayType('audio/wav');
         audioSupport.ogg = audio.canPlayType('audio/ogg');
+        
+        console.log('🎵 Soporte de audio:', audioSupport);
+        
+        // Verificar capacidades del navegador
+        console.log('📱 Capacidades del navegador:');
+        console.log('- Service Worker:', 'serviceWorker' in navigator);
+        console.log('- Cache API:', 'caches' in window);
+        console.log('- Fetch API:', 'fetch' in window);
+        
     } catch (e) {
-        audioSupport.error = e.message;
+        console.error('❌ Error verificando soporte de audio:', e.message);
     }
-    
-    console.log('- Audio support:', audioSupport);
 }
 
 // Ejecutar diagnóstico cuando se carga la página
