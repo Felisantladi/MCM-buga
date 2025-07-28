@@ -78,9 +78,11 @@ function checkEnvironment() {
     const audioSupport = {};
     try {
         const audio = new Audio();
-        audioSupport.mp3 = audio.canPlayType('audio/mpeg');
-        audioSupport.wav = audio.canPlayType('audio/wav');
-        audioSupport.ogg = audio.canPlayType('audio/ogg');
+        // Usar bind para evitar illegal invocation
+        const canPlayType = audio.canPlayType.bind(audio);
+        audioSupport.mp3 = canPlayType('audio/mpeg');
+        audioSupport.wav = canPlayType('audio/wav');
+        audioSupport.ogg = canPlayType('audio/ogg');
         
         console.log('🎵 Soporte de audio:', audioSupport);
         

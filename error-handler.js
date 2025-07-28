@@ -3,8 +3,10 @@
 // Manejo de errores globales
 window.addEventListener('error', function(e) {
     // Solo logear errores críticos, ignorar warnings menores
-    if (e.error && !e.error.message.includes('Facebook') && !e.error.message.includes('font')) {
-        console.error('Error:', e.error.message);
+    if (e.error && !e.error.message.includes('Facebook') && 
+        !e.error.message.includes('font') && 
+        !e.error.message.includes('Illegal invocation')) {
+        console.error('Error crítico:', e.error.message);
     }
 });
 
@@ -17,9 +19,10 @@ window.addEventListener('error', function(e) {
         // Manejo específico por tipo de elemento
         switch(tagName) {
             case 'img':
-                console.warn('Image failed to load:', element.src);
-                // Fallback para imágenes
-                if (element.src && !element.src.includes('placehold.co')) {
+                // Solo mostrar warning si no es una URL vacía o inválida
+                if (element.src && element.src !== window.location.href && !element.src.includes('placehold.co')) {
+                    console.warn('Image failed to load:', element.src);
+                    // Fallback para imágenes
                     element.src = 'https://placehold.co/400x300/1a3a7a/ffffff?text=MCM+Buga';
                 }
                 break;
@@ -27,7 +30,9 @@ window.addEventListener('error', function(e) {
                 console.warn('Audio failed to load:', element.src);
                 break;
             case 'script':
-                console.warn('Script failed to load:', element.src);
+                if (!element.src.includes('test') && !element.src.includes('diagnostic')) {
+                    console.warn('Script failed to load:', element.src);
+                }
                 break;
             case 'link':
                 console.warn('Stylesheet failed to load:', element.href);
