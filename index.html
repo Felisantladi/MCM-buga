@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Misión Carismática al Mundo Buga - Una iglesia comprometida con la palabra de Dios y el servicio a la comunidad. Predicaciones, música cristiana, ministerios y eventos.">
+    <meta name="keywords" content="iglesia, buga, misión carismática, predicaciones, música cristiana, ministerios, eventos cristianos, cultos, células">
+    <meta name="author" content="Misión Carismática al Mundo Buga">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#1a3a7a">
+
+    <!-- Open Graph para redes sociales -->
+    <meta property="og:title" content="Misión Carismática al Mundo Buga">
+    <meta property="og:description" content="Una iglesia comprometida con la palabra de Dios y el servicio a la comunidad">
+    <meta property="og:image" content="./assets/images/Logo MCm.png">
+    <meta property="og:url" content="https://mcmbuga.com">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_ES">
+
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <title>Misión Carismática al Mundo Buga - Iglesia Cristiana en Buga</title>
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="./assets/css/variables.css">
+    <link rel="stylesheet" href="./assets/css/components.css">
+    <link rel="stylesheet" href="./assets/css/layout.css">
+    <link rel="stylesheet" href="./assets/css/interactive.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./assets/images/Logo MCm.png">
+
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Church",
+        "name": "Misión Carismática al Mundo Buga",
+        "description": "Una iglesia comprometida con la palabra de Dios y el servicio a la comunidad",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Carrera 8 # 13-35",
+            "addressLocality": "Buga",
+            "addressRegion": "Valle del Cauca",
+            "addressCountry": "CO"
+        },
+        "telephone": "+57 315 3599017",
+        "email": "mcmbuga@gmail.com",
+        "url": "https://mcmbuga.com",
+        "sameAs": [
+            "https://www.facebook.com/Iglesiamisioncarismaticaalmundobuga"
+        ]
+    }
+    </script>
+
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="sr-only">Saltar al contenido principal</a>
+
+    <!-- Loading indicator -->
+    <div id="loading-indicator" class="loading-overlay">
+        <div class="spinner"></div>
+        <p class="loading-text">Cargando...</p>
+    </div>
+
+    <!-- Facebook SDK -->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v19.0" data-nonce="auto"></script>
+
+    <!-- Header -->
+    <header class="header" role="banner">
+        <div class="container">
+            <nav class="navbar" role="navigation" aria-label="Navegación principal">
+                <div class="navbar-brand">
+                    <img src="./assets/images/Logo MCm.png" alt="Logo Misión Carismática al Mundo Buga" class="logo-img" onerror="this.onerror=null;this.src='https://placehold.co/60x60/1a3a7a/ffffff?text=MCM';">
+                    <span class="brand-text">MCM Buga</span>
+                </div>
+                <button class="mobile-toggle" aria-label="Abrir menú de navegación" aria-expanded="false">
+                    <i class="fas fa-bars" aria-hidden="true"></i>
+                </button>
+                <ul class="nav-menu" role="menubar">
+                    <li role="none"><a href="#hero" role="menuitem">Inicio</a></li>
+                    <li role="none"><a href="#about" role="menuitem">Nosotros</a></li>
+                    <li role="none"><a href="#messages" role="menuitem">Mensajes</a></li>
+                    <li role="none"><a href="#music" role="menuitem">Música</a></li>
+                    <li role="none"><a href="#ministries" role="menuitem">Ministerios</a></li>
+                    <li role="none"><a href="#events" role="menuitem">Eventos</a></li>
+                    <li role="none"><a href="#gallery" role="menuitem">Galería</a></li>
+                    <li role="none"><a href="#contact" role="menuitem">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" role="main">
+        <!-- Hero Section -->
+        <section class="hero" id="hero" aria-labelledby="hero-title">
+            <div class="container hero-content animate-fade">
+                <h1 id="hero-title" class="hero-title">
+                    Bienvenidos a
+                    <span class="highlight">Misión Carismática al Mundo</span>
+                    Buga
+                </h1>
+                <p class="hero-subtitle animate-fade animate-delay-1">
+                    Una iglesia comprometida con la palabra de Dios y el servicio a la comunidad
+                </p>
+                <div class="hero-cta animate-fade animate-delay-2">
+                    <a href="#about" class="btn btn-primary" role="button">
+                        <i class="fas fa-heart" aria-hidden="true"></i>
+                        Conoce Más
+                    </a>
+                    <a href="#messages" class="btn btn-outline" role="button">
+                        <i class="fas fa-headphones" aria-hidden="true"></i>
+                        Escucha Mensajes
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="section about" id="about" aria-labelledby="about-title">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text reveal">
+                        <h2 id="about-title" class="section-title-alt">Nuestra Pastora</h2>
+                        <div class="about-description">
+                            <p>En Misión Carismática al Mundo Buga, nuestra pastora es una líder comprometida con llevar el mensaje de esperanza y salvación a cada hogar, transformando vidas a través del amor de Jesucristo.</p>
+                            
+                            <p>Nos dedicamos a la formación espiritual, al discipulado y la creación de un ambiente donde cada persona pueda crecer en su relación con Dios y con los demás. ¡Te invitamos a ser parte de nuestra familia!</p>
+                            
+                            <div class="pastor-info">
+                                <h3>Pastora Mary Penagos</h3>
+                                <p class="pastor-title">Líder Espiritual y Fundadora</p>
+                                <p class="pastor-description">Con años de experiencia en el ministerio, la Pastora Mary ha dedicado su vida a servir a Dios y a la comunidad, guiando con sabiduría y amor pastoral.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="about-cta">
+                            <a href="#ministries" class="btn btn-secondary">
+                                <i class="fas fa-hands-helping" aria-hidden="true"></i>
+                                Ver Ministerios
+                            </a>
+                            <a href="#contact" class="btn btn-outline">
+                                <i class="fas fa-phone" aria-hidden="true"></i>
+                                Contactar
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="about-image reveal animate-delay-1">
+                        <div class="pastor-image-container">
+                            <img src="./assets/images/Pastora.jpg" 
+                                 alt="Pastora Mary Penagos - Líder Espiritual de MCM Buga" 
+                                 class="pastor-image"
+                                 loading="lazy">
+                            <div class="image-decorations">
+                                <div class="decoration decoration-1"></div>
+                                <div class="decoration decoration-2"></div>
+                                <div class="decoration decoration-3"></div>
+                            </div>
+                            <div class="image-overlay">
+                                <span class="overlay-text">Misión Carismática al Mundo Buga</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Messages Section -->
+        <section class="section messages" id="messages" aria-labelledby="messages-title">
+            <div class="container">
+                <h2 id="messages-title" class="section-title reveal">Mensajes que Edifican</h2>
+                <p class="section-subtitle reveal">Escucha nuestras últimas predicaciones, estudios bíblicos y devocionales.</p>
+                <div class="grid-3">
+                    <!-- Message Card 1 -->
+                    <div class="card audio-card reveal">
+                        <div class="card-header">
+                            <i class="fas fa-water card-icon" aria-hidden="true"></i>
+                            <h3 class="card-title">Jesús, Nuestra Paz en Medio de la Tormenta</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>En un mundo turbulento, la verdadera paz se encuentra en la presencia de Cristo, no en la ausencia de problemas.</p>
+                            <audio controls class="audio-player" preload="metadata">
+                                <source src="./assets/audio/La-Paz-de-Cristo-en-la-Tormenta.mp3" type="audio/mpeg">
+                                Tu navegador no soporta el elemento de audio.
+                            </audio>
+                            <button class="btn btn-secondary btn-sm toggle-details" onclick="toggleDetails(this)">Leer mensaje completo</button>
+                            <div class="details" style="display: none;">
+                                <h4>Resumen</h4>
+                                <p>En un mundo turbulento, la verdadera paz se encuentra en la presencia de Cristo, no en la ausencia de problemas. Esta prédica explora cómo la justificación por fe, la promesa del Espíritu Santo y el perfeccionamiento divino nos otorgan una paz inquebrantable. Aprende a declarar tu fe, a vivir en obediencia y a vencer el mal con el bien, cultivando una relación profunda con Jesús para experimentar una paz que transforma tu vida y tus relaciones.</p>
+                                <h4>Esencia del Mensaje</h4>
+                                <p>La verdadera paz no es ausencia de problemas, sino la presencia sobrenatural de Cristo en medio de las tormentas. En un mundo lleno de violencia, ansiedad, enfermedades, guerras, temores, inseguridad social, falta de justicia y pérdida de valores, la humanidad necesita desesperadamente la paz de Cristo.</p>
+                                <ul>
+                                    <li>No depende de circunstancias externas (crisis, enfermedad, conflictos)</li>
+                                    <li>Es permanente (contrario a la paz pasajera del mundo)</li>
+                                    <li>Se arraiga en la fe en Jesús como Salvador y sustentador</li>
+                                    <li>Es una realidad interna que habita en el corazón, la mente y la conducta del creyente</li>
+                                    <li>Se fundamenta en la esperanza de que Dios actuará en medio de las dificultades</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Message Card 2 -->
+                    <div class="card audio-card reveal animate-delay-1">
+                        <div class="card-header">
+                            <i class="fas fa-book-open card-icon" aria-hidden="true"></i>
+                            <h3 class="card-title">No Basta con Oír la Palabra; Hay que Obedecerla</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>Esta prédica se centra en Romanos capítulo 2, versículos 13 y 17, enfatizando que la verdadera justificación ante Dios no proviene de simplemente escuchar la ley, sino de obedecerla y ponerla en práctica.</p>
+                            <audio controls class="audio-player" preload="metadata">
+                                <source src="./assets/audio/Obedience-to-God_s-Word_-Beyond-Hearing-to-Doing.mp3" type="audio/mpeg">
+                                Tu navegador no soporta el elemento de audio.
+                            </audio>
+                            <button class="btn btn-secondary btn-sm toggle-details" onclick="toggleDetails(this)">Leer mensaje completo</button>
+                            <div class="details" style="display: none;">
+                                <h4>Resumen</h4>
+                                <p>La Pastora Mary Penagos confronta la hipocresía de aquellos que conocen la Palabra pero no la viven, y exhorta a la congregación a una obediencia genuina y a una vida transformada por el Espíritu Santo.</p>
+                                <h4>Tema Central</h4>
+                                <ul>
+                                    <li>No basta con oír la Palabra; hay que obedecerla.</li>
+                                    <li>El apóstol Pablo confronta a los judíos, quienes creían que por tener la Ley ya eran justificados, pero no la ponían en práctica.</li>
+                                    <li>La pastora enseña que esto también aplica a los gentiles (no judíos), es decir, a nosotros: conocer la Palabra sin obedecerla es hipocresía.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Message Card 3 -->
+                    <div class="card audio-card reveal animate-delay-2">
+                        <div class="card-header">
+                            <i class="fas fa-cross card-icon" aria-hidden="true"></i>
+                            <h3 class="card-title">La Lucha entre la Carne y el Espíritu</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>Este ayuno profundiza en la batalla interna entre las inclinaciones pecaminosas de la "carne" y la guía divina del Espíritu Santo.</p>
+                            <audio controls class="audio-player" preload="metadata">
+                                <source src="./assets/audio/Winning-the-Battle-Against-the-Flesh.mp3" type="audio/mpeg">
+                                Tu navegador no soporta el elemento de audio.
+                            </audio>
+                            <button class="btn btn-secondary btn-sm toggle-details" onclick="toggleDetails(this)">Leer mensaje completo</button>
+                            <div class="details" style="display: none;">
+                                <h4>Resumen</h4>
+                                <p>Se enfatiza la necesidad de someter el alma a la voluntad de Dios para heredar el Reino de los Cielos. El mensaje explora la naturaleza engañosa de la carne, la victoria a través del Espíritu Santo, la superioridad de la Gracia sobre la Ley, y la importancia vital de la Palabra, la oración y el arrepentimiento diario para vivir en obediencia y compartir el Evangelio.</p>
+                                <h4>La Batalla Interna y la Naturaleza de la Carne</h4>
+                                <ul>
+                                    <li>Una batalla intensa y persistente donde la carne busca constantemente el pecado.</li>
+                                    <li>Se presenta como la fuente de deseos pecaminosos y debilidades, citando Romanos 7 para ilustrar esta lucha interna.</li>
+                                    <li>Se enumeran las "obras de la carne" de Gálatas 5:19-21 (fornicación, idolatría, celos, borracheras), advirtiendo que quienes las practican no heredarán el Reino.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                     <!-- Message Card 4 -->
+                    <div class="card audio-card reveal animate-delay-2">
+                        <div class="card-header">
+                            <i class="fas fa-cross card-icon" aria-hidden="true"></i>
+                            <h3 class="card-title">Ganando la Batalla</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>Aprende a como ganar la batalla contra la carne y vivir en el Espíritu.</p>
+                            <audio controls class="audio-player" preload="metadata">
+                                <source src="./assets/audio/Winning-the-Battle-Against-the-Flesh.mp3" type="audio/mpeg">
+                                Tu navegador no soporta el elemento de audio.
+                            </audio>
+                            <button class="btn btn-secondary btn-sm toggle-details" onclick="toggleDetails(this)">Ver más</button>
+                            <div class="details" style="display: none;">
+                                <p>Este episodio ofrece estrategias bíblicas para vencer las luchas internas y vivir una vida guiada por el Espíritu Santo. Aprende cómo aplicar estas enseñanzas en tu vida diaria.</p>
+                            </div>
+                            <a href="./assets/audio/Winning-the-Battle-Against-the-Flesh.mp3" download="Ganando_la_Batalla.mp3" class="btn btn-secondary btn-sm">
+                                <i class="fas fa-download" aria-hidden="true"></i> Descargar
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Message Card 5 - Devocional Génesis -->
+                    <div class="card audio-card reveal animate-delay-3">
+                        <div class="card-header">
+                            <i class="fas fa-book-open card-icon" aria-hidden="true"></i>
+                            <h3 class="card-title">Devocional Génesis - El Principio de Todas las Cosas</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>Un profundo estudio devocional del libro de Génesis, explorando los fundamentos de la creación, la caída del hombre y las promesas de Dios desde el principio.</p>
+                            <button class="btn btn-secondary btn-sm toggle-details" 
+                                    onclick="toggleDetails(this)" 
+                                    aria-expanded="false" 
+                                    aria-controls="details-genesis"
+                                    type="button">
+                                <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                                Leer devocional completo
+                            </button>
+                            <div class="details" id="details-genesis" style="display: none;" aria-hidden="true">
+                                <h4>Génesis: El Libro de los Principios</h4>
+                                <p><strong>Versículo clave:</strong> "En el principio creó Dios los cielos y la tierra." - Génesis 1:1</p>
+                                
+                                <h4>Reflexión Principal</h4>
+                                <p>Génesis no es simplemente un relato histórico; es el fundamento sobre el cual se construye toda la Escritura. En este libro encontramos los principios eternos que rigen la relación entre Dios y la humanidad.</p>
+                                
+                                <h4>Temas Centrales del Devocional</h4>
+                                <ul>
+                                    <li><strong>La Creación Perfecta:</strong> Dios creó todo "muy bueno" (Génesis 1:31), estableciendo el orden divino en el universo.</li>
+                                    <li><strong>La Caída y sus Consecuencias:</strong> El pecado entró al mundo, pero Dios ya tenía un plan de redención (Génesis 3:15).</li>
+                                    <li><strong>Los Pactos de Dios:</strong> Desde Noé hasta Abraham, vemos la fidelidad de Dios a sus promesas.</li>
+                                    <li><strong>La Providencia Divina:</strong> La historia de José muestra cómo Dios usa todas las circunstancias para cumplir su propósito.</li>
+                                </ul>
+                                
+                                <h4>Aplicación Personal</h4>
+                                <p>Génesis nos enseña que somos creados a imagen de Dios (Génesis 1:27), lo cual nos da dignidad y propósito. A pesar del pecado, Dios no nos abandonó, sino que inició inmediatamente su plan de salvación.</p>
+                                
+                                <h4>Oración</h4>
+                                <p><em>"Padre celestial, gracias por revelarte desde el principio. Ayúdanos a entender nuestro origen en Ti y nuestro destino contigo. Que podamos vivir conforme a tu imagen y propósito para nuestras vidas. En el nombre de Jesús, Amén."</em></p>
+                                
+                                <h4>Preguntas para Reflexión</h4>
+                                <ul>
+                                    <li>¿Cómo cambia mi perspectiva de la vida saber que soy creado a imagen de Dios?</li>
+                                    <li>¿Qué promesas de Dios en Génesis son relevantes para mi vida hoy?</li>
+                                    <li>¿Cómo puedo ver la providencia de Dios obrando en mis circunstancias actuales?</li>
+                                </ul>
+                                
+                                <h4>Versículos para Memorizar</h4>
+                                <ul>
+                                    <li>"Y creó Dios al hombre a su imagen, a imagen de Dios lo creó; varón y hembra los creó." - Génesis 1:27</li>
+                                    <li>"Y sabemos que a los que aman a Dios, todas las cosas les ayudan a bien." - Romanos 8:28</li>
+                                    <li>"Vosotros pensasteis mal contra mí, mas Dios lo encaminó a bien." - Génesis 50:20</li>
+                                </ul>
+                            </div>
+                            <a href="https://rattle-sofa-6fb.notion.site/Devocional-Genesis-2172b660264e80a69d39fdc94249f01b" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="btn btn-primary btn-sm">
+                                <i class="fas fa-external-link-alt" aria-hidden="true"></i> 
+                                Ver en Notion
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Music Section -->
+        <section class="section music" id="music" aria-labelledby="music-title">
+            <div class="container">
+                <h2 id="music-title" class="section-title reveal">Música de Alabanza</h2>
+                <p class="section-subtitle reveal">Disfruta de la música que nos inspira y nos conecta con Dios.</p>
+                <div class="card audio-card-large reveal">
+                    <div class="card-header">
+                        <i class="fas fa-music card-icon" aria-hidden="true"></i>
+                        <h3 class="card-title">Aroma a Rey - Alex Osorio</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Una alabanza que exalta la majestad y el señorío de nuestro Dios. Déjate ministrar por esta hermosa canción.</p>
+                        <audio controls class="audio-player" preload="metadata">
+                            <source src="./assets/audio/Alex Osorio Salmista - Aroma a Rey.mp3" type="audio/mpeg">
+                            Tu navegador no soporta el elemento de audio.
+                        </audio>
+                        <a href="./assets/audio/Alex Osorio Salmista - Aroma a Rey.mp3" download="Aroma_a_Rey_Alex_Osorio.mp3" class="btn btn-primary">
+                            <i class="fas fa-download" aria-hidden="true"></i> Descargar Alabanza
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Contact Section -->
+        <section class="section contact" id="contact" aria-labelledby="contact-title">
+            <div class="container">
+                <h2 id="contact-title" class="section-title reveal">Contáctanos</h2>
+                <p class="section-subtitle reveal">Estamos aquí para servirte. Ponte en contacto con nosotros.</p>
+
+                <div class="contact-content">
+                    <div class="contact-info reveal">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Ubicación</h3>
+                                <p>Carrera 8 # 13-35, Buga</p>
+                                <p>Valle del Cauca, Colombia</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone" aria-hidden="true"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Teléfono</h3>
+                                <p><a href="tel:+573153599017">+57 315 3599017</a></p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope" aria-hidden="true"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Email</h3>
+                                <p><a href="mailto:mcmbuga@gmail.com">mcmbuga@gmail.com</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-form reveal animate-delay-1">
+                        <form aria-labelledby="contact-form-title" novalidate>
+                            <h3 id="contact-form-title" class="card-title">Envíanos un Mensaje</h3>
+
+                            <div class="form-group">
+                                <input type="text" id="name" name="name" required aria-describedby="name-error" placeholder=" " class="form-control">
+                                <label for="name" class="form-label">Nombre completo *</label>
+                                <div id="name-error" class="error-message" role="alert" aria-live="polite"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="email" id="email" name="email" required aria-describedby="email-error" placeholder=" " class="form-control">
+                                <label for="email" class="form-label">Correo electrónico *</label>
+                                <div id="email-error" class="error-message" role="alert" aria-live="polite"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" id="subject" name="subject" placeholder=" " class="form-control">
+                                <label for="subject" class="form-label">Asunto</label>
+                            </div>
+
+                            <div class="form-group">
+                                <textarea id="message" name="message" required aria-describedby="message-error" rows="5" placeholder=" " class="form-control" minlength="10"></textarea>
+                                <label for="message" class="form-label">Mensaje *</label>
+                                <div id="message-error" class="error-message" role="alert" aria-live="polite"></div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-large">
+                                <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                                Enviar Mensaje
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container footer-content">
+            <div class="footer-col">
+                <h3>Misión Carismática al Mundo Buga</h3>
+                <p>Una iglesia comprometida con la palabra de Dios y el servicio a la comunidad.</p>
+                <div class="social-links" aria-label="Enlaces a redes sociales">
+                    <a href="https://www.facebook.com/Iglesiamisioncarismaticaalmundobuga" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Visitar nuestra página de Facebook">
+                        <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="#about">Nosotros</a></li>
+                    <li><a href="#messages">Mensajes</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Contacto</h3>
+                <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Carrera 8 # 13-35, Buga</p>
+                <p><i class="fas fa-phone" aria-hidden="true"></i> <a href="tel:+573153599017">+57 315 3599017</a></p>
+                <p><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:mcmbuga@gmail.com">mcmbuga@gmail.com</a></p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Horarios</h3>
+                <p><strong>Cultos:</strong> Viernes 7:30 PM  y Domingos 9:00 AM</p>
+                <p><strong>Células:</strong> Miércoles 7:30 PM</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Misión Carismática al Mundo Buga. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Theme Toggle Button -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar a tema oscuro">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="./assets/js/utils.js"></script>
+    <script src="./assets/js/security.js"></script>
+    <script src="./assets/js/interactivity.js"></script>
+
+    <!-- Main App Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Ocultar loading indicator
+            const loadingIndicator = document.getElementById('loading-indicator');
+            setTimeout(() => {
+                loadingIndicator.classList.add('hidden');
+                setTimeout(() => loadingIndicator.remove(), 500);
+            }, 1000);
+
+            // Mobile menu toggle
+            const mobileToggle = document.querySelector('.mobile-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            if (mobileToggle && navMenu) {
+                mobileToggle.addEventListener('click', () => {
+                    const isActive = navMenu.classList.toggle('active');
+                    mobileToggle.setAttribute('aria-expanded', isActive);
+                    mobileToggle.innerHTML = isActive ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+                });
+            }
+
+            // Header scroll effect
+            const header = document.querySelector('.header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Smooth scrolling
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Theme toggle
+            const themeToggle = document.getElementById('theme-toggle');
+            themeToggle.addEventListener('click', () => {
+                document.body.classList.toggle('dark-theme');
+                const isDark = document.body.classList.contains('dark-theme');
+                themeToggle.setAttribute('aria-label', isDark ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro');
+                themeToggle.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+            });
+
+            // Initialize theme toggle
+            if (typeof setupThemeToggle === 'function') {
+                setupThemeToggle();
+            }
+
+            // Función mejorada para manejar eventos
+            document.querySelectorAll('.toggle-details').forEach((button, index) => {
+                // Asignar IDs únicos si no existen
+                const detailsElement = button.closest('.card-body, .culto-item').querySelector('.details');
+                if (detailsElement && !detailsElement.id) {
+                    detailsElement.id = `details-${index + 1}`;
+                    button.setAttribute('aria-controls', detailsElement.id);
+                }
+                
+                // Configurar atributos iniciales de accesibilidad
+                button.setAttribute('aria-expanded', 'false');
+                button.setAttribute('type', 'button');
+                if (detailsElement) {
+                    detailsElement.setAttribute('aria-hidden', 'true');
+                }
+                
+                // Event listener para click
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    toggleDetails(button);
+                });
+                
+                // Event listener para teclado
+                button.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        toggleDetails(button);
+                    }
+                });
+            });
+
+            function toggleDetails(button) {
+                const cardBody = button.closest('.card-body') || button.closest('.culto-item');
+                if (cardBody) {
+                    const details = cardBody.querySelector('.details');
+                    if (details) {
+                        const isVisible = details.style.display === 'block';
+                        
+                        if (isVisible) {
+                            details.style.display = 'none';
+                            details.classList.remove('visible');
+                            updateButtonText(button, false);
+                        } else {
+                            details.style.display = 'block';
+                            setTimeout(() => details.classList.add('visible'), 10);
+                            updateButtonText(button, true);
+                        }
+                        
+                        // Accesibilidad
+                        button.setAttribute('aria-expanded', !isVisible);
+                        details.setAttribute('aria-hidden', isVisible);
+                    }
+                }
+            }
+
+            function updateButtonText(button, isExpanded) {
+                const originalText = button.textContent;
+                if (originalText.includes('Leer mensaje completo') || originalText.includes('Ver más')) {
+                    button.textContent = isExpanded ? 
+                        originalText.replace('Leer mensaje completo', 'Ocultar mensaje completo')
+                                  .replace('Ver más', 'Ver menos') :
+                        originalText.replace('Ocultar mensaje completo', 'Leer mensaje completo')
+                                  .replace('Ver menos', 'Ver más');
+                }
+            }
+        });
+    </script>
+</body>
+</html>

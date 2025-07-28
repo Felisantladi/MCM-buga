@@ -1,0 +1,204 @@
+/* --- Paleta de Colores del Logo --- */
+:root {
+    --color-azul-principal: #1e3a8a; /* Azul oscuro del fondo del logo */
+    --color-verde-lima: #92c534;    /* Verde lima del logo */
+    --color-cian: #25aae1;          /* Cian/Azul claro del logo */
+    --color-texto: #f0f0f0;         /* Un color de texto claro para buen contraste */
+    --color-fondo: #ffffff;         /* Blanco para secciones de contenido */
+}
+
+/* --- Estilos Generales y Animación de Fondo --- */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    color: #333;
+    background-color: var(--color-fondo);
+}
+
+/* --- Header y Navegación --- */
+header {
+    background-color: var(--color-azul-principal);
+    padding: 10px 50px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .logo img {
+    height: 50px; /* Ajusta el tamaño de tu logo */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    color: var(--color-texto);
+    text-decoration: none;
+    font-weight: bold;
+    padding-bottom: 5px;
+    transition: all 0.3s ease; /* Transición suave para el hover */
+}
+
+nav a:hover {
+    color: var(--color-verde-lima);
+    border-bottom: 2px solid var(--color-verde-lima);
+}
+
+/* --- Sección de Inicio Impactante --- */
+#inicio {
+    background-image: linear-gradient(rgba(30, 58, 138, 0.7), rgba(30, 58, 138, 0.7)), url('https://via.placeholder.com/1500x800.png?text=Imagen+de+Fondo+Aquí');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 150px 20px;
+    height: 80vh; /* Ocupa el 80% del alto de la pantalla */
+}
+
+#inicio h1 {
+    font-size: 3.5rem;
+    animation: fadeInDown 1s ease-in-out; /* Animación para el título */
+}
+
+#inicio .cta-button {
+    background-color: var(--color-verde-lima);
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    margin-top: 20px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+#inicio .cta-button:hover {
+    transform: scale(1.1); /* Efecto de crecimiento al pasar el mouse */
+}
+
+/* --- Estilos de Secciones --- */
+section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+section:nth-child(even) {
+    background-color: #f7f7f7; /* Alterna colores de fondo para separar secciones */
+}
+
+h2 {
+    color: var(--color-azul-principal);
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+/* --- ESTILO CON IMPACTO PARA HORARIOS --- */
+#servicios .horario-card {
+    background-color: white;
+    display: inline-block;
+    padding: 30px;
+    margin: 15px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    border-left: 10px solid var(--color-cian); /* Borde de color para destacar */
+    transition: transform 0.3s ease;
+    width: 250px;
+}
+
+#servicios .horario-card:hover {
+    transform: translateY(-10px); /* Se eleva al pasar el mouse */
+}
+
+#servicios .hora {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--color-azul-principal);
+    margin: 10px 0;
+}
+
+
+/* --- ESTILO CON IMPACTO PARA RECURSOS --- */
+#recursos .recursos-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+#recursos .recurso-card {
+    background-color: var(--color-azul-principal);
+    color: var(--color-texto);
+    padding: 20px;
+    border-radius: 8px;
+    width: 280px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+#recursos .recurso-card h4 {
+    color: var(--color-verde-lima);
+    font-size: 1.5rem;
+    margin-top: 0;
+}
+
+#recursos .recurso-card a {
+    background-color: var(--color-cian);
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 20px;
+    display: inline-block;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+#recursos .recurso-card a:hover {
+    background-color: var(--color-verde-lima);
+}
+
+
+/* --- Contenedor de Video y Footer --- */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* Proporción 16:9 para videos */
+    height: 0;
+    overflow: hidden;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* --- Keyframes para Animaciones --- */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

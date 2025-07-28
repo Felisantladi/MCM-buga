@@ -1,0 +1,213 @@
+/* Variables CSS y configuración base */
+:root {
+    /* COLORES PRIMARIOS - Identidad de Marca */
+    --primary: #1a3a7a;        /* Azul profundo espiritual */
+    --primary-light: #4a6fa5;  /* Azul claro para variantes */
+    --primary-dark: #0d1d3a;   /* Azul muy oscuro para texto */
+    
+    /* COLORES SECUNDARIOS - Acentos */
+    --secondary: #d4af37;      /* Oro elegante */
+    --secondary-light: #f2d570; /* Oro claro para fondos */
+    --secondary-dark: #b8941f;  /* Oro oscuro para hover */
+    
+    /* COLORES LEGACY - Mantener compatibilidad */
+    --accent: #004085;         /* Azul oscuro para acentos y hovers */
+    --success: #10b981;        /* Verde éxito moderno */
+    --error: #ef4444;          /* Rojo error moderno */
+    --warning: #f59e0b;        /* Amarillo advertencia moderno */
+    --info: #3b82f6;           /* Azul información */
+    
+    /* COLORES NEUTROS - Base */
+    --white: #ffffff;
+    --black: #000000;
+    --light: #f8fafc;          /* Gris muy claro para fondos */
+    --dark: #0f172a;           /* Casi negro para texto */
+    --gray: #64748b;           /* Gris medio */
+    --peace-light: #f1f5f9;    /* Gris muy claro para secciones alternas */
+    
+    /* ESCALA DE GRISES COMPLETA */
+    --gray-50: #f1f5f9;
+    --gray-100: #e2e8f0;
+    --gray-200: #cbd5e1;
+    --gray-300: #94a3b8;
+    --gray-400: #64748b;
+    --gray-500: #475569;
+    --gray-600: #334155;
+    --gray-700: #1e293b;
+    --gray-800: #0f172a;
+    --gray-900: #020617;
+
+    /* COLORES DE TEXTO */
+    --text-color: #0f172a;      /* Texto principal */
+    --text-secondary: #475569;  /* Texto secundario */
+    --text-muted: #94a3b8;      /* Texto deshabilitado */
+    --text-color-muted: var(--text-muted);
+    
+    /* TIPOGRAFÍA */
+    --font-main: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-title: 'Montserrat', 'Arial Black', sans-serif;
+    
+    /* ESCALAS TIPOGRÁFICAS */
+    --text-xs: 0.75rem;     /* 12px */
+    --text-sm: 0.875rem;    /* 14px */
+    --text-base: 1rem;      /* 16px */
+    --text-lg: 1.125rem;    /* 18px */
+    --text-xl: 1.25rem;     /* 20px */
+    --text-2xl: 1.5rem;     /* 24px */
+    --text-3xl: 1.875rem;   /* 30px */
+    --text-4xl: 2.25rem;    /* 36px */
+    --text-5xl: 3rem;       /* 48px */
+    
+    /* LEGACY - Mantener compatibilidad */
+    --font-size-base: var(--text-base);
+    --font-size-small: var(--text-sm);
+    --font-size-large: var(--text-lg);
+    --font-size-h1: var(--text-4xl);
+    --font-size-h2: var(--text-3xl);
+    --font-size-h3: var(--text-2xl);
+    --font-size-h4: var(--text-xl);
+    
+    /* PESOS DE FUENTE */
+    --font-light: 300;
+    --font-normal: 400;
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+    --font-extrabold: 800;
+    
+    /* Espaciado */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-xxl: 3rem;
+    
+    /* Efectos */
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 15px rgba(0,0,0,0.15);
+    --shadow-lg: 0 8px 25px rgba(0,0,0,0.2);
+    --border-radius: 10px;
+    --border-radius-sm: 5px;
+    --border-radius-lg: 15px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.15s ease;
+    --transition-slow: all 0.5s ease;
+    
+    /* Layout */
+    --container-max-width: 1200px;
+    --header-height: 70px;
+    --mobile-breakpoint: 768px;
+    --tablet-breakpoint: 1024px;
+}
+
+[data-theme="dark"] {
+    --primary: #0069d9;
+    --secondary: #ffc107;
+    --accent: #0056b3;
+    --light: #343a40;
+    --dark: #f8f9fa;
+    --gray: #adb5bd;
+    --peace-light: #2c3034;
+
+    --text-color: var(--dark);
+    --text-color-muted: var(--gray);
+
+    --body-bg: #212529;
+    --header-bg: #343a40;
+    --footer-bg: #16191c;
+    --card-bg: #343a40;
+    --border-color: #495057;
+}
+
+/* Reset y base */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: var(--font-size-base);
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--header-height);
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--dark);
+    line-height: 1.7;
+    background-color: #f8f9fa;
+    overflow-x: hidden;
+    transition: var(--transition);
+}
+
+/* Mejoras de accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Focus visible para navegación por teclado */
+*:focus {
+    outline: none;
+}
+
+*:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+    border-radius: var(--border-radius-sm);
+}
+
+/* Utilidades de accesibilidad */
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+/* Links básicos */
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--primary);
+}
+
+/* Imágenes responsivas */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Contenedor principal */
+.container {
+    width: 100%;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+}

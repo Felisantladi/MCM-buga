@@ -1,0 +1,41 @@
+{
+  "name": "MCM Buga",
+  "short_name": "MCM",
+  "description": "Misión Carismática al Mundo Buga - Iglesia Cristiana",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a3a7a",
+  "theme_color": "#1a3a7a",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "./assets/images/Logo MCm.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./assets/images/Logo MCm.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["religion", "community"],
+  "lang": "es",
+  "scope": "/",
+  "screenshots": [
+    {
+      "src": "./assets/images/screenshot-mobile.png",
+      "sizes": "360x640",
+      "type": "image/png",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "./assets/images/screenshot-desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    }
+  ]
+}
