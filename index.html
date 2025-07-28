@@ -783,6 +783,17 @@
             }
         });
 
+    <!-- Scripts JavaScript -->
+    <script src="./assets/js/utils.js"></script>
+    <script src="./assets/js/interactivity.js"></script>
+    
+    <script>
+        // Inicializar la aplicación
+        document.addEventListener('DOMContentLoaded', function() {
+            // Inicializar el sistema de interactividad
+            const interactivity = new InteractivityManager();
+        });
+
         // Registrar Service Worker
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
