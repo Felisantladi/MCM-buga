@@ -493,3 +493,190 @@
 .toggle-details[aria-expanded="true"]::after {
     transform: rotate(180deg);
 }
+
+/* Streaming Section Styles */
+.streaming-container {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.live-status {
+    background: var(--white);
+    border-radius: 12px;
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+    text-align: center;
+    border: 2px solid var(--gray-100);
+}
+
+.status-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.status-indicator.offline i {
+    color: var(--gray);
+    animation: none;
+}
+
+.status-indicator.live i {
+    color: #dc3545;
+    animation: pulse 2s infinite;
+}
+
+.stream-player {
+    background: var(--white);
+    border-radius: 12px;
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+    box-shadow: var(--shadow-md);
+}
+
+.stream-placeholder {
+    text-align: center;
+    padding: var(--spacing-xxl);
+    color: var(--gray);
+}
+
+.stream-placeholder i {
+    font-size: 4rem;
+    margin-bottom: var(--spacing-lg);
+    opacity: 0.5;
+}
+
+.stream-history {
+    background: var(--white);
+    border-radius: 12px;
+    padding: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+    box-shadow: var(--shadow-md);
+}
+
+.history-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+    margin: var(--spacing-xl) 0;
+}
+
+.history-item {
+    text-align: center;
+    padding: var(--spacing-lg);
+    border: 1px solid var(--gray-100);
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+.history-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.history-item h4 {
+    margin: var(--spacing-md) 0 var(--spacing-sm) 0;
+    color: var(--primary);
+}
+
+.history-item p {
+    color: var(--gray);
+    font-size: var(--font-size-small);
+}
+
+.history-controls {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.streaming-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.info-card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: var(--spacing-xl);
+    display: flex;
+    gap: var(--spacing-lg);
+    align-items: flex-start;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--gray-100);
+}
+
+.info-card i {
+    font-size: 2rem;
+    color: var(--primary);
+    flex-shrink: 0;
+}
+
+.info-card h4 {
+    margin-bottom: var(--spacing-sm);
+    color: var(--dark);
+}
+
+.info-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.info-card li {
+    padding: var(--spacing-xs) 0;
+    border-bottom: 1px solid var(--gray-100);
+}
+
+.info-card li:last-child {
+    border-bottom: none;
+}
+
+.share-buttons {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+}
+
+.share-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    color: white;
+}
+
+.share-btn:hover {
+    transform: translateY(-2px);
+}
+
+.share-btn:nth-child(1) { background: #25d366; } /* WhatsApp */
+.share-btn:nth-child(2) { background: #4267b2; } /* Facebook */
+.share-btn:nth-child(3) { background: var(--gray); } /* Copy */
+
+@media (max-width: 768px) {
+    .history-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    .streaming-info {
+        grid-template-columns: 1fr;
+    }
+    
+    .info-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .history-controls {
+        flex-direction: column;
+        align-items: center;
+    }
+}
