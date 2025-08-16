@@ -1323,4 +1323,22 @@ img.lazy.loading {
     max-width: 100%;
     max-height: 100%;
   }
+  
+  /* Prevent overlay text from causing horizontal overflow */
+  .image-overlay {
+    max-width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 8px 12px;
+    bottom: -10px;
+    box-sizing: border-box;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+  
+  .overlay-text {
+    white-space: normal;
+    word-break: break-word;
+    text-align: center;
+  }
 }
