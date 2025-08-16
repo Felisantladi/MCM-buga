@@ -84,7 +84,11 @@
     .about-text {
         order: 2 !important;
         max-width: 100% !important;
+        width: 100% !important;
         padding: 0 1rem !important;
+        box-sizing: border-box !important;
+        margin: 0 auto !important;
+        overflow: visible !important;
     }
     
     .about-image {
@@ -100,8 +104,23 @@
         margin-bottom: 1.25rem !important;
         text-align: center !important;
         max-width: 100% !important;
+        width: 100% !important;
         white-space: normal !important;
         hyphens: auto !important;
+        box-sizing: border-box !important;
+        padding: 0 1rem !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    
+    /* CORRECCIÓN ESPECÍFICA PARA EL TEXTO CORTADO EN EL LADO DERECHO */
+    .about-description {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 0 1rem !important;
+        margin: 0 auto !important;
+        overflow: visible !important;
     }
     
     /* CORRECCIÓN ESPECÍFICA para el overlay text que se corta */
@@ -299,7 +318,28 @@
     .about-description p {
         font-size: 0.85rem !important;
         line-height: 1.5 !important;
-        margin-bottom: 1rem;
+        margin-bottom: 1rem !important;
+        padding: 0 0.75rem !important;
+        box-sizing: border-box !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+    }
+    
+    .about-description {
+        padding: 0 0.75rem !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    .about-text {
+        padding: 0 0.75rem !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
     }
     
     .pastor-info h3 {

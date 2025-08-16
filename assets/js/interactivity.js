@@ -740,21 +740,63 @@ class InteractivityManager {
 
     setupDetailsToggle() {
         document.querySelectorAll('.toggle-details').forEach(button => {
-            button.addEventListener('click', () => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // Buscar el elemento details más cercano usando múltiples métodos
+                let details = null;
+                
+                // Método 1: Buscar en el contexto del sermón
                 const sermonArticle = button.closest('.sermon-article');
-                const details = sermonArticle ? sermonArticle.querySelector('.details') : null;
+                if (sermonArticle) {
+                    details = sermonArticle.querySelector('.details, .sermon-details');
+                }
+                
+                // Método 2: Buscar en el contexto general (card-body)
+                if (!details) {
+                    const cardBody = button.closest('.card-body, .sermon-actions');
+                    if (cardBody) {
+                        details = cardBody.parentElement.querySelector('.details, .sermon-details');
+                    }
+                }
+                
+                // Método 3: Buscar el siguiente elemento hermano
+                if (!details) {
+                    let nextElement = button.parentElement.nextElementSibling;
+                    while (nextElement) {
+                        if (nextElement.classList.contains('details') || nextElement.classList.contains('sermon-details')) {
+                            details = nextElement;
+                            break;
+                        }
+                        nextElement = nextElement.nextElementSibling;
+                    }
+                }
+
+                if (!details) {
+                    console.warn('No se encontró elemento details para el botón:', button);
+                    return;
+                }
+
                 const isExpanded = button.getAttribute('aria-expanded') === 'true';
 
-                if (!details) return;
-
-                details.style.display = isExpanded ? 'none' : 'block';
-                button.setAttribute('aria-expanded', String(!isExpanded));
-
-                if (!isExpanded) {
-                    button.innerHTML = '<i class="fas fa-times"></i> Ocultar Resumen';
-                } else {
+                if (isExpanded) {
+                    // Ocultar detalles
+                    details.style.display = 'none';
+                    details.classList.remove('visible');
+                    button.setAttribute('aria-expanded', 'false');
                     button.innerHTML = '<i class="fas fa-book-open"></i> Leer Resumen Extendido';
+                } else {
+                    // Mostrar detalles
+                    details.style.display = 'block';
+                    setTimeout(() => {
+                        details.classList.add('visible');
+                    }, 10);
+                    button.setAttribute('aria-expanded', 'true');
+                    button.innerHTML = '<i class="fas fa-times"></i> Ocultar Resumen';
                 }
+                
+                // Accesibilidad
+                details.setAttribute('aria-hidden', String(isExpanded));
             });
         });
     }
