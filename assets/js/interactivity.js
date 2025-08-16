@@ -20,6 +20,9 @@ class InteractivityManager {
         this.setupScrollAnimations();
         this.setupProgressIndicators();
         this.setupKeyboardNavigation();
+        this.setupMobileMenu();
+        this.setupHeaderScroll();
+        this.setupDetailsToggle();
         this.applyTheme(this.currentTheme);
     }
 
@@ -688,6 +691,71 @@ class InteractivityManager {
 
         document.addEventListener('mousedown', () => {
             document.body.classList.remove('keyboard-navigation');
+        });
+    }
+
+    // ==================== NAVEGACIÓN Y UI DEL SITIO ====================
+    setupMobileMenu() {
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        if (mobileToggle && navMenu) {
+            mobileToggle.addEventListener('click', () => {
+                const isActive = navMenu.classList.toggle('active');
+                mobileToggle.setAttribute('aria-expanded', String(isActive));
+                mobileToggle.innerHTML = isActive
+                    ? '<i class="fas fa-times"></i>'
+                    : '<i class="fas fa-bars"></i>';
+            });
+
+            // Cerrar el menú al hacer click en un enlace (mejora UX)
+            navMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        mobileToggle.setAttribute('aria-expanded', 'false');
+                        mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                });
+            });
+        }
+    }
+
+    setupHeaderScroll() {
+        const header = document.querySelector('.header');
+        if (!header) return;
+
+        const toggleScrolled = () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        };
+
+        // Estado inicial y escucha de scroll
+        toggleScrolled();
+        window.addEventListener('scroll', toggleScrolled, { passive: true });
+    }
+
+    setupDetailsToggle() {
+        document.querySelectorAll('.toggle-details').forEach(button => {
+            button.addEventListener('click', () => {
+                const sermonArticle = button.closest('.sermon-article');
+                const details = sermonArticle ? sermonArticle.querySelector('.details') : null;
+                const isExpanded = button.getAttribute('aria-expanded') === 'true';
+
+                if (!details) return;
+
+                details.style.display = isExpanded ? 'none' : 'block';
+                button.setAttribute('aria-expanded', String(!isExpanded));
+
+                if (!isExpanded) {
+                    button.innerHTML = '<i class="fas fa-times"></i> Ocultar Resumen';
+                } else {
+                    button.innerHTML = '<i class="fas fa-book-open"></i> Leer Resumen Extendido';
+                }
+            });
         });
     }
 

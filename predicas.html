@@ -328,61 +328,6 @@
     <!-- Scripts -->
     <script src="assets/js/utils.js"></script>
     <script src="assets/js/interactivity.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Mobile menu toggle
-            const mobileToggle = document.querySelector('.mobile-toggle');
-            const navMenu = document.querySelector('.nav-menu');
-            if (mobileToggle && navMenu) {
-                mobileToggle.addEventListener('click', () => {
-                    const isActive = navMenu.classList.toggle('active');
-                    mobileToggle.setAttribute('aria-expanded', isActive);
-                    mobileToggle.innerHTML = isActive ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-                });
-            }
-
-            // Header scroll effect
-            const header = document.querySelector('.header');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-            });
-
-            // Toggle details functionality
-            document.querySelectorAll('.toggle-details').forEach(button => {
-                button.addEventListener('click', () => {
-                    const sermonArticle = button.closest('.sermon-article');
-                    const details = sermonArticle.querySelector('.details');
-                    const isExpanded = button.getAttribute('aria-expanded') === 'true';
-
-                    details.style.display = isExpanded ? 'none' : 'block';
-                    button.setAttribute('aria-expanded', !isExpanded);
-                    
-                    if (!isExpanded) {
-                        button.innerHTML = '<i class="fas fa-times"></i> Ocultar Resumen';
-                    } else {
-                        button.innerHTML = '<i class="fas fa-book-open"></i> Leer Resumen Extendido';
-                    }
-                });
-            });
-
-            // Animation on scroll
-            const revealElements = document.querySelectorAll('.reveal');
-            const revealObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            revealElements.forEach(el => {
-                revealObserver.observe(el);
-            });
-        });
-    </script>
+    
 </body>
 </html>
