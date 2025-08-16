@@ -1309,7 +1309,14 @@ img.lazy.loading {
 
 /* Responsive fixes for pastor image on mobile */
 @media (max-width: 768px) {
-  .pastor-image-container {
+  .about {
+    overflow: visible;
+  }
+
+  .about-content {
+    justify-items: center;
+  }
+    .pastor-image-container {
     width: 100%;
     max-width: 300px;
     height: auto;
