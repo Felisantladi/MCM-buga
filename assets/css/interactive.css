@@ -476,6 +476,22 @@ img[data-src] {
         left: 10px;
         max-width: none;
     }
+    
+    /* Pastor image responsive fixes */
+    .pastor-image-container {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        aspect-ratio: 1/1;
+        margin: 2rem auto 0;
+    }
+    
+    .pastor-image {
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        max-height: 100%;
+    }
 }
 
 /* Progressive image enhancement */
@@ -1289,4 +1305,22 @@ img.lazy.loading {
     .pastor-image:hover {
         transform: none !important;
     }
+}
+
+/* Responsive fixes for pastor image on mobile */
+@media (max-width: 768px) {
+  .pastor-image-container {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    aspect-ratio: 1/1;
+    margin: 2rem auto 0;
+  }
+  
+  .pastor-image {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+  }
 }
