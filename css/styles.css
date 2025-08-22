@@ -1,0 +1,287 @@
+/* MCM Buga - Estilo inspirado en Airbnb/Apple */
+/* Reset + Variables */
+:root {
+  --bg: #ffffff;
+  --text: #0e1b2e;
+  --muted: #5d6b7a;
+  --brand: #1f7ae0; /* azul profundo moderno */
+  --brand-2: #8bc34a; /* verde del logo */
+  --accent: #c9a449; /* dorado opcional */
+  --surface: #f6f8fb;
+  --shadow: 0 10px 30px rgba(14,27,46,.08);
+  --radius: 16px;
+  --radius-sm: 12px;
+  --container: 1200px;
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+}
+img { max-width: 100%; display: block; border-radius: var(--radius-sm); }
+a { color: var(--brand); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.container { width: 100%; max-width: var(--container); margin: 0 auto; padding: 0 20px; }
+.section { padding: 72px 0; scroll-margin-top: 84px; }
+.section.alt { background: var(--surface); }
+.section-head { display:flex; flex-direction:column; gap: 6px; margin-bottom: 28px; }
+.section-head h2 { margin: 0; font-size: clamp(24px, 3vw, 36px); letter-spacing: -0.02em; }
+.section-head p { color: var(--muted); margin: 0; }
+.display { font-size: clamp(32px, 6vw, 56px); letter-spacing: -0.02em; margin: 0 0 12px; }
+.lead { font-size: clamp(16px, 2.4vw, 20px); color: var(--muted); margin: 0 0 20px; }
+
+/* Accesibilidad */
+.skip-link { position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
+.skip-link:focus { position: fixed; left: 20px; top: 20px; width:auto; height:auto; padding:10px 14px; background:#000; color:#fff; border-radius:8px; z-index:9999; }
+.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0; }
+
+/* Header / Nav */
+.site-header { position: sticky; top: 0; z-index: 1000; background: rgba(255,255,255,.7); backdrop-filter: saturate(180%) blur(12px); border-bottom: 1px solid rgba(14,27,46,.05); margin-bottom: 10px; }
+.nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 0; }
+.brand { display:flex; align-items:center; gap:6px; color: var(--text); font-weight: 700; letter-spacing: -0.02em; }
+.site-header .container { max-width: none; padding-left: 0; padding-right: 12px; }
+.primary-nav .menu { display:flex; gap: 18px; list-style:none; margin:0; padding:0; }
+.primary-nav a { color: var(--text); opacity: .9; font-weight: 500; }
+.nav-toggle { display:none; }
+/* Header icons + badge estilo Airbnb */
+.primary-nav .menu li { position: relative; }
+.primary-nav .menu a { display:inline-flex; align-items:center; gap:8px; padding:6px 8px; border-radius:10px; transition: background .2s ease, transform .2s ease; }
+.primary-nav .menu a:hover { background: rgba(14,27,46,.06); transform: translateY(-1px); text-decoration:none; }
+.nav-icon { display:inline-block; width:18px; height:18px; line-height:1; filter: drop-shadow(0 1px 0 rgba(14,27,46,.08)); vertical-align: middle; transform-origin: center; transform-box: fill-box; }
+.nav-icon.float { animation: iconFloat 4s ease-in-out infinite; }
+.nav-icon.intro { animation: enterSpin .7s cubic-bezier(.21,.8,.24,1) both; }
+.pill { position:absolute; top:-10px; left: 14px; background: linear-gradient(180deg, #2b3f61, #1a2a44); color:#fff; font-weight:800; font-size:10px; padding:3px 8px; border-radius:999px; letter-spacing:.04em; box-shadow: 0 6px 14px rgba(26,42,68,.35); transform: rotate(-4deg); animation: pillPop 2.6s ease-in-out infinite; }
+
+@keyframes iconFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-2px); } }
+@keyframes enterSpin { 0% { transform: translateY(12px) rotate(-18deg) scale(.9); opacity: 0; } 60% { opacity:1; } 100% { transform: translateY(0) rotate(0) scale(1); opacity:1; } }
+@keyframes hoverSpin { 0% { transform: translateY(0) rotate(0deg) scale(1); } 50% { transform: translateY(-1px) rotate(180deg) scale(1.08); } 100% { transform: translateY(0) rotate(360deg) scale(1); } }
+@keyframes pillPop { 0%,100% { transform: rotate(-4deg) translateY(0) scale(1); } 50% { transform: rotate(-4deg) translateY(-1px) scale(1.06); } }
+@media (prefers-reduced-motion: reduce) {
+  .nav-icon, .pill { animation: none !important; }
+  .primary-nav .menu a, .btn, .chip, .reveal { transition: none !important; }
+}
+.btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:12px 18px; border-radius: 999px; border: 1px solid rgba(14,27,46,.12); background:#fff; color: var(--text); font-weight:600; box-shadow: var(--shadow); transition: transform .15s ease, box-shadow .15s ease; }
+.btn:hover { transform: translateY(-1px); box-shadow: 0 12px 36px rgba(14,27,46,.12); text-decoration:none; }
+.btn-small { padding: 8px 14px; }
+.btn-primary { background: var(--brand); color: #fff; border-color: transparent; }
+.btn-ghost { background: transparent; border-color: rgba(14,27,46,.2); }
+.badge { display:inline-block; background: rgba(31,122,224,.12); color: var(--brand); padding:6px 10px; border-radius:999px; font-weight:600; font-size:12px; }
+.link { text-underline-offset: 3px; }
+
+/* Subrayado animado en nav */
+.primary-nav .menu a { position: relative; }
+.primary-nav .menu a::after { content:""; position:absolute; left:8px; right:8px; bottom: -4px; height: 2px; border-radius:2px; background: currentColor; transform: scaleX(0); transform-origin:left; transition: transform .25s ease; opacity:.85; }
+.primary-nav .menu a:hover::after { transform: scaleX(1); }
+.primary-nav .menu a.active::after { transform: scaleX(1); }
+.primary-nav .menu a.active { color: var(--brand); }
+/* Giro llamativo en hover sin perder flotación */
+.primary-nav .menu a:hover .nav-icon.float { animation: iconFloat 4s ease-in-out infinite, hoverSpin .7s cubic-bezier(.21,.8,.24,1) 1; }
+.nav-icon.celebrate { animation: iconFloat 4s ease-in-out infinite, hoverSpin .7s cubic-bezier(.21,.8,.24,1) 1; }
+
+/* Hero */
+.hero { position: relative; padding: 0; }
+.hero-media { position: relative; height: clamp(380px, 60vw, 640px); overflow: hidden; }
+.hero-media img { width:100%; height:100%; object-fit: cover; object-position: center; border-radius: 0; }
+.hero-content { position: relative; margin-top: -120px; background: linear-gradient(180deg, rgba(255,255,255,.7), rgba(255,255,255,1)); padding: 28px 24px; border-radius: 20px; box-shadow: var(--shadow); }
+.actions { display:flex; gap: 12px; flex-wrap:wrap; }
+
+/* Transmisiones en vivo */
+.fb-wrap { display:flex; justify-content:center; }
+.fb-wrap .fb-page { width: 100%; max-width: 720px; }
+#live-fallback .fb-iframe-wrap { display:flex; justify-content:center; }
+#live-fallback .fb-iframe-wrap iframe { width: 100%; max-width: 720px; height: 560px; }
+#live-fallback .cards { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 960px) {
+  #live-fallback .cards { grid-template-columns: 1fr 1fr; }
+  #live-fallback .fb-iframe-wrap iframe { height: 480px; }
+}
+@media (max-width: 680px) {
+  #live-fallback .cards { grid-template-columns: 1fr; }
+  #live-fallback .fb-iframe-wrap iframe { height: 380px; }
+}
+
+/* Faja de horarios */
+.strip { background: #0e1b2e; color: #fff; padding: 28px 0; }
+.strip-grid { display:grid; grid-template-columns: repeat(4, 1fr); gap: 18px; align-items: center; }
+.strip-item { background: rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); padding: 18px; border-radius: 14px; }
+.strip-item h3 { margin: 6px 0 4px; color:#fff; font-size: 18px; }
+.strip-item p { margin: 0; color: #dfe6ef; }
+.strip-item.center { display:flex; align-items:center; justify-content:center; }
+.strip .btn { background: #fff; color: #0e1b2e; border-color: transparent; box-shadow: none; }
+
+/* Grid + Cards */
+.grid { display:grid; gap: 18px; }
+.cards { grid-template-columns: repeat(3, 1fr); }
+.card { background:#fff; border: 1px solid rgba(14,27,46,.08); border-radius: var(--radius); overflow:hidden; box-shadow: var(--shadow); transition: transform .2s ease, box-shadow .2s ease; }
+.card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(14,27,46,.14); }
+/* Elevate card also on focus for keyboard users */
+.card:focus-visible, .card:focus-within { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(14,27,46,.14); }
+.card > picture, .card > img { display:block; width:100%; }
+.card > picture > img, .card > img { width:100%; height:auto; aspect-ratio: 16 / 9; object-fit: cover; object-position: center; border-radius: 0; }
+.card-body { padding: 16px; }
+.card-body h3 { margin: 0 0 8px; font-size: 18px; }
+.card-body p { margin: 0; color: var(--muted); }
+
+/* Accessible focus styles */
+.card:focus-within, .card:focus-visible, .btn:focus-visible, .chip:focus-visible {
+  outline: 3px solid color-mix(in oklab, var(--brand) 70%, white 30%);
+  outline-offset: 2px;
+}
+
+/* Skeleton loading */
+.skeleton .sk-title { height: 18px; width: 60%; background: rgba(14,27,46,.08); border-radius: 6px; margin-bottom: 10px; }
+.skeleton .sk-line { height: 12px; width: 90%; background: rgba(14,27,46,.08); border-radius: 6px; margin: 8px 0; }
+.skeleton .sk-line.short { width: 50%; }
+.shimmer { position: relative; overflow: hidden; }
+.shimmer::after { content:""; position:absolute; inset:0; transform: translateX(-100%); background: linear-gradient(90deg, transparent, rgba(255,255,255,.4), transparent); animation: shimmer 1.2s infinite; }
+@keyframes shimmer { 100% { transform: translateX(100%); } }
+
+/* Two column layout */
+.two-col { display:grid; grid-template-columns: 1.1fr .9fr; gap:24px; align-items:center; }
+
+/* Pastora profile */
+.pastora-wrap { display:flex; flex-direction:column; align-items:center; gap:12px; }
+.pastora-portrait img { width: min(320px, 90%); aspect-ratio: 1 / 1; object-fit: cover; border-radius: 50%; border: 4px solid rgba(14,27,46,.08); box-shadow: var(--shadow); }
+.pastora-chip { font-weight:700; background: rgba(31,122,224,.12); color: var(--brand); padding:8px 12px; border-radius:999px; }
+
+/* Chips filters */
+.chips { display:flex; flex-wrap:wrap; gap:8px; }
+.chip { padding:8px 12px; border-radius:999px; border:1px solid rgba(14,27,46,.12); background:#fff; color: var(--text); font-weight:600; cursor:pointer; box-shadow: var(--shadow); }
+.chip:hover { transform: translateY(-1px); }
+.chip.active { background: var(--brand); color:#fff; border-color: transparent; }
+
+/* Temas grid */
+.topic-grid { grid-template-columns: repeat(3, 1fr); }
+
+/* Eventos */
+.events { grid-template-columns: repeat(3, 1fr); }
+.event { display:grid; grid-template-columns: 92px 1fr; align-items: stretch; }
+.event-date { background: linear-gradient(180deg, var(--brand), var(--brand-2)); color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; gap: 4px; padding: 16px; }
+.event-date .day { font-size: 28px; font-weight: 800; line-height:1; }
+.event-date .mon { font-weight: 700; letter-spacing: .08em; }
+.event .meta { color: var(--muted); margin: 8px 0 12px; font-size: 14px; }
+
+/* Slider testimonios */
+.slider { position: relative; display:flex; align-items:center; gap: 12px; }
+.slides { overflow: hidden; display:flex; scroll-behavior: smooth; gap: 12px; }
+.slide { min-width: calc(100% - 120px); background:#fff; border:1px solid rgba(14,27,46,.08); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow); }
+.slider-prev, .slider-next { background:#fff; border:1px solid rgba(14,27,46,.12); border-radius: 999px; width:44px; height:44px; display:grid; place-items:center; cursor:pointer; box-shadow: var(--shadow); }
+
+/* Sermones */
+.sermons { display:grid; grid-template-columns: repeat(3, 1fr); gap:18px; }
+.sermon iframe { width:100%; aspect-ratio: 16/9; border: 0; border-radius: var(--radius-sm); }
+/* Sermones - detalles expandibles */
+.sermon .summary { margin: 10px 0 8px; color: var(--muted); }
+.sermon-details { margin-top: 10px; padding: 14px; border: 1px solid rgba(14,27,46,.08); background: #fafcff; border-radius: 12px; }
+.sermon-details h4 { margin: 8px 0 6px; color: var(--brand); font-size: 14px; letter-spacing: .02em; }
+.sermon-details ul { margin: 6px 0 12px 18px; }
+.sermon-details li { margin: 4px 0; }
+
+/* Donar */
+.donate { display:grid; grid-template-columns: 1.1fr .9fr; gap: 24px; align-items:center; }
+.kit { display:flex; flex-direction:column; gap:10px; }
+.kit .item { display:flex; align-items:center; gap:10px; }
+.kit .item strong { min-width: 110px; }
+.notice { background: #fff7e6; color: #7a4d00; border: 1px solid #ffe3b3; padding: 12px 14px; border-radius: 12px; }
+
+/* Mapa */
+.map iframe { width:100%; min-height: 340px; border:0; border-radius: var(--radius); }
+
+/* Footer */
+.site-footer { background: #0e1b2e; color: #cbd5e1; padding: 32px 0; }
+.footer-grid { display:grid; grid-template-columns: 1.2fr .8fr .8fr; gap:18px; }
+.site-footer a { color: #e2e8f0; opacity:.9; }
+.site-footer h4 { color:#fff; margin: 0 0 12px; }
+.copyright { margin-top: 16px; color:#98a6b8; font-size: 14px; }
+
+/* Reveal on scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px) scale(.98);
+  will-change: transform, opacity;
+  transition: opacity .5s ease-out, transform .5s cubic-bezier(.21,.8,.24,1);
+}
+.reveal.in { opacity: 1; transform: translateY(0) scale(1); }
+
+/* Modal viewer (Devocionales) */
+.modal { position: fixed; inset: 0; display: grid; place-items: center; z-index: 2000; }
+.modal[hidden] { display: none; }
+.modal .modal-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,.55); backdrop-filter: blur(2px); }
+.modal .modal-dialog { position: relative; width: min(920px, 92vw); max-height: min(84vh, 100%); background: var(--bg); color: var(--text); border-radius: 16px; box-shadow: var(--shadow); padding: 18px; display: flex; flex-direction: column; overflow: hidden; border: 1px solid rgba(14,27,46,.12); }
+.modal .modal-title { margin: 0 36px 8px 0; }
+.modal .modal-body { overflow: auto; padding-right: 4px; }
+.modal .modal-close { position: absolute; top: 8px; right: 8px; border: 0; background: transparent; font-size: 22px; line-height: 1; cursor: pointer; color: var(--muted); }
+
+/* Typography for rendered Markdown */
+.prose { font-size: 16px; line-height: 1.7; }
+.prose h1, .prose h2, .prose h3, .prose h4 { line-height: 1.25; margin: 16px 0 8px; letter-spacing: -0.015em; }
+.prose h1 { font-size: 28px; }
+.prose h2 { font-size: 22px; }
+.prose h3 { font-size: 18px; }
+.prose p { margin: 10px 0; color: var(--text); }
+.prose ul, .prose ol { margin: 8px 0 12px 22px; }
+.prose blockquote { margin: 10px 0; padding: 8px 12px; border-left: 3px solid var(--brand); background: var(--surface); border-radius: 6px; }
+.prose code { background: #f1f5f9; padding: 2px 6px; border-radius: 6px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size: 90%; }
+.prose pre { background: #0b1220; color: #e2e8f0; padding: 12px; border-radius: 10px; overflow: auto; }
+
+/* Bloques visuales MD */
+.prose .callout { margin: 12px 0; padding: 12px 14px; border: 1px solid rgba(14,27,46,.1); border-left: 4px solid var(--brand); background: var(--surface); border-radius: 12px; }
+.prose .callout.info { border-left-color: var(--brand); }
+.prose .callout.success { border-left-color: var(--brand-2); }
+.prose .callout.warning { border-left-color: var(--accent); }
+.prose .callout-title { font-weight: 700; margin: 0 0 6px; letter-spacing: .01em; }
+.prose .callout-body > :first-child { margin-top: 0; }
+.prose .callout-body > :last-child { margin-bottom: 0; }
+
+.prose .verse-card { margin: 14px 0; padding: 12px 14px; border: 1px solid rgba(14,27,46,.1); border-left: 4px solid var(--brand); background: #f8fafc; border-radius: 12px; }
+.prose .verse-card blockquote { margin: 0 0 6px 0; padding: 0; border: 0; background: transparent; font-style: italic; }
+.prose .verse-card figcaption { color: var(--muted); font-size: 14px; }
+
+.prose .accordion { margin: 12px 0; border: 1px solid rgba(14,27,46,.1); border-radius: 12px; overflow: hidden; background: #fff; }
+.prose .accordion-toggle { width: 100%; text-align: left; border: 0; background: #fff; padding: 12px 14px; font-weight: 700; letter-spacing: .01em; cursor: pointer; display: flex; align-items: center; justify-content: space-between; }
+.prose .accordion-toggle::after { content: '▾'; opacity: .8; transition: transform .2s ease; }
+.prose .accordion-toggle[aria-expanded="true"]::after { transform: rotate(180deg); }
+.prose .accordion-panel { padding: 12px 14px; border-top: 1px solid rgba(14,27,46,.08); background: var(--surface); }
+.prose .accordion-panel > :first-child { margin-top: 0; }
+.prose .accordion-panel > :last-child { margin-bottom: 0; }
+
+.prose .prayer { margin: 12px 0; padding: 12px 14px; background: #fff7e6; border: 1px solid #ffe3b3; border-left: 4px solid var(--accent); border-radius: 12px; }
+.prose .prayer-title { font-weight: 700; margin: 0 0 6px; letter-spacing: .01em; }
+.prose .prayer-body { font-style: italic; }
+
+/* Responsive */
+@media (max-width: 960px) {
+  .cards { grid-template-columns: repeat(2, 1fr); }
+  .events { grid-template-columns: repeat(2, 1fr); }
+  .donate { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .slide { min-width: calc(100% - 100px); }
+  .topic-grid { grid-template-columns: 1fr 1fr; }
+  .two-col { grid-template-columns: 1fr; }
+}
+@media (max-width: 680px) {
+  .primary-nav .menu { display:none; position: absolute; top: 60px; right: 20px; background: #fff; border:1px solid rgba(14,27,46,.12); border-radius: 12px; padding: 12px; box-shadow: var(--shadow); }
+  .primary-nav .menu.open { display:flex; flex-direction:column; gap:10px; }
+  .primary-nav .menu.open a { padding: 10px 12px; }
+  .nav-toggle { display:inline-flex; padding:8px 12px; border-radius:8px; border:1px solid rgba(14,27,46,.12); background:#fff; }
+  .cards, .events, .sermons { grid-template-columns: 1fr; }
+  .strip-grid { grid-template-columns: 1fr 1fr; }
+  .topic-grid { grid-template-columns: 1fr; }
+  .primary-nav .menu li .pill { position: static; margin-left: 6px; transform:none; animation: none; display:inline-block; }
+}
+
+/* Dark scheme */
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #0b1220; --text: #e0e6ee; --muted: #92a1b1; --surface: #0f172a; --shadow: 0 10px 30px rgba(0,0,0,.5); }
+  .site-header { background: rgba(15,23,42,.6); border-color: rgba(255,255,255,.06); }
+  .card, .slide { background: #0f172a; border-color: rgba(255,255,255,.06); }
+  .btn { background: #0f172a; color: #e0e6ee; border-color: rgba(255,255,255,.12); }
+  .btn-primary { background: var(--brand); color: #fff; }
+  .strip { background: #020617; }
+  .site-footer { background: #020617; }
+  .sermon-details { background: #0c1325; border-color: rgba(255,255,255,.08); }
+}

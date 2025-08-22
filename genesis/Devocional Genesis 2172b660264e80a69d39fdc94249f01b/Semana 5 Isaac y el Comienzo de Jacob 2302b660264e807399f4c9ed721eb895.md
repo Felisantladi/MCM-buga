@@ -1,0 +1,11 @@
+# Semana 5 Isaac y el Comienzo de Jacob
+
+[📖 Día 1: Génesis 23:1-24:21](Semana%205%20Isaac%20y%20el%20Comienzo%20de%20Jacob%202302b660264e807399f4c9ed721eb895/%F0%9F%93%96%20D%C3%ADa%201%20G%C3%A9nesis%2023%201-24%2021%202302b660264e80dd9918decc060f2005.md)
+
+[📖 Día 2: Génesis 24:22-25:18](Semana%205%20Isaac%20y%20el%20Comienzo%20de%20Jacob%202302b660264e807399f4c9ed721eb895/%F0%9F%93%96%20D%C3%ADa%202%20G%C3%A9nesis%2024%2022-25%2018%202312b660264e803b81d9ea944f533b7e.md)
+
+[Día 3: Génesis 25:19-26:11 📖](Semana%205%20Isaac%20y%20el%20Comienzo%20de%20Jacob%202302b660264e807399f4c9ed721eb895/D%C3%ADa%203%20G%C3%A9nesis%2025%2019-26%2011%20%F0%9F%93%96%202322b660264e80efba27c440f2ba04ef.md)
+
+[📖 Día 4: Génesis 26:12-27:29](Semana%205%20Isaac%20y%20el%20Comienzo%20de%20Jacob%202302b660264e807399f4c9ed721eb895/%F0%9F%93%96%20D%C3%ADa%204%20G%C3%A9nesis%2026%2012-27%2029%202332b660264e80d09c74dab2bc859466.md)
+
+[📖 Génesis - Semana 5, Día 5](Semana%205%20Isaac%20y%20el%20Comienzo%20de%20Jacob%202302b660264e807399f4c9ed721eb895/%F0%9F%93%96%20G%C3%A9nesis%20-%20Semana%205,%20D%C3%ADa%205%202342b660264e8058aab4d2ce983f926f.md)

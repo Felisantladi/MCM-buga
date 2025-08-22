@@ -1,0 +1,42 @@
+[
+  {
+    "id": "la-paz",
+    "title": "La Paz de Cristo en la Tormenta",
+    "audio": "audio/La-Paz-de-Cristo-en-la-Tormenta.mp3",
+    "summary": "Jesús ofrece paz verdadera aun en medio del caos. Su presencia y sus promesas anclan el corazón cuando todo se sacude.",
+    "content": "predicas/la-paz-de-cristo-en-la-tormenta.txt",
+    "date": "2025-08-11"
+  },
+  {
+    "id": "redencion",
+    "title": "Redención y Renovación en Cristo",
+    "audio": "audio/Redención-y-Renovación-en-Cristo.mp3",
+    "summary": "En Jesús somos rescatados del pecado y hechos nuevos. La cruz rompe cadenas; el Espíritu nos transforma día a día.",
+    "content": "predicas/redencion-y-renovacion-en-cristo.txt",
+    "date": "2025-08-10"
+  },
+  {
+    "id": "carne",
+    "title": "Venciendo la batalla contra la carne",
+    "audio": "audio/Winning-the-Battle-Against-the-Flesh.mp3",
+    "summary": "La vida cristiana es una guerra interna. En el Espíritu podemos decir “no” a la carne y “sí” a Dios.",
+    "content": "predicas/winning-the-battle-against-the-flesh.txt",
+    "date": "2025-08-05"
+  },
+  {
+    "id": "obediencia",
+    "title": "Obedecer la Palabra de Dios — Más allá de oír, hacer",
+    "audio": "audio/Obedience-to-God_s-Word_-Beyond-Hearing-to-Doing.mp3",
+    "summary": "No basta oír buenos mensajes; la bendición llega al obedecer. La fe se evidencia con acciones concretas.",
+    "content": "predicas/obedience-to-gods-word-beyond-hearing-to-doing.txt",
+    "date": "2025-08-01"
+  },
+  {
+    "id": "descanso",
+    "title": "Alivio de cargas: descanso en Dios",
+    "audio": "audio/Relief From Burdens_ Rest in God.wav",
+    "summary": "Jesús invita a los cargados a encontrar descanso en Él; su yugo es ligero porque Él lleva el peso.",
+    "content": "predicas/relief-from-burdens-rest-in-god.txt",
+    "date": "2025-07-28"
+  }
+]

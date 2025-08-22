@@ -1,0 +1,24 @@
+[
+  {"id":"ninos-fe-sencilla","title":"Fe sencilla","category":"niños","summary":"Confiar en Dios con un corazón de niño.","content":"temas/ninos-fe-sencilla.md"},
+  {"id":"ninos-obediencia-alegre","title":"Obediencia alegre","category":"niños","summary":"Aprender a obedecer a Dios con gozo.","content":"temas/ninos-obediencia-alegre.md"},
+  {"id":"ninos-amistad-jesus","title":"Amistad con Jesús","category":"niños","summary":"Jesús es nuestro mejor amigo.","content":"temas/ninos-amistad-jesus.md"},
+  {"id":"ninos-estudio-salmo23","title":"Estudio: Salmo 23 para niños","category":"niños","summary":"Dios como nuestro Pastor: cuidado y guía.","content":"temas/ninos-estudio-salmo23.md"},
+
+  {"id":"jovenes-identidad-cristo","title":"Identidad en Cristo","category":"jóvenes","summary":"Quién soy a la luz del Evangelio.","content":"temas/jovenes-identidad-cristo.md"},
+  {"id":"jovenes-pureza-proposito","title":"Pureza y propósito","category":"jóvenes","summary":"Vivir con intención y santidad.","content":"temas/jovenes-pureza-proposito.md"},
+  {"id":"jovenes-decisiones-sabias","title":"Decisiones sabias","category":"jóvenes","summary":"Discernir la voluntad de Dios.","content":"temas/jovenes-decisiones-sabias.md"},
+  {"id":"jovenes-estudio-romanos12","title":"Estudio: Romanos 12 y la mente renovada","category":"jóvenes","summary":"Entrega, transformación y adoración práctica.","content":"temas/jovenes-estudio-romanos12.md"},
+
+  {"id":"hombres-liderazgo-servicio","title":"Liderazgo en servicio","category":"hombres","summary":"Liderar como Cristo: servir primero.","content":"temas/hombres-liderazgo-servicio.md"},
+  {"id":"hombres-integridad-trabajo","title":"Integridad en el trabajo","category":"hombres","summary":"Fe práctica, ética y excelencia.","content":"temas/hombres-integridad-trabajo.md"},
+  {"id":"hombres-estudio-efesios5","title":"Estudio: Efesios 5 y el hombre piadoso","category":"hombres","summary":"Exégesis breve y aplicación.","content":"temas/hombres-estudio-efesios5.md"},
+
+  {"id":"mujeres-identidad-valor","title":"Identidad y valor en Cristo","category":"mujeres","summary":"Vista por Dios, amada y capacitada.","content":"temas/mujeres-identidad-valor.md"},
+  {"id":"mujeres-sabiduria-hogar","title":"Sabiduría para el hogar","category":"mujeres","summary":"Construir con prudencia y gracia.","content":"temas/mujeres-sabiduria-hogar.md"},
+  {"id":"mujeres-estudio-proverbios31","title":"Estudio: Proverbios 31 en su contexto","category":"mujeres","summary":"Lectura responsable y práctica.","content":"temas/mujeres-estudio-proverbios31.md"},
+
+  {"id":"general-gracia-verdad","title":"Gracia y verdad","category":"general","summary":"Como Jesús, llenos de gracia y verdad.","content":"temas/general-gracia-verdad.md"},
+  {"id":"general-oracion-transforma","title":"Oración que transforma","category":"general","summary":"Orar bíblicamente con fe.","content":"temas/general-oracion-transforma.md"},
+  {"id":"general-esperanza-prueba","title":"Esperanza en la prueba","category":"general","summary":"Permanecer firmes en medio del dolor.","content":"temas/general-esperanza-prueba.md"}
+  ,{"id":"general-estudio-filipenses4","title":"Estudio: Filipenses 4 en contexto","category":"general","summary":"Gozo, paz y contentamiento en toda circunstancia.","content":"temas/general-estudio-filipenses4.md"}
+]
